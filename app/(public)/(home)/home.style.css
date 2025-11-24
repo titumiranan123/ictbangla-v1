@@ -1,0 +1,42 @@
+.class-background {
+  background: linear-gradient(
+    111deg,
+    rgba(206, 250, 144, 0.05) 7.27%,
+    rgba(255, 255, 31, 0.05) 92.41%
+  );
+  backdrop-filter: blur(25.72800064086914px);
+}
+
+.skill-section-container {
+  position: relative;
+}
+
+.skill-section-container::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, white, #bebebe40, white);
+}
+
+.skill-section-container::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, white, #bebebe40, white);
+}
+
+.member-ship-cart-bg {
+  background: linear-gradient(
+    173deg,
+    rgba(255, 255, 255, 0.73) 12.78%,
+    rgba(255, 255, 255, 0.18) 98.45%
+  );
+
+  backdrop-filter: blur(47.698665618896484px);
+}

@@ -1,0 +1,44 @@
+import React from "react";
+
+import Button from "../shared/Button";
+import axios from "axios";
+import CommonCourseslider from "./CommonCourseslider";
+
+const TopCourseSection = async () => {
+  const result = await axios.get(
+    `${process.env.NEXT_PUBLIC_API_URL}/v1/website/home/courses?type=TOP_COURSES`
+  );
+  const data = result?.data;
+
+  return (
+    <div className="container section">
+      {/* Header Section */}
+      <div
+        data-aos="fade-up"
+        data-aos-delay="300"
+        className="flex lg:justify-between items-start justify-start md:items-center md:flex-row flex-col gap-4"
+      >
+        <div className="flex flex-col gap-1">
+          <h1 data-aos="fade-up" data-aos-delay="300">
+            আমাদের <span className="text-[#3CB449]"> টপ </span> কোর্স সমূহ
+          </h1>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="300">
+          <Button
+            hoverColor="#ce2f2f"
+            title="সব দেখুন "
+            className=" text-[18px]"
+            href={"/courses"}
+          />
+        </div>
+      </div>
+
+      {/* Swiper Section */}
+      <div data-aos="fade-up" data-aos-delay="600" className="relative mt-14">
+        <CommonCourseslider data={data} />
+      </div>
+    </div>
+  );
+};
+
+export default TopCourseSection;
