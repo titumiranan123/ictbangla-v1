@@ -2,6 +2,7 @@
 
 import Blogcard from "@/components/(home)/blog/Blogcard";
 import TopCourseSection from "@/components/(home)/home/TopCourseSection";
+import PageHeroSectionWithRings from "@/components/(home)/pageHeroSectionWithRings";
 
 import Pagetitle from "@/components/(home)/shared/pagetitle";
 import axios from "axios";
@@ -18,11 +19,13 @@ export default async function Blog() {
 
   return (
     <div>
-      <Pagetitle
-        pageName="ব্লগ"
-        pagePragraph="নতুনদের জন্য শেখার ও অনুপ্রেরণার উৎস — আমাদের ব্লগসমূহ।"
-        pageTitle="ব্লগসমূহ"
-      />
+      <div className="bg-secondary/60">
+        <PageHeroSectionWithRings
+          title="ব্লগসমূহ"
+          buttonText=""
+          subTitle="নতুনদের জন্য শেখার ও অনুপ্রেরণার উৎস — আমাদের ব্লগসমূহ।"
+        />
+      </div>
       <div className="container flex flex-col lg:flex-row justify-between mt-5 md:mt-10">
         <div className="w-full mx-auto gap-1 ">
           {data?.blogs.length > 0 ? (

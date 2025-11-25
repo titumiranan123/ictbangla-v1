@@ -1,11 +1,11 @@
 import ContactFrom from "@/components/(home)/contact/ContactFrom";
-import Pagetitle from "@/components/(home)/shared/pagetitle";
 import React from "react";
 import location from "@/public/assets/icon/land-layer-location.svg";
 import call from "@/public/assets/icon/circle-phone.svg";
 import timer from "@/public/assets/icon/clock-three.svg";
 import Image from "next/image";
 import { Metadata } from "next";
+import PageHeroSectionWithRings from "@/components/(home)/pageHeroSectionWithRings";
 export const metadata: Metadata = {
   title: "যোগাযোগ | আইসিটি বাংলা",
   description:
@@ -14,11 +14,13 @@ export const metadata: Metadata = {
 const Contact = () => {
   return (
     <div className="">
-      <Pagetitle
-        pageName="যোগাযোগ "
-        pagePragraph="প্রশিক্ষক হোন এবং নিজের ও অন্যের জীবন বদলে দিন"
-        pageTitle="শেখার যাত্রায় যুক্ত হোন"
-      />
+      <div className="bg-slate-100/60">
+        <PageHeroSectionWithRings
+          title="শেখার যাত্রায় যুক্ত হোন"
+          buttonText=""
+          subTitle="প্রশিক্ষক হোন এবং নিজের ও অন্যের জীবন বদলে দিন"
+        />
+      </div>
       <section className="px-2">
         <div id="contact-information" className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:mt-[120px] mt-[80px]">
@@ -26,10 +28,10 @@ const Contact = () => {
             <div
               data-aos="fade-up"
               data-aos-delay="300"
-              className="flex flex-col items-center text-center p-6 rounded-lg hover:bg-secondary transition-colors duration-300"
+              className="flex flex-col items-center text-center p-6 rounded-lg hover:bg-slate-100 transition-colors duration-300"
             >
               <div className="relative mb-6">
-                <div className="relative  p-3  before:absolute before:top-[30%] before:left-[6%] before:w-16 before:h-16 before:bg-secondary before:rounded-full before:-z-10 z-20">
+                <div className="relative  p-3  before:absolute before:top-[30%] before:left-[6%] before:w-16 before:h-16 before:bg-slate-100 before:rounded-full before:-z-10 z-20">
                   <Image
                     src={location}
                     alt="Location icon"
@@ -51,10 +53,10 @@ const Contact = () => {
             <div
               data-aos="fade-up"
               data-aos-delay="400"
-              className="flex flex-col items-center text-center p-6 rounded-lg hover:bg-secondary transition-colors duration-300"
+              className="flex flex-col items-center text-center p-6 rounded-lg hover:bg-slate-100 transition-colors duration-300"
             >
               <div className="relative mb-6">
-                <div className=" before:absolute before:top-[30%] before:left-[8%] before:w-16 before:h-16 before:bg-secondary before:rounded-full before:-z-10 z-20 p-3 ">
+                <div className=" before:absolute before:top-[30%] before:left-[8%] before:w-16 before:h-16 before:bg-slate-100 before:rounded-full before:-z-10 z-20 p-3 ">
                   <Image
                     src={call}
                     alt="Contact icon"
@@ -89,10 +91,10 @@ const Contact = () => {
             <div
               data-aos="fade-up"
               data-aos-delay="500"
-              className="flex flex-col items-center text-center p-6 rounded-lg hover:bg-secondary transition-colors duration-300"
+              className="flex flex-col items-center text-center p-6 rounded-lg hover:bg-slate-100 transition-colors duration-300"
             >
               <div className="relative mb-6">
-                <div className="relative  p-3  before:absolute before:top-[30%] before:left-[10%] before:w-16 before:h-16 before:bg-secondary before:rounded-full before:-z-10 z-20 ">
+                <div className="relative  p-3  before:absolute before:top-[30%] before:left-[10%] before:w-16 before:h-16 before:bg-slate-100 before:rounded-full before:-z-10 z-20 ">
                   <Image
                     src={timer}
                     alt="Clock icon"

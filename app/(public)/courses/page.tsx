@@ -66,7 +66,7 @@ const Courses = async ({ searchParams }: Props) => {
     `${process.env.NEXT_PUBLIC_API_URL}/v1/website/get-course/list?page=${page}&perPage=${perPage}&categorySlug=${categoryId?.slug}`,
     { cache: "no-store" }
   );
-  console.log(res);
+
   const result = await res.json();
   // console.log("total data", result?.response?.length);
   const courseData = result;

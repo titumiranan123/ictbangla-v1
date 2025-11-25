@@ -225,14 +225,14 @@ const SuccessStory = () => {
 
   return (
     <div className="lg:mt-[100px] container">
-      <h2 className="text-[32px] lg:text-[48px] font-bold text-black-color mb-6 text-center w-fit mx-auto relative">
+      <h2 className="text-[32px] lg:text-[48px] font-bold text-black-color  text-center w-fit mx-auto relative mb-8">
         সাফল্যের <span className="text-primary">গল্প</span>
         <IconImage
           fileName="moon_mark.svg"
-          className="!w-[111px] !h-[21px]  rotate-12 absolute top-[64px]  right-[-30px]"
+          className="!w-[111px] !h-[21px]  rotate-12 absolute top-[40px]  right-[-30px] "
         />
       </h2>
-      <p className="text-xl font-bold text-[#707070] text-center">
+      <p className="text-xl  font-bold text-[#707070] text-center">
         আমাদের শিক্ষার্থীদের সফলতার গল্পগুলো দেখে নিতে পারেন।
       </p>
       <div className="flex items-center justify-center gap-6 mt-8">

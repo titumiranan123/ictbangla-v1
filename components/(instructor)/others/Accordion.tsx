@@ -33,7 +33,7 @@ const Accordion: React.FC<AccordionProps> = ({ items }) => {
           >
             <h2 className="font-bold flex items-center gap-2">
               <span
-                className={`bg-[#131836] transition ease-in-out duration-300 w-1 h-5 rounded-md ${
+                className={`bg-textPrimary transition ease-in-out duration-300 w-1 h-5 rounded-md ${
                   openIndex === index && "bg-primary"
                 }`}
               ></span>

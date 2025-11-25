@@ -1,14 +1,18 @@
-import RecordedCourse from "@/components/(home)/home/RecordedCourse";
 import Link from "next/link";
 import React from "react";
+import RecordedCourse from "../(home)/RecordedCourse";
+import PageHeroSectionWithRings from "@/components/(home)/pageHeroSectionWithRings";
 
 const AllFreecourses = () => {
   return (
-    <div className="min-h-[60vh] flex flex-col items-center justify-center bg-white dark:bg-gray-900 px-4 sm:px-6 lg:px-8 mt-20 lg:mt-30">
-      <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-800 dark:text-white mb-4">
-        ফ্রি কোর্সসমূহ
-      </h2>
-      <div className="bg-gray-50 dark:bg-gray-800 border border-dashed border-gray-300 dark:border-gray-700 rounded-xl p-6 sm:p-10 text-center shadow-sm w-full max-w-lg">
+    <div className="min-h-[60vh] flex flex-col items-center justify-center bg-white dark:bg-gray-900  mt-20 lg:mt-30">
+      <PageHeroSectionWithRings
+        title="ফ্রি কোর্সসমূহ"
+        buttonText=""
+        subTitle="নতুনদের জন্য শেখার ও অনুপ্রেরণার উৎস — আমাদের ব্লগসমূহ।"
+      />
+
+      <div className="bg-gray-50 mt-5 dark:bg-gray-800 border border-dashed border-gray-300 dark:border-gray-700 rounded-xl p-6 sm:p-10 text-center shadow-sm w-full max-w-lg">
         <p className="text-lg sm:text-xl font-medium text-gray-700 dark:text-gray-300 mb-2">
           🎓 চিন্তা নেই! নতুন ফ্রি কোর্স শিগগিরই যুক্ত হচ্ছে — সঙ্গে থাকুন!
         </p>

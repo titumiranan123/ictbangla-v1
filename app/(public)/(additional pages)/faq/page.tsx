@@ -1,6 +1,6 @@
 import Accordion from "@/components/(instructor)/others/Accordion";
-import Pagetitle from "@/components/(home)/shared/pagetitle";
 import React from "react";
+import PageHeroSectionWithRings from "@/components/(home)/pageHeroSectionWithRings";
 const generalQuestions = [
   {
     title: "স্কিল ডেভেলপমেন্ট কোর্সগুলো কাদের জন্য উপযোগী?",
@@ -76,40 +76,41 @@ const accordionItems = {
   enrollment: enrollmentQuestions,
   technical: technicalQuestions,
 };
+import type { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "FAQ | Frequently Asked Questions",
+    description:
+      "Get clear answers to common questions about our courses, pricing, instructors, and guidelines.",
+    openGraph: {
+      title: "FAQ | Frequently Asked Questions",
+      description:
+        "Get clear answers to common questions about our courses, pricing, instructors, and guidelines.",
+      url: "https://ictbangla.com/faq",
+      type: "website",
+    },
+  };
+}
+
 const Faq = () => {
   return (
     <div className="faq-section">
-      <Pagetitle
-        pageName="Faq"
-        pagePragraph=""
-        pageTitle="আপনার সচরাচর জিজ্ঞাস্য (প্রশ্নসমূহ)"
+      <PageHeroSectionWithRings
+        title="Faq"
+        buttonText=""
+        subTitle="আপনার সচরাচর জিজ্ঞাস্য (প্রশ্নসমূহ)"
       />
 
       <div className="container px-4 mx-auto mt-14">
         {/* General Course Questions Section */}
         <section className="section-general-questions">
           <div className="text-center mb-2">
-            <h1
-              className="text-4xl font-bold leading-[50px] cardo"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              কোর্স সম্পর্কিত সাধারণ প্রশ্ন
-            </h1>
-          </div>
-          <div className="w-full mt-20 lg:p-14 px-4 py-6 max-w-[900px] mx-auto bg-secondary mb-10 rounded-[20px] shadow-md">
-            <Accordion items={accordionItems?.general} />
-          </div>
-        </section>
-
-        {/* Payment and Enrollment Section */}
-        <section className="section-payment-questions">
-          <div className="text-center mb-2 mt-[120px]">
-            <h1 className="text-4xl font-bold leading-[50px] cardo">
+            <h1 className="text-4xl  font-bold leading-[50px] cardo">
               পেমেন্ট এবং এনরোলমেন্ট সম্পর্কিত প্রশ্ন
             </h1>
           </div>
-          <div className="w-full mt-20 lg:p-14 px-4 py-6 max-w-[900px] mx-auto bg-secondary mb-10 rounded-[20px] shadow-md">
+          <div className="w-full mt-20 lg:p-14 px-4 py-6 max-w-[900px] mx-auto bg-slate-100 mb-10 rounded-[20px] shadow-md">
             <Accordion items={accordionItems?.enrollment} />
           </div>
         </section>
@@ -117,11 +118,11 @@ const Faq = () => {
         {/* Technical Support Section */}
         <section className="section-technical-questions">
           <div className="text-center mb-2 mt-[120px]">
-            <h1 className="text-4xl font-bold leading-[50px] cardo">
+            <h1 className="text-4xl text-primary font-bold leading-[50px] cardo">
               টেকনিক্যাল এবং সাপোর্ট সম্পর্কিত প্রশ্ন
             </h1>
           </div>
-          <div className="w-full mt-20 lg:p-14 px-4 py-6 max-w-[900px] mx-auto bg-secondary mb-10 rounded-[20px] shadow-md">
+          <div className="w-full mt-20 lg:p-14 px-4 py-6 max-w-[900px] mx-auto bg-slate-100 mb-10 rounded-[20px] shadow-md">
             <Accordion items={accordionItems?.technical} />
           </div>
         </section>

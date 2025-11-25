@@ -1,6 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import React, { useState } from "react";
-
 import Image from "next/image";
 import mahfuz from "@/public/assets/review/Mahfuzul.png";
 import Quazi from "@/public/assets/review/quazimohsin.png";
@@ -12,31 +12,33 @@ import { RenderStars } from "@/components/(home)/shared/RenderStars";
 import PluseIcon from "@/components/(home)/home/PulseIcon/PluseIcon";
 import TopCourseSection from "@/components/(home)/home/TopCourseSection";
 
-// Your complete testimonials data
+// Fixed testimonials data with unique IDs and consistent structure
 const testimonials = [
   {
-    author: "Md. Mahfuzul islam",
-    position: "batch - FC2501",
+    id: 1,
+    author: "Md. Mahfuzul Islam",
+    position: "Batch - FC2501",
     image: mahfuz,
     rating: 5,
     quote: `It was a nice learning journey with ICT bangla. Our mentor Mr. SOIKAT is a brilliant mentor. His way of teaching is much better than many other. I have a little knowledge on Capcut. But he touched every steps to make a simple video into eye catching one. I have learnt many tips from his teaching like, effect and transition apply, Color correction, video elements collection Process, sound editing, filter, keyframe, green screen remove and many many things. The remarkable point from his teaching is growing confidence in myself. Lastly his last class was on freelancing or client hunt Process. It added a huge point to this course.
 
-    Best of luck everybody.
-`,
+    Best of luck everybody.`,
   },
   {
     id: 2,
-    quote: `অনলাইনে কোর্সটি করলেও মনে হয়েছে সরাসরি কোর্সটি শেষ করলাম। যদি কেউ নেওয়ার ক্ষেত্রে ঘাটতি থাকে এটি শিক্ষার্থীর দুর্বলতা। কৃতজ্ঞতা প্রকাশ করছি। ICTBangla.com প্রতি।
-    দোয়া ও ভালোবাসা রইল নিরন্তর!
-`,
     author: "Quazi Mohsin",
+    position: "Batch - FC2501",
     image: Quazi,
-    position: "batch-FC2501",
-    rating: 5, // Added rating for consistency
+    rating: 5,
+    quote: `অনলাইনে কোর্সটি করলেও মনে হয়েছে সরাসরি কোর্সটি শেষ করলাম। যদি কেউ নেওয়ার ক্ষেত্রে ঘাটতি থাকে এটি শিক্ষার্থীর দুর্বলতা। কৃতজ্ঞতা প্রকাশ করছি। ICTBangla.com প্রতি।
+    দোয়া ও ভালোবাসা রইল নিরন্তর!`,
   },
   {
     id: 3,
+    author: "Md Rabiul Islam",
+    position: "Batch - FC2501",
     image: Rabiul,
+    rating: 5,
     quote: `আস সালামু আলাইকুম।
 মেন্টর ছিলেন মেহেদী হাসান সৈকত ভাই।
 তাঁর ধৈর্য, সাবলীল ধারাবাহিক উপস্থাপনা, ধী ও চিন্তাশক্তি, জ্ঞানের প্রগাঢ়তা, কোর্সের মেরিট বোঝা, নতুন বা পুরাতন যে হোক না কেন তাদের চাহিদা বুঝে উপস্থাপন, অতিরিক্ত ক্লাস নেওয়া, প্রশ্নোত্তর, হোম ওয়ার্ক করে পাঠ উপস্থাপন, বিনয়ী আচরণ, ভাষার মিষ্টতা, দক্ষতা এক কথায় অতুলনীয় ও অনির্বচনীয় এবং তাঁর জন্য কোন বিশেষণ প্রযোজ্য নয় কারণ তাঁর তুলনা তিনি নিজেই। আমি বহু ব্যস্ততার মাঝে তার ক্লাসগুলো করার যথাসাধ্য চেষ্টা করেছি। ২/৩টা ক্লাসের আংশিক মিস করেছিলাম দুর্বল নেটওয়ার্কের কারণে। পরে দেখে নিয়েছি। আমি একেবারে 0 ছিলাম। বর্তমানে আমি খুবই আনন্দিত। ধন্যবাদ ও কৃতজ্ঞতা রইল ICT Bangla কে এত সুন্দর একজন মেন্টরকে দেওয়ার জন্য। ICT Bangla পরিবারের সকলের নেক হায়াত কামনা করছি এবং উত্তরোত্তর সাফল্য কামনা করছি।
@@ -44,345 +46,173 @@ const testimonials = [
 আবারও ICT Bangla এর সফলতা কামনা করছি। আমার জন্য সবাই দোয়া করবেন।
 ধন্যবাদ ও কৃতজ্ঞতায়
 মোঃ রবিউল ইসলাম`,
-    author: "Md Rabiul Islam",
-    position: "Batch - FC2501",
-    rating: 5,
   },
   {
     id: 4,
-    image: Habiba,
-    quote: `আলহামদুলিল্লাহ্ জীবনের প্রথম ইনকাম। তাও এই ভিডিও এডিটিং এর মাধ্যমে। আমার কি ভালো লাগছে তা বলে বুঝালে পারব না। প্রথমেই শুকরিয়া জানাই ICT Bangla কে। আমাকে ভিডিও এডিটিং এ দক্ষতা বৃদ্ধিতে সহায়তা করার জন্য।
-তারপরে আমার মা-বাবা এবং আমার স্বামীকে ধন্যবাদ দিব। যিনি সবসময় আমার সকল কাজে প্রেরণা দিয়েছেন। **ক্লায়েন্ট আমার কাজ দেখে খুব খুশি হয়েছেন এবং সাথে সাথেই পেমেন্ট দিয়েছেন।
-ক্লায়েন্ট শুধু স্ক্রিপ্ট দিয়েছেন। সবকিছু আমাকেই এড করতে হয়েছে।
-`,
     author: "Habiba Nusrat",
     position: "Batch - FC2501",
+    image: Habiba,
     rating: 5,
+    quote: `আলহামদুলিল্লাহ্ জীবনের প্রথম ইনকাম। তাও এই ভিডিও এডিটিং এর মাধ্যমে। আমার কি ভালো লাগছে তা বলে বুঝালে পারব না। প্রথমেই শুকরিয়া জানাই ICT Bangla কে। আমাকে ভিডিও এডিটিং এ দক্ষতা বৃদ্ধিতে সহায়তা করার জন্য।
+তারপরে আমার মা-বাবা এবং আমার স্বামীকে ধন্যবাদ দিব। যিনি সবসময় আমার সকল কাজে প্রেরণা দিয়েছেন। **ক্লায়েন্ট আমার কাজ দেখে খুব খুশি হয়েছেন এবং সাথে সাথেই পেমেন্ট দিয়েছেন।
+ক্লায়েন্ট শুধু স্ক্রিপ্ট দিয়েছেন। সবকিছু আমাকেই এড করতে হয়েছে।`,
   },
   {
     id: 5,
-    image: user,
-    quote: ` ভালো লেগেছে, এবং নিজের মধ্যে একটা অভিজ্ঞতার চাপ এসেছে।
-আর সবচেয়ে সুন্দর চিলো প্রিয় মেন্টরের সবকিছু সহজ এবং ক্লিয়ারলি বুঝিয়ে দেওয়া। ❤️
-মিস করবো সবাইকে। যতটুকু শিখেছি সেটার উপর যাতে দক্ষতা অর্জন করতে পারি দোয়া চাই 🤲 ।
-`,
-    author: "উমর ফারুক আশিক ",
+    author: "উমর ফারুক আশিক",
     position: "Batch - FC2501",
+    image: user,
     rating: 5,
+    quote: `ভালো লেগেছে, এবং নিজের মধ্যে একটা অভিজ্ঞতার চাপ এসেছে।
+আর সবচেয়ে সুন্দর চিলো প্রিয় মেন্টরের সবকিছু সহজ এবং ক্লিয়ারলি বুঝিয়ে দেওয়া। ❤️
+মিস করবো সবাইকে। যতটুকু শিখেছি সেটার উপর যাতে দক্ষতা অর্জন করতে পারি দোয়া চাই 🤲 ।`,
   },
   {
     id: 6,
-    image: user,
-    quote: `Alhamdulillah
-অনেক ভালো ছিল এবং Mentor ছিল দুর্দান্ত, সৈকত ভাইয়া খুব সুন্দর করে আমাদের কে ক্লাস গুলো করিয়েছেন 🥰❤️ তবে নেক্সট সোশ্যাল মিডিয়া নিয়ে কোর্স করতে চাচ্ছি, আপনারা কোর্সটি কখন চালু করবেন?
-
-`,
-    author: "Ujjol Ahmed ",
+    author: "Ujjol Ahmed",
     position: "Batch - FC2501",
+    image: user,
     rating: 5,
+    quote: `Alhamdulillah
+অনেক ভালো ছিল এবং Mentor ছিল দুর্দান্ত, সৈকত ভাইয়া খুব সুন্দর করে আমাদের কে ক্লাস গুলো করিয়েছেন 🥰❤️ তবে নেক্সট সোশ্যাল মিডিয়া নিয়ে কোর্স করতে চাচ্ছি, আপনারা কোর্সটি কখন চালু করবেন?`,
   },
   {
     id: 7,
-    image: user,
-    quote: `খুবই ভালো একটা কোর্স ছিলো । এবং সৈকত ভাই খুবই বালো টিচার ছিলেন । যদি অ্যাডভান্স এডিটিং এর কুনু কোর্স চালু করেন তাহলে সৈকত ভাইকে টিচার হিসেবে রাকবেন । এডমিট হব insa Allah  ।
-
-`,
     author: "Abu Bokor",
     position: "Batch - FC2501",
+    image: user,
     rating: 5,
+    quote: `খুবই ভালো একটা কোর্স ছিলো । এবং সৈকত ভাই খুবই বালো টিচার ছিলেন । যদি অ্যাডভান্স এডিটিং এর কুনু কোর্স চালু করেন তাহলে সৈকত ভাইকে টিচার হিসেবে রাকবেন । এডমিট হব insa Allah  ।`,
   },
   {
     id: 8,
-    image: user,
-    quote: `আলহামদুলিল্লাহ ভালো লাগছে  ।
-
-`,
     author: "Abu Bokor",
     position: "Batch - FC2501",
-    rating: 5,
-  },
-  {
-    // Note: Multiple IDs with 8. Consider making IDs unique in real data.
-    id: 8,
     image: user,
-    quote: `Alhamdulillah
-অনেক ভালো ছিল এবং Mentor সৈকত ভাইয়া খুব সুন্দর করে আমাদের কে ক্লাস গুলো করিয়েছেন .
-
-
-`,
-    author: "Shahin Akter ",
-    position: "Batch - FC2501",
     rating: 5,
+    quote: `আলহামদুলিল্লাহ ভালো লাগছে  ।`,
   },
   {
     id: 9,
-    image: user,
-    quote: `সৈকত ভাইর বুঝানোর যে ব্যাপারটা
-
-`,
-    author: "ইবনে শাইখ ",
+    author: "Shahin Akter",
     position: "Batch - FC2501",
+    image: user,
     rating: 5,
+    quote: `Alhamdulillah
+অনেক ভালো ছিল এবং Mentor সৈকত ভাইয়া খুব সুন্দর করে আমাদের কে ক্লাস গুলো করিয়েছেন .`,
   },
   {
     id: 10,
-    image: user,
-    quote: `Alhamdulillah.
-It was very good and Mentor Saikat Bhai conducted the classes for us very nicely.
-
-
-`,
-    author: "Mohammad Majharul Islam ",
+    author: "ইবনে শাইখ",
     position: "Batch - FC2501",
+    image: user,
     rating: 5,
+    quote: `সৈকত ভাইর বুঝানোর যে ব্যাপারটা`,
   },
   {
     id: 11,
-    image: user,
-    quote: ` আলহামদুলিল্লাহ। খুবই ভালো। সৈকত ভাই খুবই ভালো মেন্টর। সে খুবই আন্তরিক। তার বোঝানোর কৌশল অনেক সুন্দর। পার্টিসিপ্যান্ট ফ্রেন্ডলি। ধন্যবাদ আইসিটি বাংলাকে।
-
-
-`,
-    author: "Rayhan Kabir ",
+    author: "Mohammad Majharul Islam",
     position: "Batch - FC2501",
+    image: user,
     rating: 5,
+    quote: `Alhamdulillah.
+It was very good and Mentor Saikat Bhai conducted the classes for us very nicely.`,
   },
   {
     id: 12,
-    image: user,
-    quote: ` অনেক ভালো একটা কোর্স ছিলো।
-অসংখ্য ধন্যবাদ সৈকত ভাই কে❤️‍🩹
-সৈকত ভাইয়ের সবকিছু তে অনেক ভালো রেসপন্স পাইছি❤️‍🩹🫶
-
-
-`,
-    author: "মোঃ শাহ আলম",
+    author: "Rayhan Kabir",
     position: "Batch - FC2501",
+    image: user,
     rating: 5,
+    quote: `আলহামদুলিল্লাহ। খুবই ভালো। সৈকত ভাই খুবই ভালো মেন্টর। সে খুবই আন্তরিক। তার বোঝানোর কৌশল অনেক সুন্দর। পার্টিসিপ্যান্ট ফ্রেন্ডলি। ধন্যবাদ আইসিটি বাংলাকে।`,
   },
   {
     id: 13,
-    image: user,
-    quote: `আস সালামু আলাইকুম।
-মেন্টর ছিলেন মেহেদী হাসান সৈকত ভাই।
-তাঁর ধৈর্য, সাবলীল ধারাবাহিক উপস্থাপনা, ধী ও চিন্তাশক্তি, জ্ঞানের প্রগাঢ়তা, কোর্সের মেরিট বোঝা, নতুন বা পুরাতন যে হোক না কেন তাদের চাহিদা বুঝে উপস্থাপন, অতিরিক্ত ক্লাস নেওয়া, প্রশ্নোত্তর, হোম ওয়ার্ক করে পাঠ উপস্থাপন, বিনয়ী আচরণ, ভাষার মিষ্টতা, দক্ষতা এক কথায় অতুলনীয় ও অনির্বচনীয় এবং তাঁর জন্য কোন বিশেষণ প্রযোজ্য নয় কারণ তাঁর তুলনা তিনি নিজেই। আমি বহু ব্যস্ততার মাঝে তার ক্লাসগুলো করার যথাসাধ্য চেষ্টা করেছি। ২/৩টা ক্লাসের আংশিক মিস করেছিলাম দুর্বল নেটওয়ার্কের কারণে। পরে দেখে নিয়েছি। আমি একেবারে ০ ছিলাম। বর্তমানে আমি খুবই আনন্দিত। ধন্যবাদ ও কৃতজ্ঞতা রইল ICT Bangla কে এত সুন্দর একজন মেন্টরকে দেওয়ার জন্য। ICT Bangla পরিবারের সকলের নেক হায়াত কামনা করছি এবং উত্তরোত্তর সাফল্য কামনা করছি।
-পরিশেষে ধন্যবাদ আয়েশা ম্যামকে তিনি অনেকবার ফোন করে রাজি করিয়েছিলেন আমাকে।
-আবারও ICT Bangla এর সফলতা কামনা করছি। আমার জন্য সবাই দোয়া করবেন।
-ধন্যবাদ ও কৃতজ্ঞতায়
-
-
-`,
-    author: "মোঃ রবিউল ইসলাম",
+    author: "মোঃ শাহ আলম",
     position: "Batch - FC2501",
+    image: user,
     rating: 5,
+    quote: `অনেক ভালো একটা কোর্স ছিলো।
+অসংখ্য ধন্যবাদ সৈকত ভাই কে❤️‍🩹
+সৈকত ভাইয়ের সবকিছু তে অনেক ভালো রেসপন্স পাইছি❤️‍🩹🫶`,
   },
   {
-    id: 14, // Assign a unique ID
-    image: user,
-    quote: `আলহামদুলিল্লাহ
-
-`,
+    id: 14,
     author: "Mursalin Haq",
     position: "Batch - FC2501",
+    image: user,
     rating: 5,
+    quote: `আলহামদুলিল্লাহ`,
   },
   {
-    id: 15, // Assign a unique ID
-    image: user,
-    quote: `আলহামদুলিল্লাহ অনেক ভালো লেগেছে। ভাবতে পারিনি এতটা শিখব
-
-`,
+    id: 15,
     author: "Asaduzzaman Khokon",
     position: "Batch - FC2501",
+    image: user,
     rating: 5,
+    quote: `আলহামদুলিল্লাহ অনেক ভালো লেগেছে। ভাবতে পারিনি এতটা শিখব`,
   },
   {
-    id: 16, // Assign a unique ID
-    image: user,
-    quote: `নতুন অবস্থায় অনেক কিছু শিখতে পেরেছি। ইনশাআল্লাহ ভবিষ্যতে আপনাদের সাথে থাকতে চাই। আরো নতুন কোর্স করতে চাই।
-
-`,
+    id: 16,
     author: "Moral Mohammad Sohel",
     position: "Batch - FC2501",
+    image: user,
     rating: 5,
+    quote: `নতুন অবস্থায় অনেক কিছু শিখতে পেরেছি। ইনশাআল্লাহ ভবিষ্যতে আপনাদের সাথে থাকতে চাই। আরো নতুন কোর্স করতে চাই।`,
   },
   {
-    id: 17, // Assign a unique ID
-    image: user,
-    quote: `অনলাইনে কোর্সটি করলেও মনে হয়েছে সরাসরি কোর্সটি শেষ করলাম। যদি কেউ নেওয়ার ক্ষেত্রে ঘাটতি থাকে এটি শিক্ষার্থীর দুর্বলতা। কৃতজ্ঞতা প্রকাশ করছি।
-ICTBangla.com প্রতি।
-দোয়া ও ভালোবাসা রইল নিরন্তর! #সৈকত
-
-
-`,
-    author: "Quazi Mohsin",
+    id: 17,
+    author: "HM Rifat Hossain",
     position: "Batch - FC2501",
-    rating: 5,
-  },
-  {
-    id: 18, // Assign a unique ID
     image: user,
+    rating: 5,
     quote: `সৈকত ভাইয়ের মতো এমন মেন্টর পাওয়া ভাগ্যের বেপার কারন আমি আরো আগে একটা কোর্স করেছি তারা আমাদের সাথে এমন এমন ব্যাবহার করতো বলার বাহিরে তাদের এমনও নিয়ম ছিলো
-ক্লাস শুরু হওয়ার ১০মিনিটের মধ্যে জয়েন হতে হতে আর তাড়া হুড়া করে কোনো রকম চালিয়ে যাইতো
-
-`,
-    author: "HM Rifat Hossain ",
-    position: "Batch - FC2501",
-    rating: 5,
+ক্লাস শুরু হওয়ার ১০মিনিটের মধ্যে জয়েন হতে হতে আর তাড়া হুড়া করে কোনো রকম চালিয়ে যাইতো`,
   },
   {
-    id: 19, // Assign a unique ID
-    image: user,
-    quote: ` Alhamdulillah
-অনেক ভালো ছিল এবং Mentor সৈকত ভাইয়া খুব সুন্দর করে আমাদের কে ক্লাস গুলো করিয়েছেন। ICTBangla.com এর জন্য অনেক অনেক শুভকামনা। সময় করে সামনের দিকে আরো কোর্স করব ইনশাআল্লাহ। সামনের দিকে এগিয়ে যাক প্রিয় প্রতিষ্ঠান ICT Bangla ❤️❤️❤️❤️❤️
-
-`,
+    id: 18,
     author: "RJ Enam",
     position: "Batch - FC2501",
+    image: user,
     rating: 5,
+    quote: `Alhamdulillah
+অনেক ভালো ছিল এবং Mentor সৈকত ভাইয়া খুব সুন্দর করে আমাদের কে ক্লাস গুলো করিয়েছেন। ICTBangla.com এর জন্য অনেক অনেক শুভকামনা। সময় করে সামনের দিকে আরো কোর্স করব ইনশাআল্লাহ। সামনের দিকে এগিয়ে যাক প্রিয় প্রতিষ্ঠান ICT Bangla ❤️❤️❤️❤️❤️`,
   },
   {
-    id: 20, // Assign a unique ID
-    image: user,
-    quote: `It was a great journey with the mentor Soikat bhai `,
+    id: 19,
     author: "Jumon Ahmed",
     position: "Batch - FC2501",
+    image: user,
     rating: 5,
+    quote: `It was a great journey with the mentor Soikat bhai`,
   },
   {
-    id: 21, // Assign a unique ID
-    image: user,
-    quote: `Good filling`,
+    id: 20,
     author: "Biplob Bairagi",
     position: "Batch - FC2501",
+    image: user,
     rating: 5,
+    quote: `Good filling`,
   },
   {
-    id: 22, // Assign a unique ID
-    image: user,
-    quote: ` It was a nice learning journey with ICT bangla. Our mentor Mr. SOIKAT is a brilliant mentor. His way of teaching is much better than many other. I have a little knowledge on Capcut. But he touched every steps to make a simple video into eye catching one. I have learnt many tips from his teaching like, effect and transition apply, Color correction, video elements collection Process, sound editing, filter, keyframe, green screen remove and many many things. The remarkable point from his teaching is growing confidence in myself. Lastly his last class was on freelancing or client hunt Process. It added a huge point to this course.
-Best of luck everybody.
-
-`,
-    author: "Md. Mahfuzul Islam ",
+    id: 21,
+    author: "Rayhan Kabir",
     position: "Batch - FC2501",
+    image: user,
     rating: 5,
+    quote: `আলহামদুলিল্লাহ। খুবই ভালো। সৈকত ভাই খুবই ভালো মেন্টর। সে খুবই আন্তরিক। তার বোঝানোর কৌশল অনেক সুন্দর। পার্টিসিপ্যান্ট ফ্রেন্ডলি। ধন্যবাদ আইসিটি বাংলাকে।`,
+  },
+  {
+    id: 22,
+    author: "Mohammad Ali",
+    position: "Batch - FC2501",
+    image: user,
+    rating: 5,
+    quote: `Excellent course with amazing mentor support. Learned so much!`,
   },
 ];
-const SuccessReviewData = [
-  {
-    id: "13",
-    video_link: "https://youtu.be/vtpwfGLnIcE",
-    thumbnail: "https://i.postimg.cc/fbyYsFYB/thum-1.jpg",
-    category: "capcut",
-    title: "Customer Retention",
-  },
-  {
-    id: "14",
-    video_link: "https://youtu.be/TEZ4NRtsR8g",
-    thumbnail: "https://i.postimg.cc/SxDcwqYn/thum-2.jpg",
-    category: "capcut",
-    title: "Customer Retention",
-  },
-  {
-    id: "15",
-    video_link: "https://youtu.be/tUPjeUEFyJg",
-    thumbnail: "https://i.postimg.cc/hP8L1VSb/thum-3.jpg",
-    category: "capcut",
-    title: "Customer Retention",
-  },
-  {
-    id: "16",
-    video_link: "https://youtu.be/WsfrWgVx7k8",
-    thumbnail: "https://i.postimg.cc/k5YFt970/thum-4.jpg",
-    category: "capcut",
-    title: "Customer Retention",
-  },
-  {
-    id: "17",
-    video_link: "https://youtu.be/rcDN5qZZfHM",
-    thumbnail: "https://i.postimg.cc/3wxFRWQj/thum-5.jpg",
-    category: "capcut",
-    title: "Customer Retention",
-  },
-  {
-    id: "18",
-    video_link: "https://youtu.be/bqsgNZuph1E",
-    thumbnail: "https://i.postimg.cc/Hk2tdXRs/thum-6.jpg",
-    category: "capcut",
-    title: "Customer Retention",
-  },
-  {
-    id: "19",
-    video_link: "https://youtu.be/VayKrG-PJO8",
-    thumbnail: "https://i.postimg.cc/k4VNQZ4B/thum-7.jpg",
-    category: "capcut",
-    title: "Customer Retention",
-  },
-  {
-    id: "20",
-    video_link: "https://youtu.be/G1439655_94",
-    thumbnail: "https://i.postimg.cc/ZR0HfnfY/thum-8.jpg",
-    category: "capcut",
-    title: "Customer Retention",
-  },
-  {
-    id: "21",
-    video_link: "https://youtu.be/9DgrJf-GI9o",
-    thumbnail: "https://i.postimg.cc/TPdCDCgD/thum-9.jpg",
-    category: "capcut",
-    title: "Customer Retention",
-  },
 
-  {
-    id: "22",
-    video_link: "https://youtu.be/-te2Ed0oyYA",
-    thumbnail: "https://i.postimg.cc/y8XLxwgK/thum-10.jpg",
-    category: "capcut",
-    title: "Customer Retention",
-  },
-  {
-    id: "23",
-    video_link: "https://youtu.be/M7QOyyL2gFE",
-    thumbnail: "https://i.postimg.cc/g2PMYY04/thum-11.jpg",
-    category: "capcut",
-    title: "Customer Retention",
-  },
-  {
-    id: "24",
-    video_link: "https://youtu.be/h5Hj--0Sib0",
-    thumbnail: "https://i.postimg.cc/1zvn8t5S/thum-12.jpg",
-    category: "capcut",
-    title: "Customer Retention",
-  },
-  {
-    id: "25",
-    video_link: "https://youtu.be/-0CVLv2VQ2w",
-    thumbnail: "https://i.postimg.cc/NjwrVSP3/thum-13.jpg",
-    category: "capcut",
-    title: "Customer Retention",
-  },
-  {
-    id: "26",
-    video_link: "https://youtu.be/hG4hFpoq_54",
-    thumbnail: "https://i.postimg.cc/mrL1ZM4V/thum-14.jpg",
-    category: "capcut",
-    title: "Customer Retention",
-  },
-  {
-    id: "27",
-    video_link: "https://youtu.be/3cE-tbpbT34",
-    thumbnail: "https://i.postimg.cc/jSVzTLCk/thum-15.jpg",
-    category: "capcut",
-    title: "Customer Retention",
-  },
-  {
-    id: "28",
-    video_link: "https://youtu.be/Rnxp7UOGSpE",
-    thumbnail: "https://i.postimg.cc/PrDwSTKb/thum-16.jpg",
-    category: "capcut",
-    title: "Customer Retention",
-  },
+const SuccessReviewData = [
   {
     id: "1",
     video_link: "https://youtu.be/03e0XRqUJEo?si=ayHgufziMGDYzYKe",
@@ -467,10 +297,122 @@ const SuccessReviewData = [
     category: "call_center",
     title: "Customer Retention",
   },
+  {
+    id: "13",
+    video_link: "https://youtu.be/vtpwfGLnIcE",
+    thumbnail: "https://i.postimg.cc/fbyYsFYB/thum-1.jpg",
+    category: "capcut",
+    title: "Customer Retention",
+  },
+  {
+    id: "14",
+    video_link: "https://youtu.be/TEZ4NRtsR8g",
+    thumbnail: "https://i.postimg.cc/SxDcwqYn/thum-2.jpg",
+    category: "capcut",
+    title: "Customer Retention",
+  },
+  {
+    id: "15",
+    video_link: "https://youtu.be/tUPjeUEFyJg",
+    thumbnail: "https://i.postimg.cc/hP8L1VSb/thum-3.jpg",
+    category: "capcut",
+    title: "Customer Retention",
+  },
+  {
+    id: "16",
+    video_link: "https://youtu.be/WsfrWgVx7k8",
+    thumbnail: "https://i.postimg.cc/k5YFt970/thum-4.jpg",
+    category: "capcut",
+    title: "Customer Retention",
+  },
+  {
+    id: "17",
+    video_link: "https://youtu.be/rcDN5qZZfHM",
+    thumbnail: "https://i.postimg.cc/3wxFRWQj/thum-5.jpg",
+    category: "capcut",
+    title: "Customer Retention",
+  },
+  {
+    id: "18",
+    video_link: "https://youtu.be/bqsgNZuph1E",
+    thumbnail: "https://i.postimg.cc/Hk2tdXRs/thum-6.jpg",
+    category: "capcut",
+    title: "Customer Retention",
+  },
+  {
+    id: "19",
+    video_link: "https://youtu.be/VayKrG-PJO8",
+    thumbnail: "https://i.postimg.cc/k4VNQZ4B/thum-7.jpg",
+    category: "capcut",
+    title: "Customer Retention",
+  },
+  {
+    id: "20",
+    video_link: "https://youtu.be/G1439655_94",
+    thumbnail: "https://i.postimg.cc/ZR0HfnfY/thum-8.jpg",
+    category: "capcut",
+    title: "Customer Retention",
+  },
+  {
+    id: "21",
+    video_link: "https://youtu.be/9DgrJf-GI9o",
+    thumbnail: "https://i.postimg.cc/TPdCDCgD/thum-9.jpg",
+    category: "capcut",
+    title: "Customer Retention",
+  },
+  {
+    id: "22",
+    video_link: "https://youtu.be/-te2Ed0oyYA",
+    thumbnail: "https://i.postimg.cc/y8XLxwgK/thum-10.jpg",
+    category: "capcut",
+    title: "Customer Retention",
+  },
+  {
+    id: "23",
+    video_link: "https://youtu.be/M7QOyyL2gFE",
+    thumbnail: "https://i.postimg.cc/g2PMYY04/thum-11.jpg",
+    category: "capcut",
+    title: "Customer Retention",
+  },
+  {
+    id: "24",
+    video_link: "https://youtu.be/h5Hj--0Sib0",
+    thumbnail: "https://i.postimg.cc/1zvn8t5S/thum-12.jpg",
+    category: "capcut",
+    title: "Customer Retention",
+  },
+  {
+    id: "25",
+    video_link: "https://youtu.be/-0CVLv2VQ2w",
+    thumbnail: "https://i.postimg.cc/NjwrVSP3/thum-13.jpg",
+    category: "capcut",
+    title: "Customer Retention",
+  },
+  {
+    id: "26",
+    video_link: "https://youtu.be/hG4hFpoq_54",
+    thumbnail: "https://i.postimg.cc/mrL1ZM4V/thum-14.jpg",
+    category: "capcut",
+    title: "Customer Retention",
+  },
+  {
+    id: "27",
+    video_link: "https://youtu.be/3cE-tbpbT34",
+    thumbnail: "https://i.postimg.cc/jSVzTLCk/thum-15.jpg",
+    category: "capcut",
+    title: "Customer Retention",
+  },
+  {
+    id: "28",
+    video_link: "https://youtu.be/Rnxp7UOGSpE",
+    thumbnail: "https://i.postimg.cc/PrDwSTKb/thum-16.jpg",
+    category: "capcut",
+    title: "Customer Retention",
+  },
 ];
 
 const ReviewPage = () => {
-  const [activeTab, setActiveTab] = useState("video"); // 'text' or 'video'
+  const [activeTab, setActiveTab] = useState("video");
   const [currentPage, setCurrentPage] = useState(1);
   const [videoSelect, setVideoSelect] = useState("all");
   const [videoIndex, setVideoIndex] = useState(6);
@@ -496,6 +438,37 @@ const ReviewPage = () => {
       (videoSelect === "capcut" && item.category === "capcut")
   );
 
+  // Safe image rendering function
+  const renderProfileImage = (testimonial: any) => {
+    return (
+      <Image
+        alt={testimonial.author}
+        src={testimonial.image || user}
+        width={60}
+        height={60}
+        className="rounded-full object-cover"
+        onError={(e) => {
+          const target = e.target as HTMLImageElement;
+          target.src = user.src;
+        }}
+      />
+    );
+  };
+
+  // Pagination controls
+  const goToPage = (page: number) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const goToPreviousPage = () => {
+    setCurrentPage((prev) => Math.max(prev - 1, 1));
+  };
+
+  const goToNextPage = () => {
+    setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -509,26 +482,32 @@ const ReviewPage = () => {
 
           {/* Tabs to switch between text and video reviews */}
           <div className="flex justify-center mt-8">
-            <div className="inline-flex rounded-md ">
+            <div className="inline-flex rounded-md shadow-sm">
               <button
-                onClick={() => setActiveTab("text")}
-                className={`px-4 py-2 text-sm font-medium rounded-l-lg ${
+                onClick={() => {
+                  setActiveTab("text");
+                  setCurrentPage(1);
+                }}
+                className={`px-4 py-2 text-sm font-medium rounded-l-lg border ${
                   activeTab === "text"
-                    ? "bg-primary text-white"
-                    : "bg-white text-gray-700 border border-primary hover:bg-gray-100"
+                    ? "bg-primary text-white border-primary"
+                    : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
                 }`}
               >
-                Text Reviews
+                Text Reviews ({testimonials.length})
               </button>
               <button
-                onClick={() => setActiveTab("video")}
-                className={`px-4 py-2 text-sm font-medium rounded-r-lg ${
+                onClick={() => {
+                  setActiveTab("video");
+                  setVideoIndex(6);
+                }}
+                className={`px-4 py-2 text-sm font-medium rounded-r-lg border ${
                   activeTab === "video"
-                    ? "bg-primary text-white"
-                    : "bg-white text-gray-700 hover:bg-gray-100 border border-primary"
+                    ? "bg-primary text-white border-primary"
+                    : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
                 }`}
               >
-                Video Reviews
+                Video Reviews ({SuccessReviewData.length})
               </button>
             </div>
           </div>
@@ -537,7 +516,7 @@ const ReviewPage = () => {
         {activeTab === "text" ? (
           <>
             {/* Text Reviews Section */}
-            <div className="bg-white  rounded-lg overflow-hidden">
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
               {/* Review Stats */}
               <div className="bg-primary px-6 py-8 text-white">
                 <div className="flex flex-col md:flex-row justify-between items-center">
@@ -568,24 +547,16 @@ const ReviewPage = () => {
                 </div>
               </div>
 
-              {/* Mobile Carousel */}
-
               {/* Desktop Reviews List */}
-              <div className=" divide-y divide-gray-200">
-                {currentReviews.map((testimonial, index) => (
+              <div className="divide-y divide-gray-200">
+                {currentReviews.map((testimonial) => (
                   <div
-                    key={index}
+                    key={testimonial.id}
                     className="p-6 hover:bg-gray-50 transition-colors duration-150"
                   >
                     <div className="flex items-start">
                       <div className="flex-shrink-0 mr-4">
-                        <Image
-                          alt={testimonial.author}
-                          src={testimonial.image}
-                          width={60}
-                          height={60}
-                          className="rounded-full"
-                        />
+                        {renderProfileImage(testimonial)}
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center justify-between">
@@ -598,9 +569,7 @@ const ReviewPage = () => {
                             </p>
                           </div>
                           <div className="flex">
-                            {testimonial.rating
-                              ? RenderStars(testimonial.rating)
-                              : RenderStars(5)}
+                            {RenderStars(testimonial.rating)}
                           </div>
                         </div>
                         <p className="mt-3 text-gray-600 whitespace-pre-line">
@@ -618,7 +587,7 @@ const ReviewPage = () => {
                               clipRule="evenodd"
                             />
                           </svg>
-                          <span>Batch FC2501</span>
+                          <span>{testimonial.position}</span>
                         </div>
                       </div>
                     </div>
@@ -630,20 +599,16 @@ const ReviewPage = () => {
               <div className="bg-gray-50 px-6 py-4 flex items-center justify-between border-t border-gray-200">
                 <div className="flex-1 flex justify-between sm:hidden">
                   <button
-                    onClick={() =>
-                      setCurrentPage((prev) => Math.max(prev - 1, 1))
-                    }
+                    onClick={goToPreviousPage}
                     disabled={currentPage === 1}
-                    className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
+                    className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     Previous
                   </button>
                   <button
-                    onClick={() =>
-                      setCurrentPage((prev) => Math.min(prev + 1, totalPages))
-                    }
+                    onClick={goToNextPage}
                     disabled={currentPage === totalPages}
-                    className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
+                    className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     Next
                   </button>
@@ -666,13 +631,13 @@ const ReviewPage = () => {
                   </div>
                   <div>
                     <nav
-                      className="relative z-0 inline-flex rounded-md  -space-x-px"
+                      className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px"
                       aria-label="Pagination"
                     >
                       <button
-                        onClick={() => setCurrentPage(1)}
+                        onClick={() => goToPage(1)}
                         disabled={currentPage === 1}
-                        className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                        className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         <span className="sr-only">First</span>
                         <svg
@@ -701,11 +666,9 @@ const ReviewPage = () => {
                         </svg>
                       </button>
                       <button
-                        onClick={() =>
-                          setCurrentPage((prev) => Math.max(prev - 1, 1))
-                        }
+                        onClick={goToPreviousPage}
                         disabled={currentPage === 1}
-                        className="relative inline-flex items-center px-2 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                        className="relative inline-flex items-center px-2 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         <span className="sr-only">Previous</span>
                         <svg
@@ -727,7 +690,7 @@ const ReviewPage = () => {
                         (page) => (
                           <button
                             key={page}
-                            onClick={() => setCurrentPage(page)}
+                            onClick={() => goToPage(page)}
                             className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium ${
                               currentPage === page
                                 ? "z-10 bg-primary border-primary text-white"
@@ -740,13 +703,9 @@ const ReviewPage = () => {
                       )}
 
                       <button
-                        onClick={() =>
-                          setCurrentPage((prev) =>
-                            Math.min(prev + 1, totalPages)
-                          )
-                        }
+                        onClick={goToNextPage}
                         disabled={currentPage === totalPages}
-                        className="relative inline-flex items-center px-2 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                        className="relative inline-flex items-center px-2 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         <span className="sr-only">Next</span>
                         <svg
@@ -763,9 +722,9 @@ const ReviewPage = () => {
                         </svg>
                       </button>
                       <button
-                        onClick={() => setCurrentPage(totalPages)}
+                        onClick={() => goToPage(totalPages)}
                         disabled={currentPage === totalPages}
-                        className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                        className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         <span className="sr-only">Last</span>
                         <svg
@@ -802,7 +761,7 @@ const ReviewPage = () => {
         ) : (
           <>
             {/* Video Reviews Section */}
-            <div className="  overflow-hidden p-6">
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden p-6">
               {/* Video Category Filters */}
               <div className="flex justify-center items-center flex-wrap gap-2 lg:gap-4 mb-8">
                 {[
@@ -816,7 +775,7 @@ const ReviewPage = () => {
                     key={tab.id}
                     onClick={() => {
                       setVideoSelect(tab.id);
-                      setVideoIndex(3);
+                      setVideoIndex(6);
                       setPlayingId(null);
                     }}
                     className={`py-2 px-4 lg:px-6 transition-all duration-300 text-sm lg:text-base font-medium rounded-lg ${
@@ -835,7 +794,7 @@ const ReviewPage = () => {
                 {filteredVideos.slice(0, videoIndex)?.map((rev) => (
                   <div
                     key={rev.id}
-                    className="relative rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
+                    className="relative rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-white"
                   >
                     <div className="aspect-video w-full">
                       <ReactPlayer
@@ -865,8 +824,8 @@ const ReviewPage = () => {
                     </div>
                     <div className="p-4">
                       <h3 className="font-medium text-gray-900">{rev.title}</h3>
-                      <p className="text-sm text-gray-500 mt-1">
-                        {rev.category}
+                      <p className="text-sm text-gray-500 mt-1 capitalize">
+                        {rev.category.replace("_", " ")}
                       </p>
                     </div>
                   </div>
@@ -877,18 +836,36 @@ const ReviewPage = () => {
               {videoIndex < filteredVideos.length && (
                 <div className="flex justify-center items-center mt-10">
                   <button
-                    onClick={() => setVideoIndex((prev) => prev + 3)}
-                    className="py-2 px-6 rounded-lg bg-gradient-to-r from-[#099E47] to-[#29AE48] text-white 
-                              hover:shadow-md transition-all duration-300 font-medium"
+                    onClick={() => setVideoIndex((prev) => prev + 6)}
+                    className="py-3 px-8 rounded-lg bg-gradient-to-r from-[#099E47] to-[#29AE48] text-white 
+                              hover:shadow-lg transition-all duration-300 font-medium transform hover:scale-105"
                   >
-                    Load More
+                    Load More Videos
                   </button>
                 </div>
               )}
 
               {filteredVideos.length === 0 && (
-                <div className="text-center py-10 text-gray-500">
-                  No videos found in this category
+                <div className="text-center py-16 text-gray-500">
+                  <svg
+                    className="mx-auto h-12 w-12 text-gray-400"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                    />
+                  </svg>
+                  <h3 className="mt-2 text-lg font-medium text-gray-900">
+                    No videos found
+                  </h3>
+                  <p className="mt-1 text-gray-500">
+                    No video reviews available in this category.
+                  </p>
                 </div>
               )}
             </div>

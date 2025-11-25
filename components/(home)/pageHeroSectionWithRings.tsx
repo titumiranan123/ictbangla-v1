@@ -14,7 +14,7 @@ const PageHeroSectionWithRings: React.FC<PropsType> = ({
 }) => {
   return (
     <>
-      <div className="w-full bg-gradient-to-t from-[#CFFAD9] to-white relative  z-0 overflow-hidden">
+      <div className="w-full bg-gradient-to-t from-[#CFFAD9] to-white relative  z-0 overflow-hidden h-[300px] flex justify-center items-center">
         <div className="px-5 relative z-20">
           <h1 className="text-2xl md:text-3xl lg:text-[48px] text-primary font-bold text-center pt-4 md:pt-8 lg:pt-[24px] mb-4 md:mb-6 lg:mb-8">
             {title}
@@ -30,10 +30,11 @@ const PageHeroSectionWithRings: React.FC<PropsType> = ({
             </button>
           </div> */}
 
-          <div className="flex items-center justify-center cursor-pointer mb-6 md:mb-8 lg:mb-28">
-            <div className="animate-stroke  duration-400 transition-all flex justify-center items-center rounded-[8px] overflow-hidden z-20 p-[1.5px] cursor-pointer relative ">
-              <style>
-                {`
+          {buttonText && (
+            <div className="flex items-center justify-center cursor-pointer mb-6 md:mb-8 lg:mb-28">
+              <div className="animate-stroke  duration-400 transition-all flex justify-center items-center rounded-[8px] overflow-hidden z-20 p-[1.5px] cursor-pointer relative ">
+                <style>
+                  {`
         @keyframes spin-slow {
           0% {
             transform: rotate(0deg);
@@ -57,13 +58,14 @@ const PageHeroSectionWithRings: React.FC<PropsType> = ({
           animation: spin-slow 4s linear infinite;
         }
       `}
-              </style>
+                </style>
 
-              <button className="relative z-10 bg-white rounded-[8px] py-[10px] px-[16px] text-primary text-lg font-bold whitespace-nowrap">
-                {buttonText}
-              </button>
+                <button className="relative z-10 bg-white rounded-[8px] py-[10px] px-[16px] text-primary text-lg font-bold whitespace-nowrap">
+                  {buttonText}
+                </button>
+              </div>
             </div>
-          </div>
+          )}
         </div>
 
         <IconImage
