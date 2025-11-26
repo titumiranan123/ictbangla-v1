@@ -7,7 +7,6 @@ import CourseAbout from "./(tabs)/CourseAbout";
 import Coursecurriculam from "./(tabs)/Coursecurriculam";
 import CourseInstructor from "./(tabs)/CourseInstructor";
 import PreviewClass from "./PreviewClass";
-import StudentReview from "./(tabs)/StudentReview";
 import AskingCourse from "./(tabs)/AskingCourse";
 import CertificateSection from "./(tabs)/CertificateSection";
 import Courseproject from "./(tabs)/Courseproject";
@@ -125,23 +124,24 @@ const CourseInfoTab: React.FC<CourseInfoTabProps> = ({ tabs, data, tools }) => {
     return null;
   };
 
-  // Guard: if no valid content
   if (!tabs || tabs.length === 0 || !data || data.length === 0) {
     return null;
   }
 
   return (
-    <div className="mb-8 max-w-[882px] w-full">
+    <div className="mb-8 max-w-[982px] w-full relative ">
       {/* TOP TAB BAR */}
-      <ScrollableTabs
-        tabs={tabs}
-        activeIndex={active}
-        onTabClick={handleTabClick}
-      />
+      <div className="top-20 sticky z-10 bg-white/10 pb-2 backdrop-blur-lg">
+        <ScrollableTabs
+          tabs={tabs}
+          activeIndex={active}
+          onTabClick={handleTabClick}
+        />
+      </div>
 
       {/* SECTIONS */}
-      <div className="mt-6 space-y-8">
-        {data.map((dt: TabData, index: number) => (
+      <div className="mt-2 space-y-8">
+        {data?.map((dt: TabData, index: number) => (
           <div
             key={`${dt.tabe_name}-${index}`}
             ref={(el) => {

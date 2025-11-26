@@ -4,7 +4,7 @@ import React from "react";
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const AddCompare = ({ data }: { data: any }) => {
   return (
-    <div className="max-w-[960px] w-full lg:max-h-[80px] h-full  border-l-8 border-[#29AE48] flex justify-between lg:flex-nowrap flex-wrap  items-center gap-4 mt-1 px-5 py-6 bg-white">
+    <div className="max-w-[960px] sticky top-32 w-full lg:max-h-[80px] h-full  border-l-8 border-[#29AE48] flex justify-between lg:flex-nowrap flex-wrap  items-center gap-4 mt-1 px-5 py-6 bg-white">
       <button className="bg-[#29AE48] rounded-[8px] py-[10px] px-4 text-white ">
         {data?.batch_name}
       </button>

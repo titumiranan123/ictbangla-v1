@@ -102,7 +102,7 @@ export default function CourseStudentReview({ reviews }: { reviews: any }) {
             }
          
             .studentTesti .swiper-pagination-bullet {
-              background: #D2D8D3;
+              background: #D2D8D3 !important;
               width:61px;
               border-radius: 16px;
               opacity: 0.5;
@@ -110,7 +110,7 @@ export default function CourseStudentReview({ reviews }: { reviews: any }) {
             .studentTesti .swiper-pagination-bullet-active {
               opacity: 1;
               width:30px;
-              background: #29AE48;
+              background:  #29ae48 !important;
             }
             .studentTesti .swiper-pagination-bullet-active:after {
               display:none;

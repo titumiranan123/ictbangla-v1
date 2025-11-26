@@ -8,7 +8,7 @@ const Curriculamtab = () => {
     <div>
       <div className="max-w-[325px] mx-auto">
         {/* Buttons */}
-        <div className="flex justify-between items-center px-10 mb-2">
+        <div className="flex justify-center items-center px-10 mb-2">
           <button
             className={`transition-all duration-300 text-[16px] md:text-[18px] ${
               tab === "live_class"
@@ -19,7 +19,7 @@ const Curriculamtab = () => {
           >
             লাইভ ক্লাস
           </button>
-          <button
+          {/* <button
             className={`transition-all duration-300 md:text-[18px] ${
               tab === "recorded_class"
                 ? "text-green-600 font-semibold"
@@ -28,11 +28,11 @@ const Curriculamtab = () => {
             onClick={() => setActive("recorded_class")}
           >
             রেকর্ডেড ক্লাস
-          </button>
+          </button> */}
         </div>
 
         {/* Progress bar */}
-        <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+        <div className="w-full hidden h-2 bg-gray-200 rounded-full overflow-hidden">
           <div
             className={`h-full bg-green-600 rounded-full transition-all duration-500 ease-in-out ${
               tab === "live_class" ? "w-1/2" : "w-full translate-x-1/2"

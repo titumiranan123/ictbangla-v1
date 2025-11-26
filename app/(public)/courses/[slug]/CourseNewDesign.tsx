@@ -32,12 +32,12 @@ const CourseNewDesign = ({
 }) => {
   const totalPrice = CoursePriceCalculator(data);
   return (
-    <div className="mb-20">
+    <div className="mb-20 relative">
       <CoursePageHolder data={data} fbclid={fbclid} />
       <CourseTopTimeCount class_start_date="2025-09-04T00:00:00.000Z" />
       <div className="header bg-[#F3F4F6]  ">
         <div className="container  flex justify-between items-center lg:flex-row flex-col gap-2">
-          <div className="flex-1 max-w-[1034px] mx-auto flex flex-col gap-[26px] pt-6 pb-9">
+          <div className="flex-1 max-w-[1034px] mx-auto flex flex-col gap-[26px] pt-6 pb-9 relative">
             <button className="max-w-[144px] bg-[#FFE9E9] rounded-lg py-2 px-2 flex gap-1 text-[16px] font-[700]  items-center ">
               <Image
                 src={"/assets/icon/courseLive.png"}
@@ -49,7 +49,7 @@ const CourseNewDesign = ({
               <span className="text-red-500">লাইভ কোর্স</span>
             </button>
 
-            <h2 className="lg:text-[48px] md:text-[36px] text-[20px] max-w-[786px] w-full font-semibold md:leading-[60px] leading-[28px] text-textPrimary  ">
+            <h2 className="lg:text-[48px] md:text-[36px] text-[20px]  w-full font-semibold md:leading-[60px] leading-[28px] text-textPrimary whitespace-nowrap ">
               {data?.basicInfo?.title}
             </h2>
 
@@ -96,9 +96,11 @@ const CourseNewDesign = ({
               othersContent?.additional_info?.length > 0 && (
                 <CourseModulsummary modules={othersContent?.additional_info} />
               )}
-            {othersContent?.course_schedule !== undefined && (
-              <AddCompare data={othersContent?.course_schedule} />
-            )}
+            <div className="top-20 sticky">
+              {othersContent?.course_schedule !== undefined && (
+                <AddCompare data={othersContent?.course_schedule} />
+              )}
+            </div>
           </div>
           <div
             className={`max-w-[389px] w-full h-[540px]  p-3 rounded-[16.25px] border border-red-500 bg-red-500/10`}
@@ -131,7 +133,7 @@ const CourseNewDesign = ({
       {/* body  */}
       <div className="flex container relative bg-white  mt-6 lg:flex-row flex-col gap-2 min-h-screen ">
         {/* left part */}
-        <div className="flex-1  w-full mx-auto sticky top-4">
+        <div className="flex-1 max-w-[982px]  w-full  mx-auto">
           {tabs?.length > 0 && (
             <CourseInfoTab
               data={othersContent?.course_details}

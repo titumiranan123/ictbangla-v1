@@ -26,7 +26,6 @@ import TopCourseSection from "./TopCourseSection";
 import UpcomingCourse from "./UpcomingSection";
 import Aboutstate from "../(additional pages)/about-us/Aboutstate";
 import HomeTestimonials from "./HomeTestimonial";
-import Ourpatners from "../(additional pages)/about-us/Ourpatners";
 import Aboutcomunity from "../(additional pages)/about-us/Aboutcomunity";
 import CourseSlider from "./SwiperTab";
 import axios from "axios";

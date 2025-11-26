@@ -17,12 +17,12 @@ export const Coursedata = [
     },
     additional_info: [
       { order: 1, icon: "file-text.png", title: "মডিউল", sub_title: "১০" },
-      //   {
-      //     order: 2,
-      //     icon: "video.png",
-      //     title: "রেগুলার ক্লাস",
-      //     sub_title: "২০+",
-      //   },
+      {
+        order: 2,
+        icon: "video.png",
+        title: "রেগুলার ক্লাস",
+        sub_title: "২০+",
+      },
       {
         order: 3,
         icon: "video.png",
@@ -35,7 +35,6 @@ export const Coursedata = [
         title: "রিয়েল প্রজেক্ট",
         sub_title: "৫+",
       },
-      { order: 5, icon: "pen-tool.png", title: "কমিউনিটি" },
     ],
     course_schedule: {
       class_start_date: "বৃহস্পতিবার, ১৮ ডিসেম্বর",
@@ -473,13 +472,13 @@ export const Coursedata = [
         instructors: [
           {
             short_order: 1,
-            image: "image usrl",
+            image: "/assets/mentors/ashrafur-rahman.png",
             name: "Naimul Islam",
             designation: "LEAD INSTRUCTOR",
             // designation_2: "Soft Skill, Instructor",
-            description:
+            about:
               "working as a Mentor of ICTBangla & full time freelancer since 2017 Level 2 seller in Fiverr, worked at pran RFL as Motion graphic & video editor, Completed my Masters from University of dhaka in Television ,film & photography dept, Trained over 15000+ students in many platform such as instructory, Lead academy, learning Bangladesh, UY Lab and Personal Training. ",
-            social_media: [
+            socials: [
               {
                 sort_order: 1,
                 title: "Facebook",
@@ -499,6 +498,15 @@ export const Coursedata = [
                 url: "https://www.linkedin.com/in/md-naimul-islam-188a13132/",
               },
             ],
+          },
+          {
+            short_order: 1,
+            image: "image usrl",
+            name: "Tahsib Khan Mitul",
+            designation: "LSUPPORT INSTRUCTOR",
+            // designation_2: "Soft Skill, Instructor",
+            about:
+              "working as a Mentor of ICTBangla & full time freelancer since 2017 Level 2 seller in Fiverr, worked at pran RFL as Motion graphic & video editor, Completed my Masters from University of dhaka in Television ,film & photography dept, Trained over 15000+ students in many platform such as instructory, Lead academy, learning Bangladesh, UY Lab and Personal Training. ",
           },
         ],
       },
