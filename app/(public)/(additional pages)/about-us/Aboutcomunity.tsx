@@ -1,4 +1,5 @@
 "use client";
+import { CountingNumber } from "@/components/ui/shadcn-io/counting-number";
 import Image from "next/image";
 import React from "react";
 
@@ -15,7 +16,7 @@ const Aboutcomunity = () => {
         কমিউনিটি যেখানে স্টুডেন্ট টু প্রফেশনাল সব এক জায়গায় |
       </p>
 
-      <div className="border border-primary w-[385px] h-[141px] rounded-[16px]  flex flex-col justify-center items-center gap-4 mt-10">
+      <div className="border border-primary w-[340px] h-[131px] rounded-[16px]  flex flex-col justify-center items-center gap-4 mt-10">
         <p className="flex justify-center items-center gap-2">
           <Image
             src={"/assets/love.png"}
@@ -50,8 +51,21 @@ const Aboutcomunity = () => {
             height={40}
             className="-translate-x-8"
           />
-          <p className=" lg:text-[24px] lg:leading-[32px] leading-[16px] text-[20px] text-[#29AE48] font-bold">
-            ২২ হাজার+
+          <Image
+            src={"/assets/user-1.png"}
+            alt="user"
+            width={40}
+            height={40}
+            className="-translate-x-11"
+          />
+          <p className=" lg:text-[24px] lg:leading-[32px] leading-[16px] text-[20px] text-[#29AE48] font-bold -ms-8">
+            <CountingNumber
+              number={22}
+              inView={true}
+              className=" text-center english-text text-primary"
+              transition={{ stiffness: 100, damping: 30 }}
+            />{" "}
+            হাজার+
           </p>
         </div>
       </div>

@@ -22,6 +22,7 @@ import user12 from "@/public/assets/influncer/Md-Asadul-Islam.jpg";
 import user13 from "@/public/assets/influncer/Manik.jpg";
 import { Swiper as SwiperType } from "swiper";
 import { RenderStars } from "./RenderStars";
+import { ArrowLeftCircle, ArrowRightCircle } from "lucide-react";
 
 const avatars = [
   { src: user1, alt: "Client 1" },
@@ -128,32 +129,21 @@ const HomeTestimonials = () => {
           <h1 data-aos="fade-up" data-aos-delay="400" className="">
             প্রফেশনালদের <span className="text-[#3CB449]">চোখে</span> ICTBangla
           </h1>
-          <p data-aos="fade-up" data-aos-delay="500" className="">
-            Hear from our satisfied clients around the world.
-          </p>
         </div>
 
         <div
           data-aos="fade-up"
           data-aos-delay="600"
-          className="relative flex items-center justify-center mb-4 max-w-[900px] mx-auto mt-16"
+          className="relative flex items-center justify-center -mb-6 max-w-[900px] mx-auto mt-16"
         >
           <button
             aria-label="Previous"
-            className="swiper-button-left absolute -left-4 lg:-left-16 top-1/2 -translate-y-1/2 z-10"
+            className="swiper-button-left absolute -left-4 lg:-left-16 top-1/2 -translate-y-1/2  text-primary px-3 py-1 rounded-full z-10 disabled:cursor-not-allowed disabled:border-slate-400 disabled:text-slate-400"
           >
-            <svg
-              className="md:w-[44px] w-[30px]"
-              viewBox="0 0 35 34"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M35 16.9832H2.02708" stroke="black" />
-              <path
-                d="M8.96808 24.7926C7.02916 20.5253 5.49308 18.7339 1.66599 16.9949C5.57849 15.0692 7.09716 13.2712 8.96808 9.17383"
-                stroke="black"
-              />
-            </svg>
+            <ArrowLeftCircle
+              style={{ strokeWidth: "1.2px" }}
+              className="hover:text-primary"
+            />
           </button>
 
           <Swiper
@@ -170,7 +160,7 @@ const HomeTestimonials = () => {
             breakpoints={{
               0: { slidesPerView: 3, spaceBetween: 10 },
               640: { slidesPerView: 4 },
-              1024: { slidesPerView: 5, spaceBetween: 20 },
+              1024: { slidesPerView: 5, spaceBetween: 50 },
             }}
             className="avatar"
           >
@@ -187,20 +177,12 @@ const HomeTestimonials = () => {
 
           <button
             aria-label="Next"
-            className="swiper-button-right absolute -right-4 lg:-right-16 top-1/2 -translate-y-1/2 z-10"
+            className="swiper-button-right absolute -right-4 lg:-right-16 top-1/2 -translate-y-1/2  text-primary px-3 py-1 rounded-full z-10 disabled:cursor-not-allowed disabled:border-slate-400 disabled:text-slate-400"
           >
-            <svg
-              className="md:w-[44px] w-[30px]"
-              viewBox="0 0 35 34"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M0 16.9832H32.9729" stroke="black" />
-              <path
-                d="M26.0319 24.7926C27.9708 20.5253 29.5069 18.7339 33.334 16.9949C29.4215 15.0692 27.9028 13.2712 26.0319 9.17383"
-                stroke="black"
-              />
-            </svg>
+            <ArrowRightCircle
+              style={{ strokeWidth: "1.2px" }}
+              className="hover:text-primary hover:fill-bg-secondary "
+            />
           </button>
         </div>
         <div data-aos="fade-up" data-aos-delay="700">
@@ -211,7 +193,7 @@ const HomeTestimonials = () => {
             modules={[Thumbs]}
             onSwiper={setThumbsSwiper}
             allowTouchMove={false}
-            className="mb-8"
+            className=""
           >
             {testimonials.map((testimonial, index) => (
               <SwiperSlide key={index}>

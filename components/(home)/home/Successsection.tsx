@@ -208,11 +208,11 @@ const Successsection: React.FC = () => {
     <div className="container section">
       <div className="flex justify-center items-center flex-col text-center">
         <div data-aos="fade-up" data-aos-delay="300">
-          <h1 className="capitalize text-3xl font-bold mb-0">
-            সাফল্যের <span className="text-[#3CB449]">গল্প</span>
+          <h1 className="capitalize text-textPrimary text-5xl leading-[60px] font-bold mb-0">
+            সাফল্যের <span className="text-primary">গল্প</span>
           </h1>
           <Image
-            className="mb-0 w-[70px] h-[10px] ms-20"
+            className="mb-1 w-[80px] h-[12px] ms-44 -rotate-12"
             src={success}
             alt="Success icon"
             width={70}
@@ -222,7 +222,7 @@ const Successsection: React.FC = () => {
         <p
           data-aos="fade-up"
           data-aos-delay="400"
-          className="text-gray-600 max-w-2xl mt-1"
+          className=" text-xl text-textPrimary max-w-2xl mt-1"
         >
           আমাদের শিক্ষার্থীদের সফলতার গল্পগুলো দেখে নিতে পারেন।
         </p>

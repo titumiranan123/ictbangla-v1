@@ -1,6 +1,6 @@
 // app/cart/page.tsx
-import Pagetitle from "@/components/(home)/shared/pagetitle";
 import ShopCartClient from "./ShopCartClient";
+import PageHeroSectionWithRings from "@/components/(home)/pageHeroSectionWithRings";
 
 export const metadata = {
   title: "Cart | Royal Education",
@@ -10,10 +10,10 @@ export const metadata = {
 export default async function CartPage() {
   return (
     <div className="bg-[#f9f9fa] min-h-screen md:pb-16 pb-4">
-      <Pagetitle
-        pageName="Cart"
-        pageTitle="পণ্য তালিকা 🛒"
-        pagePragraph="আপনার কোর্সসমূহ পর্যালোচনা করুন এবং শেখার যাত্রা শুরু করুন।"
+      <PageHeroSectionWithRings
+        buttonText=""
+        subTitle="আপনার কোর্সসমূহ পর্যালোচনা করুন এবং শেখার যাত্রা শুরু করুন।"
+        title="পণ্য তালিকা 🛒"
       />
 
       {/* Client Component */}

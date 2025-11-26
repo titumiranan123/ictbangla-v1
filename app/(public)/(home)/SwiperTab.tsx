@@ -65,7 +65,7 @@ const CourseSlider = ({
             আমাদের কোর্স সমূহ
           </h1>
         </div>
-        <div className="relative max-w-full mt-[70px] mx-auto">
+        <div className="relative max-w-full mt-[50px] mx-auto">
           {/* Categories Swiper */}
           <Swiper
             freeMode={true}
@@ -99,15 +99,15 @@ const CourseSlider = ({
                 spaceBetween: 25,
               },
               1280: {
-                slidesPerView: 2.9,
+                slidesPerView: 4.9,
                 spaceBetween: 10,
               },
               1400: {
-                slidesPerView: 3.3,
+                slidesPerView: 4.3,
                 spaceBetween: 10,
               },
             }}
-            className="pb-12 relative course-category-swiper"
+            className="pb-12 mx-auto relative course-category-swiper"
           >
             {categories
               ?.slice()
@@ -115,12 +115,12 @@ const CourseSlider = ({
               ?.map((category: any) => (
                 <SwiperSlide key={category._id}>
                   <div
-                    className={`relative mx-auto  w-[360px]   h-[100px] flex justify-between px-4 items-center  rounded-xl  overflow-hidden p-[2px] transition-all  group hover:bg-primary  ${
+                    className={`relative mx-auto  max-w-[320px] w-full   max-h-[80px] flex justify-between px-[10px] py-[18px]  items-center  rounded-xl  overflow-hidden p-[2px] transition-all  group hover:bg-primary  ${
                       category._id === filterKey ? "bg-primary" : "bg-white"
                     }`}
                   >
                     <div
-                      className={`w-[64px] flex justify-center items-center flex-col gap-1 h-16 rounded-full  p-2  ${
+                      className={`w-[54px] flex justify-center items-center flex-col gap-1 h-[54px] rounded-full  p-2  ${
                         category._id !== filterKey
                           ? "bg-[#707070] group-hover:bg-white"
                           : "bg-white"
@@ -132,26 +132,17 @@ const CourseSlider = ({
                         width={16}
                         height={16}
                       />
-                      <p
-                        className={`text-[8px]   ${
-                          category._id !== filterKey
-                            ? "text-white group-hover:text-primary"
-                            : "text-[#707070]"
-                        }`}
-                      >
-                        All Course
-                      </p>
                     </div>
                     <button
                       onClick={() => setFilterKey(category._id)}
-                      className={`w-[196px] h-[71px] z-50 strock cursor-pointer rounded-xl group transition-all duration-300 ease-in-out text-center  ${
+                      className={`w-[196px] h-[54px] z-50 strock cursor-pointer rounded-xl group transition-all duration-300 ease-in-out text-center  ${
                         category._id === filterKey
                           ? "text-white   "
                           : " text-[#8A8A8A]  hover:text-white  "
                       }`}
                     >
                       <p
-                        className={`font-medium text-xl  text-left line-clamp-4 group-hover:text-white ${
+                        className={`font-medium text-xl  text-left line-clamp-4 capitalize group-hover:text-white ${
                           category._id === filterKey
                             ? "text-white "
                             : " text-[#8A8A8A] "
@@ -159,7 +150,7 @@ const CourseSlider = ({
                       >
                         {category.title}
                       </p>
-                      <div className="text-sm mt-1 flex gap-4 items-center justify-start">
+                      <div className="text-sm mt-1 flex gap-1 items-center justify-start">
                         <span
                           className={`w-2 h-2 rounded-full  group-hover:bg-white ${
                             category._id === filterKey
@@ -229,8 +220,8 @@ const CourseSlider = ({
     `}
           </style>
 
-          <div className="rounded-xl backdrop-blur-lg glassBg p-10">
-            <div className="">
+          <div className="rounded-xl  backdrop-blur-lg glassBg p-10">
+            <div className="max-w-[1141px] mx-auto">
               {filteredData.length === 0 ? (
                 <div className="min-h-36 h-auto w-full flex justify-center items-center col-span-4">
                   Comming soon ......

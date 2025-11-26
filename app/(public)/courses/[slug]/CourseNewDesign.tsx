@@ -9,7 +9,6 @@ import CourseCoupon from "./Couponcoupon";
 import AddCompare from "./AddCompare";
 import CourseModulsummary from "./CourseModulsummary";
 import ShareButtons from "./ShareButtons";
-import { RenderStars } from "../../(home)/RenderStars";
 import BatchTag from "./BatchTag";
 import { CoursePriceCalculator } from "../(old design)/CoursePriceCalculation";
 import CourseInfoTab from "./CourseInfoTab";
@@ -17,6 +16,8 @@ import CourseReturn from "./CourseReturn";
 import Whomeneeds from "./Whomeneeds";
 import CourseTopTimeCount from "./CourseTopTimeCount";
 import CoursePageHolder from "../(old design)/CoursePageHolder";
+import Admissionnow from "./Admissionnow";
+import Countdown from "./Ofercountdown";
 
 const CourseNewDesign = ({
   data,
@@ -103,10 +104,12 @@ const CourseNewDesign = ({
             className={`max-w-[389px] w-full h-[540px]  p-3 rounded-[16.25px] border border-red-500 bg-red-500/10`}
           >
             <div className="max-w-[357px] w-full max-h-[269px] h-full relative mb-4">
-              <Thumnailvideoslider />
+              {othersContent?.course_intro?.length > 0 && (
+                <Thumnailvideoslider data={othersContent?.course_intro} />
+              )}
             </div>
-            <div className="space-y-1.5 mt-[65px]">
-              <div className="flex justify-between items-center mt-3">
+            <div className=" mt-[65px] space-y-4">
+              <div className="flex justify-between items-center mt-3 ">
                 <p className="text-[38px] leading-[50px font-[700] text-primary">
                   কোর্স ফী
                 </p>
@@ -120,19 +123,22 @@ const CourseNewDesign = ({
                 </div>
               </div>
               <CourseCoupon />
-              <button className="bg-primary mt-5 rounded-xl text-white text-[18px] font-[700] w-full py-2">
-                এখনই ভর্তি হন
-              </button>
+              <Admissionnow data={data} />
             </div>
           </div>
         </div>
       </div>
       {/* body  */}
-      <div className="flex container relative bg-white  mt-6 lg:flex-row flex-col gap-2">
+      <div className="flex container relative bg-white  mt-6 lg:flex-row flex-col gap-2 min-h-screen ">
         {/* left part */}
         <div className="flex-1  w-full mx-auto sticky top-4">
           {tabs?.length > 0 && (
-            <CourseInfoTab data={othersContent?.course_details} tabs={tabs} />
+            <CourseInfoTab
+              data={othersContent?.course_details}
+              tools={othersContent?.tools_you_will_learn}
+              tabs={tabs}
+              key={1}
+            />
           )}
           {othersContent?.course_features !== undefined &&
             othersContent?.course_features?.length > 0 && (
@@ -144,26 +150,12 @@ const CourseNewDesign = ({
             )}
         </div>
         {/* right part  */}
-        <div className="max-w-[389px] mx-auto">
+        <div className="max-w-[389px] mx-auto sticky self-start top-20">
           <div className=" border  border-primary  w-full  rounded-[16px] p-4">
-            <div className="  flex justify-center items-center gap-2">
-              <div className="w-[84px] h-[84px] bg-[#EAF7ED] border border-primary flex flex-col justify-center items-center rounded-lg">
-                <h2 className="text-[32px] font-bold text-primary">12</h2>
-                <p className="text-[12px] font-bold text-primary">Day</p>
-              </div>
-              <div className="w-[84px] h-[84px] bg-[#EAF7ED] border border-primary flex flex-col justify-center items-center rounded-lg">
-                <h2 className="text-[32px] font-bold text-primary">24</h2>
-                <p className="text-[12px] font-bold text-primary">Hours</p>
-              </div>
-              <div className="w-[84px] h-[84px] bg-[#EAF7ED] border border-primary flex flex-col justify-center items-center rounded-lg">
-                <h2 className="text-[32px] font-bold text-primary">32</h2>
-                <p className="text-[12px] font-bold text-primary">Minutes</p>
-              </div>
-              <div className="w-[84px] h-[84px] bg-[#EAF7ED] border border-primary flex flex-col justify-center items-center rounded-lg">
-                <h2 className="text-[32px] font-bold text-primary">40</h2>
-                <p className="text-[12px] font-bold text-primary">Seconds</p>
-              </div>
-            </div>
+            <p className="text-textPrimary text-center mt-6 mb-6 text-[18px] font-[600] ">
+              ভর্তির শেষ সময়
+            </p>
+            <Countdown targetDate="2025-12-31T23:59:59" />
             <div className="bg-[#EAF7ED] border border-primary rounded-[8px] mt-4 py-3">
               <p className="text-primary font-bold text-center text-[16px]">
                 ৪০০০+ শিক্ষার্থী এখন পর্যন্ত এনরোল করেছে
@@ -186,22 +178,13 @@ const CourseNewDesign = ({
             </div>
             <div className="max-w-[357px] w-full max-h-[269px] h-full relative mb-4 mt-4">
               <div className="w-[357px] h-[269px] rounded-[8.13px]">
-                <Thumnailvideoslider />
+                {othersContent?.course_intro?.length > 0 && (
+                  <Thumnailvideoslider data={othersContent?.course_intro} />
+                )}
               </div>
-              <p className="flex justify-start items-center w-full bg-white/25 backdrop-blur-[39.69px] rounded-[24.38px] max-w-[324px] max-h-[32px] border border-[#29AE48] -translate-y-14 mx-auto gap-5 px-5 cursor-pointer">
-                <Image
-                  src={"/assets/icon/playicon.png"}
-                  alt="paly"
-                  width={18}
-                  height={18}
-                />
-                <span className="text-[18px] font-[600] text-white">
-                  Watch Promo Video
-                </span>
-              </p>
             </div>
 
-            <div className="max-w-[360px] mt-20 h-[154px] bg-primary rounded-[8px] text-white flex justify-center items-center ">
+            <div className="max-w-[360px] mt-10 h-[154px] bg-primary rounded-[8px] text-white flex justify-center items-center ">
               <h2 className="text-[40px] font-[700]">IMAGE 1</h2>
             </div>
             <div className="mt-5">

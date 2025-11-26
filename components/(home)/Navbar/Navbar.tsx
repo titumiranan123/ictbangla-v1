@@ -26,7 +26,6 @@ const Navbar = () => {
   const length = useSelector((state: RootState) => state?.items?.carts?.length);
   const path = usePathname();
   const { data: session, status }: any = useSession();
-
   const moreLinks: MoreLink[] = [
     { href: "/about-us", title: "আমাদের সম্পর্কে" },
     { href: "/blog", title: "ব্লগ" },
@@ -37,7 +36,7 @@ const Navbar = () => {
   const handleClick = async () => {
     if (session?.user?.role === "ADMIN") {
       await signOut({ redirect: false }); // Session clear
-      window.location.href = "https://admin.ictbangla.com/sign-in"; // Redirect
+      window.location.href = "https://admin.ictbangla.com/sign-in";
     } else if (session?.user?.role === "USER") {
       router.push("/student-dashboard");
     } else {
@@ -55,7 +54,7 @@ const Navbar = () => {
       /> */}
       <div className="container w-full flex justify-between items-center lg:py-2 py-2">
         {/* Logo and Mobile Toggle */}
-        <div className="flex lg:w-[500px] justify-between items-center lg:gap-4 gap-4">
+        <div className="flex lg:w-[450px] justify-between items-center lg:gap-4 gap-4">
           <button
             onClick={() => setActive(!isActive)}
             className="lg:hidden flex flex-col gap-1.5"
@@ -83,7 +82,7 @@ const Navbar = () => {
           </Link>
 
           <button
-            className="hidden lg:flex"
+            className="hidden lg:flex -ms-10"
             onClick={() => setActiveSearch(!isSearch)}
           >
             <Searchcomponent />

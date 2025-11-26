@@ -26,7 +26,7 @@ const HeaderButton = () => {
             }}
           ></div>
           <div className="w-full h-full flex items-center justify-center">
-            <Play className="text-red-500 scale-bounce" />
+            <Play className="text-red-500 fill-red-500 scale-bounce" />
           </div>
         </div>
 

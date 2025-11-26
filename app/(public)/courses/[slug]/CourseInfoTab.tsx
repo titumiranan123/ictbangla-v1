@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -10,29 +11,124 @@ import StudentReview from "./(tabs)/StudentReview";
 import AskingCourse from "./(tabs)/AskingCourse";
 import CertificateSection from "./(tabs)/CertificateSection";
 import Courseproject from "./(tabs)/Courseproject";
+import CourseStudentReview from "./(tabs)/CourseStudentreview";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const CourseInfoTab = ({ tabs, data }: { tabs: string[]; data: any }) => {
-  const [active, setActive] = useState(0);
+// Define proper types
+interface TabData {
+  tabe_name: string;
+  description?: string;
+  [key: string]: unknown;
+}
+
+interface CourseInfoTabProps {
+  tabs: string[];
+  data: TabData[];
+  tools?: any;
+}
+
+const CourseInfoTab: React.FC<CourseInfoTabProps> = ({ tabs, data, tools }) => {
+  const [active, setActive] = useState<number>(0);
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const isScrollingRef = useRef<boolean>(false);
 
-  // Ensure refs length equals tabs length
+  // Ensure refs length equals data length
   useEffect(() => {
-    if (tabs) {
-      sectionRefs.current = sectionRefs.current.slice(0, tabs.length);
+    if (data) {
+      sectionRefs.current = sectionRefs.current.slice(0, data.length);
     }
-  }, [tabs]);
+  }, [data]);
 
-  const handleTabClick = (index: number) => {
-    setActive(index);
-    sectionRefs.current[index]?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
+  // Intersection Observer to detect which section is in view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Only update active state if user is not clicking tabs
+        if (isScrollingRef.current) return;
+
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = sectionRefs.current.findIndex(
+              (ref) => ref === entry.target
+            );
+            if (index !== -1) {
+              setActive(index);
+            }
+          }
+        });
+      },
+      {
+        threshold: 0.5,
+        rootMargin: "-100px 0px -50% 0px",
+      }
+    );
+
+    sectionRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
     });
+
+    return () => {
+      sectionRefs.current.forEach((ref) => {
+        if (ref) observer.unobserve(ref);
+      });
+    };
+  }, [data]);
+
+  const handleTabClick = (index: number): void => {
+    setActive(index);
+    isScrollingRef.current = true;
+
+    const headerOffset = 100; // Adjust based on your sticky header height
+    const element = sectionRefs.current[index];
+
+    if (element) {
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition =
+        elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+
+      // Reset scroll flag after animation
+      setTimeout(() => {
+        isScrollingRef.current = false;
+      }, 1000);
+    }
+  };
+
+  const renderSection = (dt: TabData): React.ReactNode => {
+    if (dt.tabe_name === "কোর্স সম্পর্কে") {
+      return <CourseAbout description={dt?.description ?? ""} />;
+    }
+    if (dt.tabe_name === "কারিকুলাম") {
+      return <Coursecurriculam data={dt} tools={tools} />;
+    }
+    if (dt.tabe_name === "ইন্সট্রাক্টর") {
+      return <CourseInstructor instructors={dt} />;
+    }
+    if (dt.tabe_name === "ডেমো ক্লাস") {
+      return <PreviewClass data={dt} />;
+    }
+    if (dt.tabe_name === "রিভিউ") {
+      return <CourseStudentReview reviews={dt} />;
+    }
+    if (dt.tabe_name === "জিজ্ঞাসা") {
+      return <AskingCourse data={dt} />;
+    }
+    if (dt.tabe_name === "সার্টিফিকেট") {
+      return <CertificateSection />;
+    }
+    if (dt.tabe_name === "প্রজেক্ট") {
+      return <Courseproject data={dt} />;
+    }
+    return null;
   };
 
   // Guard: if no valid content
-  if (!tabs || tabs.length === 0) return null;
+  if (!tabs || tabs.length === 0 || !data || data.length === 0) {
+    return null;
+  }
 
   return (
     <div className="mb-8 max-w-[882px] w-full">
@@ -42,25 +138,22 @@ const CourseInfoTab = ({ tabs, data }: { tabs: string[]; data: any }) => {
         activeIndex={active}
         onTabClick={handleTabClick}
       />
-      {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        data.map((dt: any) => {
-          return (
-            <>
-              {dt.tabe_name === "কোর্স সম্পর্কে" && (
-                <CourseAbout description={dt?.description} />
-              )}
-              {dt.tabe_name === "কারিকুলাম" && <Coursecurriculam data={dt} />}
-              {dt.tabe_name === "ইন্সট্রাক্টর" && <CourseInstructor />}
-              {dt.tabe_name === "ডেমো ক্লাস" && <PreviewClass />}
-              {dt.tabe_name === "রিভিউ" && <StudentReview />}
-              {dt.tabe_name === "জিজ্ঞাসা" && <AskingCourse data={dt} />}
-              {dt.tabe_name === "সার্টিফিকেট" && <CertificateSection />}
-              {dt.tabe_name === "প্রজেক্ট" && <Courseproject data={dt} />}
-            </>
-          );
-        })
-      }
+
+      {/* SECTIONS */}
+      <div className="mt-6 space-y-8">
+        {data.map((dt: TabData, index: number) => (
+          <div
+            key={`${dt.tabe_name}-${index}`}
+            ref={(el) => {
+              sectionRefs.current[index] = el;
+            }}
+            className="scroll-mt-24"
+            id={`section-${index}`}
+          >
+            {renderSection(dt)}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

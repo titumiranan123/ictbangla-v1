@@ -66,7 +66,7 @@ const CertificateSection: React.FC = async () => {
               className="w-full max-w-[325px] p-4 hover:bg-gray-50 transition-colors rounded-lg flex flex-col "
             >
               {content?.icon && (
-                <div className="w-[44px] h-[30px] mb-10">
+                <div className="w-[44px] flex justify-center items-center h-[85px] ">
                   <Image
                     src={content?.icon?.trim() ?? ""}
                     alt=""
@@ -75,7 +75,7 @@ const CertificateSection: React.FC = async () => {
                   />
                 </div>
               )}
-              <h2 className="text-xl leading-[26px] text-primary font-[700] mt-2">
+              <h2 className="text-xl leading-[26px] text-primary font-[700] -mt-2">
                 {content.title}
               </h2>
               <p className="text-[#8A8A8A] font-medium mt-1 text-xs leading-[18px]">

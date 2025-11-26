@@ -38,7 +38,7 @@ const RecordedCourse = async () => {
       <div
         data-aos="fade-up"
         data-aos-delay="600"
-        className="relative mt-[89px]"
+        className="relative mt-[60px]"
       >
         <CommonCourseslider data={result?.data ?? []} />
       </div>

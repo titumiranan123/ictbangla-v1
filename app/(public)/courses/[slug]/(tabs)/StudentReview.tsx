@@ -144,7 +144,7 @@ export default function StudentReview() {
         >
           {testimonials.map((testimonial) => (
             <SwiperSlide key={testimonial.id} className="flex justify-center">
-              <StudentReviewCard />
+              <StudentReviewCard data={testimonial} />
             </SwiperSlide>
           ))}
         </Swiper>

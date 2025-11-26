@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 // Import Swiper React components
@@ -11,11 +10,12 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 // import required modules
 import { FreeMode, Thumbs } from "swiper/modules";
-import Image from "next/image";
 import { ArrowLeftCircle, ArrowRightCircle } from "lucide-react";
 import PluseIcon from "@/components/(home)/home/PulseIcon/PluseIcon";
+import ReactPlayer from "react-player";
 
-function PreviewClass() {
+function PreviewClass({ data }: { data: any }) {
+  console.log(data);
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
   const mainSwiperRef = useRef<any>(null);
   const thumbsSwiperRef = useRef<any>(null);
@@ -79,18 +79,23 @@ function PreviewClass() {
             }
           `}
         </style>
-        {[...Array(10)].map((_, idx) => (
+        {[...data?.demo_classes].map((vid, idx) => (
           <SwiperSlide key={idx} className="relative">
-            <img
-              className="object-cover w-full h-full"
-              src="https://swiperjs.com/demos/images/nature-2.jpg"
-              alt={`Slide ${idx + 1}`}
-            />
-            <div
-              style={{ zIndex: 999 }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-            >
-              <PluseIcon />
+            <div className="w-[818px] h-[460px]">
+              <ReactPlayer
+                className="object-cover w-[818px] h-[460px] "
+                url={vid?.url}
+                width={"100%"}
+                height={"100%"}
+                playIcon={
+                  <div
+                    style={{ zIndex: 999 }}
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                  >
+                    <PluseIcon />
+                  </div>
+                }
+              />
             </div>
           </SwiperSlide>
         ))}
@@ -143,14 +148,21 @@ function PreviewClass() {
             }
           `}
         </style>
-        {[...Array(10)].map((_, idx) => (
+        {[...data?.demo_classes].map((vid, idx) => (
           <SwiperSlide key={idx}>
-            <Image
-              src={"/assets/course-1.png"}
-              width={90}
-              height={60}
-              alt={`Thumbnail ${idx + 1}`}
-              className="w-full h-full object-cover"
+            <ReactPlayer
+              className="object-cover w-full h-full "
+              url={vid?.url}
+              width={"100%"}
+              height={"100%"}
+              playIcon={
+                <div
+                  style={{ zIndex: 999 }}
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                >
+                  <PluseIcon />
+                </div>
+              }
             />
           </SwiperSlide>
         ))}

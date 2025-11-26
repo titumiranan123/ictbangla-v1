@@ -21,7 +21,6 @@ import PartnerCompanyFast from "./PartnerCompanyFast";
 import Paymentmethod from "./Paymentmethod";
 import RecordedCourse from "./RecordedCourse";
 import StudentReviewSection from "./studentReviewSection";
-import SuccessStory from "./successStory";
 import TeacherJoin from "./teacherJoin";
 import TopCourseSection from "./TopCourseSection";
 import UpcomingCourse from "./UpcomingSection";
@@ -32,6 +31,7 @@ import Aboutcomunity from "../(additional pages)/about-us/Aboutcomunity";
 import CourseSlider from "./SwiperTab";
 import axios from "axios";
 import HowItWorkSection from "./howItWorkSection";
+import Successsection from "@/components/(home)/home/Successsection";
 
 const HomePage = async () => {
   const result = await axios.get(
@@ -53,8 +53,8 @@ const HomePage = async () => {
         <MobileUpcomingbatch />
         <MobileRecordedCourse />
         <MobileCoursebyCategory
-          categories={resultcat.data}
-          courseData={result.data.response}
+          categories={resultcat?.data}
+          courseData={result?.data?.response}
         />
         <MobileSkillTravelSection />
         <HomeAboutstate />
@@ -97,19 +97,20 @@ const HomePage = async () => {
         {/* <Ourpatners /> */}
         <StudentReviewSection />
         <AdditionSection />
-        <SuccessStory />
+        <Successsection />
         <CertificateSection />
         {/* <BlogsSection /> */}
         <Paymentmethod />
         <TeacherJoin />
         <Aboutcomunity />
         {/* Hero Image with Layout Stability */}
-        <div className="container mt-20">
+        <div className="container h-[480px] overflow-hidden flex justify-center items-center mt-10 ">
           <Image
             src={"/assets/aboutlocation.svg"}
             alt={"about"}
-            width={1240}
-            height={450}
+            width={900}
+            height={400}
+            className="h-[400px] w-[900px]"
             layout="intrinsic" // Ensures image dimensions are known before loading
             priority // Preloads the image for faster display
           />

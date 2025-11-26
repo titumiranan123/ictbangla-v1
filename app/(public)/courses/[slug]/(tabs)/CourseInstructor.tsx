@@ -1,7 +1,8 @@
 import React from "react";
 import MentorCard from "./MentorCard";
 
-const CourseInstructor = () => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const CourseInstructor = ({ instructors }: { instructors: any }) => {
   const data = [
     {
       name: "Ashrafur Rahman",

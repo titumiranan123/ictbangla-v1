@@ -44,6 +44,7 @@ const PartnerCompanyFast = () => {
           lg:h-16 h-10 
           -rotate-[4deg]
           overflow-hidden 
+          flex justify-center items-center
           bg-[linear-gradient(90deg,#29AE48_0%,#327D43_100%)]
           z-20
         "
@@ -52,9 +53,9 @@ const PartnerCompanyFast = () => {
           {items.map((text, i) => (
             <div
               key={i}
-              className="mx-5 px-4 py-2 flex items-center gap-2 text-white text-sm lg:text-base whitespace-nowrap"
+              className="mx-5 px-4 py-2 flex items-center font-[500] justify-center gap-2 text-white text-[16px] tracking-[1.2px] lg:text-[16px] whitespace-nowrap"
             >
-              <Star size={16} /> {text}
+              <Star size={16} className="fill-white" /> <span>{text}</span>
             </div>
           ))}
         </Marquee>

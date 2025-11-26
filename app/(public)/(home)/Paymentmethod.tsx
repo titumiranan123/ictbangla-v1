@@ -33,7 +33,7 @@ const Paymentmethod = () => {
             key={3}
             number={"Card "}
             bgcolor="#CEF6FF"
-            color=" linear-gradient(64.45deg, #4DABC0 7.02%, #CEF6FF 60.48%) "
+            color=" conic-gradient(rgb(46, 160, 213) 20deg, transparent 120deg)"
           />
         </div>
         <div data-aos="fade-up" data-aos-delay="500">
@@ -43,7 +43,7 @@ const Paymentmethod = () => {
             src={bkash}
             number={"01973-173371"}
             bgcolor="#FFDDDD"
-            color="linear-gradient(64.45deg, #AD6161 7.02%, #FFDDDD 60.48%)"
+            color="conic-gradient(rgb(228, 79, 38) 20deg, transparent 120deg)"
           />
         </div>
         <div data-aos="fade-up" data-aos-delay="600">
@@ -52,7 +52,7 @@ const Paymentmethod = () => {
             className="w-[90px] h-[45px]"
             src={roket}
             number={"01973-173371"}
-            color="linear-gradient(64.45deg, #7B6EBF 7.02%, #DED8FF 60.48%)"
+            color="conic-gradient(rgb(73, 71, 177) 20deg, transparent 120deg)"
             bgcolor="#DED8FF"
           />
         </div>
@@ -61,7 +61,7 @@ const Paymentmethod = () => {
             className="w-[130px] h-[45px]"
             src={nogad}
             number={"01973-173371"}
-            color="linear-gradient(102.15deg, #FFB281 8.91%, rgba(255, 178, 128, 0) 70.39%)"
+            color="conic-gradient(rgb(245, 222, 25) 20deg, transparent 120deg)"
             bgcolor="#FFEEE3"
           />
         </div>
@@ -85,7 +85,7 @@ const PaymentCard = ({
 }) => {
   return (
     <div
-      className="animate-strock hover:scale-105 duration-400 transition-all mx-auto w-[280px] h-[150px] flex justify-center items-center rounded-[16px] overflow-hidden z-20 p-[2px] cursor-pointer "
+      className="animate-strock hover:scale-105 duration-400 transition-all mx-auto w-[282px] h-[152px] flex justify-center items-center rounded-[16px] overflow-hidden z-20 p-[2.5px] cursor-pointer "
       style={
         {
           "--card-color": color,
@@ -110,8 +110,8 @@ const PaymentCard = ({
           .animate-strock::after {
             position: absolute;
             content: '';
-            width: 350px;
-            height: 350px;
+            width: 310px;
+            height: 310px;
             background: var(--card-color);
             animation: spin-slow 8s linear infinite;
           }
@@ -120,7 +120,7 @@ const PaymentCard = ({
 
       <div
         style={{ background: bgcolor }}
-        className="z-30 w-[276px] mx-auto h-[146px] rounded-[16px] bg-secondary/60 flex flex-col justify-center items-center gap-3  transition-all duration-300"
+        className="z-30 w-[276px] mx-auto flex h-[146px] rounded-[16px]   flex-col justify-center items-center gap-3  transition-all duration-300"
       >
         <Image
           src={src}

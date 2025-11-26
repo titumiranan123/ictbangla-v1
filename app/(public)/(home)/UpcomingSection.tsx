@@ -17,11 +17,11 @@ const UpcomingCourse = async () => {
       style={{
         backgroundImage: "url('/assets/home/home_green_section_bg.svg')",
         margin: "0 mx-auto",
-        height: "795px",
+        height: "770px",
       }}
       className="mt-[100px] bg-no-repeat bg-cover bg-center"
     >
-      <div className="container py-[49px] ">
+      <div className="container py-[75px] ">
         <div
           data-aos="fade-up"
           data-aos-delay="300"
@@ -45,7 +45,7 @@ const UpcomingCourse = async () => {
         <div
           data-aos="fade-up"
           data-aos-delay="600"
-          className="relative mt-[89px]"
+          className="relative mt-[60px]"
         >
           <CommonCourseslider data={result ?? []} isWhite={true} />
         </div>

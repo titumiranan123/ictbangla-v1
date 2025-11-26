@@ -44,7 +44,7 @@ const TopCourseSection = async () => {
       <div
         data-aos="fade-up"
         data-aos-delay="600"
-        className="relative mt-[89px]"
+        className="relative mt-[69px]"
       >
         <CommonCourseslider data={result?.data ?? []} isWhite={false} />
       </div>

@@ -51,68 +51,57 @@ export const Coursedata = [
     tools_you_will_learn: [
       {
         sort_order: 1,
-        icon: "icon-image.svg",
+        icon: "course-details/adobe-premier-pro.png",
         titl: "Adobe Premier Pro",
         sub_title: null,
       },
       {
         sort_order: 2,
-        icon: "icon-image.svg",
+        icon: "course-details/adobe-after-effect.png",
         titl: "Adobe After Effect",
         sub_title: null,
       },
       {
         sort_order: 3,
-        icon: "icon-image.svg",
+        icon: "course-details/adobe-audition.png",
         titl: "Adobe Audition",
         sub_title: null,
       },
       {
         sort_order: 4,
-        icon: "icon-image.svg",
+        icon: "course-details/audacity-image.png",
         titl: "Audacity",
         sub_title: null,
       },
       {
         sort_order: 5,
-        icon: "icon-image.svg",
+        icon: "course-details/cap-cut.png",
         titl: "Capcut PC",
         sub_title: null,
       },
       {
         sort_order: 6,
-        icon: "icon-image.svg",
+        icon: "course-details/davinci-resolve.png",
         titl: "Davincy",
         sub_title: null,
       },
     ],
 
-    videos_images: [
+    course_intro: [
       {
         sort_order: 1,
         url: "https://youtu.be/7_hnYGWgyew?si=_oPel8CcoFFshkfT",
+        image: "https://i.postimg.cc/5tFgwPgs/nextgen.jpg",
       },
       {
         sort_order: 2,
         url: "https://youtu.be/DYMJ-Z51m_E?si=4n9H89my1pgBi2Qt",
+        image: "https://i.postimg.cc/k5tsxjsj/nextgen_2.jpg",
       },
       {
         sort_order: 3,
         url: "https://youtu.be/JzlxE_rPuzo?si=cwz0vGny_xR4GFp9",
-      },
-    ],
-    images: [
-      {
-        sort_order: 1,
-        url: "https://drive.google.com/file/d/1_MDt-XDPVXXLfqcWnkV5HxFXlwMlOTD-/view?usp=drive_link",
-      },
-      {
-        sort_order: 2,
-        url: "https://drive.google.com/file/d/11dxIpINItoZbZsBqapWzbFASxW0ZFquo/view?usp=drive_link",
-      },
-      {
-        sort_order: 3,
-        url: "https://drive.google.com/file/d/1K_ljBkEVawfCckebcBX9gQxl_LCzGKc7/view?usp=drive_link",
+        image: "https://i.postimg.cc/nLQ2vd2S/nextgen_3.jpg",
       },
     ],
 
@@ -517,13 +506,30 @@ export const Coursedata = [
         sort_order: 4,
         tabe_name: "ডেমো ক্লাস",
         demo_classes: [
-          { sort_order: 1, url: "democlass url" },
-          { sort_order: 2, url: "democlass url" },
-          { sort_order: 3, url: "democlass url" },
-          { sort_order: 4, url: "democlass url" },
-          { sort_order: 5, url: "democlass url" },
-          { sort_order: 6, url: "democlass url" },
-          { sort_order: 7, url: "democlass url" },
+          {
+            sort_order: 1,
+            url: "https://youtu.be/pLmGrZDoBuE?si=VJrzGx_5PUTv6vmo",
+          },
+          {
+            sort_order: 2,
+            url: "https://youtu.be/YyVhBw89hTI?si=wLrOy3CB75_Pb_9J",
+          },
+          {
+            sort_order: 3,
+            url: "https://youtu.be/yixyKnPEyxY?si=IMKcDdLsLjJLQCI2",
+          },
+          {
+            sort_order: 4,
+            url: "https://youtu.be/t6cFNWhElOU?si=mAjejoaIMK1XJ5hA",
+          },
+          {
+            sort_order: 5,
+            url: "https://youtu.be/PmBBZrYsnMw?si=_DsMa--d-noEqlg6",
+          },
+          {
+            sort_order: 6,
+            url: "https://youtu.be/uI6F14iKsFU?si=emuU106gnA0t4W0S",
+          },
         ],
       },
       {
@@ -533,7 +539,7 @@ export const Coursedata = [
         text_review: [
           {
             sort_order: 1,
-            studentImage: "/mnt/data/9758cee6-d038-429b-8a0b-b692700e2831.png",
+            studentImage: "course-details/faceless-male-avater.jpg",
             rating: 5,
             name: "মোঃ ইমরান হোসেন",
             designation: "Freelance Video Editor",
@@ -543,7 +549,7 @@ export const Coursedata = [
           },
           {
             sort_order: 2,
-            studentImage: "/images/students/student-2.png",
+            studentImage: "course-details/Faceless-female-avatar.png",
             rating: 5,
             name: "Nusrat Jahan",
             designation: "Content Creator",
@@ -553,27 +559,18 @@ export const Coursedata = [
           },
           {
             sort_order: 3,
-            studentImage: "/images/students/student-3.png",
+            studentImage: "course-details/faceless-male-avater.jpg",
             rating: 5,
-            name: "সাকিব রহমান",
+            name: "Sakib Rohoman",
             designation: "Junior Video Editor",
             batch: "2025-01",
             review:
               "The course is super easy to follow. আমি একদম নতুন ছিলাম, কিন্তু এখন confidently ক্লায়েন্টদের ভিডিও এডিটিং সার্ভিস দিতে পারছি। This course really boosted my confidence.",
           },
+
           {
             sort_order: 4,
-            studentImage: "/images/students/student-4.png",
-            rating: 5,
-            name: "Tanisha Akter",
-            designation: "Social Media Manager",
-            batch: "2025-01",
-            review:
-              "Video editing was always confusing for me, but this course changed everything. এখন আমি রিলস, শর্টস, টিকটক ভিডিও খুব smooth এ এডিট করতে পারি। The color grading tips are amazing!",
-          },
-          {
-            sort_order: 5,
-            studentImage: "/images/students/student-5.png",
+            studentImage: "course-details/faceless-male-avater.jpg",
             rating: 5,
             name: "আব্দুল্লাহ আল মাসুদ",
             designation: "Freelancer",
@@ -582,8 +579,18 @@ export const Coursedata = [
               "The practical tutorials helped me a lot. ভিডিও কাটিং, ট্রানজিশন, অডিও মিক্স—সব কিছুতে এখন অনেক confident। Now I'm getting more editing projects on Fiverr.",
           },
           {
+            sort_order: 5,
+            studentImage: "course-details/Faceless-female-avatar.png",
+            rating: 5,
+            name: "Tanisha Akter",
+            designation: "Social Media Manager",
+            batch: "2025-01",
+            review:
+              "Video editing was always confusing for me, but this course changed everything. এখন আমি রিলস, শর্টস, টিকটক ভিডিও খুব smooth এ এডিট করতে পারি। The color grading tips are amazing!",
+          },
+          {
             sort_order: 6,
-            studentImage: "/images/students/student-6.png",
+            studentImage: "course-details/Faceless-female-avatar.png",
             rating: 5,
             name: "Riya Sultana",
             designation: "Content Editor",
@@ -593,9 +600,9 @@ export const Coursedata = [
           },
           {
             sort_order: 7,
-            studentImage: "/images/students/student-7.png",
+            studentImage: "course-details/faceless-male-avater.jpg",
             rating: 5,
-            name: "মাহিন ইসলাম",
+            name: "Mahadi Islam",
             designation: "YouTuber",
             batch: "2025-01",
             review:
@@ -603,7 +610,7 @@ export const Coursedata = [
           },
           {
             sort_order: 8,
-            studentImage: "/images/students/student-8.png",
+            studentImage: "course-details/Faceless-female-avatar.png",
             rating: 5,
             name: "Shapla Khatun",
             designation: "Digital Marketing Executive",
@@ -613,9 +620,9 @@ export const Coursedata = [
           },
           {
             sort_order: 9,
-            studentImage: "/images/students/student-9.png",
+            studentImage: "course-details/faceless-male-avater.jpg",
             rating: 5,
-            name: "ফারহান তাহমিদ",
+            name: "Farhan Tamim",
             designation: "Motion Graphics Learner",
             batch: "2025-01",
             review:
@@ -623,9 +630,9 @@ export const Coursedata = [
           },
           {
             sort_order: 10,
-            studentImage: "/images/students/student-10.png",
+            studentImage: "course-details/faceless-male-avater.jpg",
             rating: 5,
-            name: "Maliha Tasnim",
+            name: "MD Saiful Islam",
             designation: "Aspiring Video Editor",
             batch: "2025-01",
             review:
@@ -633,18 +640,19 @@ export const Coursedata = [
           },
         ],
 
-        // success_viewo: [
-        //   {
-        //     sort_order: 1,
-        //     ratting: 5,
-        //     name: "Sihab Uddin Molla",
-        //     batch: "2025-01",
-        //     designation: "Digital Marketing expert",
-        //     student_image: "student iamage url",
-        //     video_url: "bangla video rul",
-        //   },
-        //
-        // ],
+        video_review: [
+          {
+            sort_order: 1,
+            ratting: 5,
+            name: "Arafat Hossain Rifat",
+            batch: "FC 2501",
+            designation: "Video editor",
+            student_image: "/course-details/faceless-male-avater.jpg",
+            video_url: "https://www.youtube.com/watch?v=Rnxp7UOGSpE",
+            video_thumbile:
+              "/course-details/video-edition-review-thumbile-1.jpg",
+          },
+        ],
       },
 
       {
@@ -765,7 +773,7 @@ export const Coursedata = [
       },
       {
         sort_order: 7,
-        tabe_name: "সার্টিফিকেট ",
+        tabe_name: "সার্টিফিকেট",
         section_title:
           "কোর্স টি সফল ভাবে শেষ করলে আপনার জন্য আছে সার্টিফিকেট যা আপনি",
         contents: [
@@ -822,45 +830,6 @@ export const Coursedata = [
             icon: "",
           },
         ],
-      },
-    ],
-
-    course_features: [
-      {
-        sort_order: 1,
-        icon: "learning.png",
-        title: "৩ মাসের স্টাডি প্ল্যান",
-        sub_title: null,
-      },
-      {
-        sort_order: 2,
-        icon: "live.png",
-        title: "ক্লাস নোটস",
-        sub_title: null,
-      },
-      {
-        sort_order: 3,
-        icon: "support.png",
-        title: "৪০ টি লাইভ ক্লাস",
-        sub_title: null,
-      },
-      {
-        sort_order: 4,
-        icon: "note.png",
-        title: "ফ্রিল্যান্সিং মার্কেটপ্লেস গাইডলাইন",
-        sub_title: null,
-      },
-      {
-        sort_order: 5,
-        icon: "freelencing.png",
-        title: "সাপ্তাহিক ৪দিন ক্লাস",
-        sub_title: null,
-      },
-      {
-        sort_order: 6,
-        icon: "certificate.png",
-        title: "এসেসমেন্ট ও সার্টিফিকেটে",
-        sub_title: null,
       },
     ],
 

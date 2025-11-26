@@ -5,7 +5,6 @@ import Statesection from "@/components/(home)/home/Statesection";
 import PartnerCompanyFast from "@/components/(home)/home/OurPatner";
 import Aboutinstructors from "@/components/(home)/about/old/Aboutinstructors";
 import HomeTestimonials from "@/components/(home)/home/HomeTestimonial";
-import Ourpatners from "@/components/(home)/home/Ourpatners";
 import Studenttestimonialsection from "@/components/(home)/home/Studenttestimonialsection";
 import Admission from "@/components/(home)/home/Admission";
 import Successsection from "@/components/(home)/home/Successsection";
