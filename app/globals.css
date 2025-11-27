@@ -233,20 +233,20 @@ html {
   /* border-top: 1px solid #122223 !important; */
 }
 
-.avatar .swiper-slide-active {
-  transform: scale(180px) !important;
+.avatars .swiper-slide-active {
+  transform: scale(1) !important;
   opacity: 100% !important;
 }
-.avatar .swiper-slide-active img {
+.avatars .swiper-slide-active img {
   @apply rounded-[30px] mx-auto transition-transform duration-300 w-[120px] h-[120px] !important;
 }
-.avatar .swiper-slide {
+.avatars .swiper-slide {
   height: 120px !important;
 }
-.avatar .swiper-slide img {
+.avatars .swiper-slide img {
   @apply rounded-[30px] mx-auto transition-transform duration-300  w-[100px] h-[100px] flex justify-center items-center;
 }
-.avatar .swiper-slide {
+.avatars .swiper-slide {
   opacity: 20%;
   display: flex !important;
   justify-content: center !important;

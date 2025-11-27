@@ -53,7 +53,7 @@ const SuccessClient: React.FC<Props> = ({ data }) => {
             }}
             className={`py-2 px-4 lg:px-6 transition-all duration-300 text-sm lg:text-base font-medium rounded-lg ${
               select === tab.id
-                ? "bg-[#3CB449] text-white shadow-md"
+                ? "bg-primary text-white shadow-md"
                 : "bg-gray-100 hover:bg-gray-200 text-textPrimary"
             }`}
           >

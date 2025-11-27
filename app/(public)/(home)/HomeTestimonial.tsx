@@ -162,7 +162,7 @@ const HomeTestimonials = () => {
               640: { slidesPerView: 4 },
               1024: { slidesPerView: 5, spaceBetween: 50 },
             }}
-            className="avatar"
+            className="avatars"
           >
             {avatars.map((avatar, index) => (
               <SwiperSlide key={index} className="cursor-pointer">
@@ -185,7 +185,7 @@ const HomeTestimonials = () => {
             />
           </button>
         </div>
-        <div data-aos="fade-up" data-aos-delay="700">
+        <div className="mt-3" data-aos="fade-up" data-aos-delay="700">
           <Swiper
             spaceBetween={20}
             slidesPerView={1}

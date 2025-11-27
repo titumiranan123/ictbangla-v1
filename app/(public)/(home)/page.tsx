@@ -30,6 +30,7 @@ import MobileTopCourse from "./MobileTopCourse";
 import MobileUpcomingbatch from "./MobileUpcomingbatch";
 import MobileRecordedCourse from "./MobileRecordedCourse";
 import MobileCoursebyCategory from "./MobileCoursebyCategory";
+import StepByStepBanner from "./Homestepchangetext";
 
 const HomePage = async () => {
   const result = await axios.get(
@@ -44,9 +45,11 @@ const HomePage = async () => {
     <>
       <section className="xl:hidden block">
         <MobileHerosection />
-        <p className="container mt-8 mb-8  w-full py-4 lg:py-3 text-center bg-[#F3F4F6] rounded-lg text-sm md:text-base lg:text-xl text-[#8A8A8A] font-medium tracking-[0.4px] whitespace-nowrap">
-          All Our banners are Open, Please click to view more
-        </p>
+        <div className="container mt-8">
+          <div className="   w-full py-3 bg-[#F3F4F6] rounded-lg ">
+            <StepByStepBanner />
+          </div>
+        </div>
         <MobileTopCourse />
         <MobileUpcomingbatch />
         <MobileRecordedCourse />
@@ -70,9 +73,7 @@ const HomePage = async () => {
         <Herosection />
         <div className="container mt-8">
           <div className="   w-full py-3 bg-[#F3F4F6] rounded-lg ">
-            <p className=" text-xl text-[#8A8A8A] font-medium  leading-[26px] english-text ms-[118px] ">
-              All Our banners are Open, Please click to view more
-            </p>
+            <StepByStepBanner />
           </div>
         </div>
         <TopCourseSection />

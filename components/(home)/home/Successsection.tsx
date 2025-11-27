@@ -208,9 +208,9 @@ const Successsection: React.FC = () => {
     <div className="container section">
       <div className="flex justify-center items-center flex-col text-center">
         <div data-aos="fade-up" data-aos-delay="300">
-          <h1 className="capitalize text-textPrimary text-5xl leading-[60px] font-bold mb-0">
+          <h2 className="capitalize text-textPrimary text-5xl leading-[60px] font-bold mb-0">
             সাফল্যের <span className="text-primary">গল্প</span>
-          </h1>
+          </h2>
           <Image
             className="mb-1 w-[80px] h-[12px] ms-44 -rotate-12"
             src={success}

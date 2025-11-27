@@ -5,10 +5,30 @@ import { useState } from "react";
 import IconImage from "../(additional pages)/about-us/iconImages";
 
 const steps = [
-  { id: 1, title: "Create an account", icon: "pencile_icon_primary.svg" },
-  { id: 2, title: "Select Course", icon: "data_check_icon.svg" },
-  { id: 3, title: "Enroll in the course", icon: "play_circle_button_icon.svg" },
-  { id: 4, title: "Open course dashboard", icon: "menubar_icon.svg" },
+  {
+    id: 1,
+    step: "১",
+    title: "একটি অ্যাকাউন্ট তৈরি করুন ",
+    icon: "pencile_icon_primary.svg",
+  },
+  {
+    id: 2,
+    step: "২",
+    title: "পছন্দের কোর্সটি সিলেক্ট করুন  ",
+    icon: "data_check_icon.svg",
+  },
+  {
+    id: 3,
+    step: "৩",
+    title: "কোর্সে এনরোল করুন ",
+    icon: "play_circle_button_icon.svg",
+  },
+  {
+    id: 4,
+    step: " ৪",
+    title: "কোর্স ড্যাশবোর্ড খুলুন  ",
+    icon: "menubar_icon.svg",
+  },
 ];
 
 const HowItWorkSection = () => {
@@ -66,7 +86,7 @@ const HowItWorkSection = () => {
                             isActive ? "text-white" : "text-[#8A8A8A]"
                           }`}
                         >
-                          Step {step?.id}
+                          স্টেপ {step?.step}
                         </p>
                         <h4
                           className={`text-2xl font-bold ${
