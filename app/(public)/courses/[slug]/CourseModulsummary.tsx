@@ -5,22 +5,22 @@ import React from "react";
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const CourseModulsummary = ({ modules }: { modules: any[] }) => {
   return (
-    <div className="grid gap-5 grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
+    <div className="grid gap-5 grid-cols-2 md:grid-cols-2 lg:grid-cols-5">
       {modules?.map((data, idx) => (
         <div
           key={idx}
-          className="relative md:w-[213px] w-[191px] h-[120px] md:h-[156px] border border-[#29AE48] rounded-[8px] flex flex-col items-center justify-center gap-1.5 overflow-hidden"
+          className="relative md:w-[189px] w-[189px] h-[126px] md:h-[126px] border border-[#29AE48] rounded-[8px] flex flex-col items-center justify-center gap-1.5 overflow-hidden"
         >
           {/* Corner Line */}
           <div className="absolute -top-[1px] -right-[1.1px] w-[45px] h-[45px] border-t-3 border-r-3 border-[#29AE48] rounded-tr-[8px]"></div>
 
           {/* Icon */}
           <Image
-            src={`/assets/icon/${data?.icon}`}
+            src={`${data?.icon}`}
             alt={data?.title}
-            width={60}
-            height={60}
-            className="text-[#29AE48] md:w-[60px] md:h-[60px] w-[40px] h-[40px]"
+            width={49}
+            height={49}
+            className="text-[#29AE48] md:w-[49px] md:h-[49px] w-[40px] h-[40px]"
           />
 
           {/* Quantity */}

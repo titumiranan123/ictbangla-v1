@@ -3,18 +3,20 @@
 
 import React from "react";
 import Image from "next/image";
+import { FaBehance, FaFacebook, FaLinkedin } from "react-icons/fa";
 
 const MentorCard: React.FC<any> = ({ mentor }) => {
+  console.log("mentor", mentor);
   return (
     <div
       data-aos="fade-up"
-      className="bg-white max-w-[291px] w-full h-[331px]  border-1 border-primary rounded-2xl p-3 flex flex-col items-center shadow-sm hover:shadow-md transition-all duration-300 mx-auto relative"
+      className="bg-white max-w-[291px] w-full h-[371px]  border-1 border-primary rounded-2xl p-3 flex flex-col items-center shadow-sm hover:shadow-md transition-all duration-300 mx-auto relative"
     >
       <div className="flex justify-between items-center gap-4">
         {/* Profile Image */}
 
         <Image
-          src={"/assets/instructor.png"}
+          src={mentor?.image ?? ""}
           alt={mentor?.name}
           width={60}
           height={60}
@@ -38,7 +40,7 @@ const MentorCard: React.FC<any> = ({ mentor }) => {
             {mentor?.name}
           </h3>
           <p className="text-gray-600 text-[12px] leading-[18px]">
-            {mentor?.speciality}
+            {mentor?.designation_2}
           </p>
         </div>
       </div>
@@ -48,8 +50,8 @@ const MentorCard: React.FC<any> = ({ mentor }) => {
           About
         </h4>
         <p className="text-sm text-gray-700 text-justify text-[12px] leading-[18px]">
-          {mentor?.about?.length > 170
-            ? `${mentor?.about?.slice(0, 170).trim()} …`
+          {mentor?.description?.length > 170
+            ? `${mentor?.description?.slice(0, 170).trim()} …`
             : mentor?.about}
         </p>
       </div>
@@ -58,21 +60,18 @@ const MentorCard: React.FC<any> = ({ mentor }) => {
       <div className="mt-5 flex a items-center justify-between w-full absolute left-0 bottom-5 px-3">
         <a
           href={mentor?.socials?.website || "#"}
-          className="bg-primary text-white px-4 py-2 rounded-md text-[12px] font-semibold hover:bg-primary transition-all"
+          className="bg-primary text-white px-4 py-2 rounded-md text-[12px] font-semibold hover:bg-primary hidden transition-all"
         >
           সব কোর্স দেখুন
         </a>
 
         <div className="flex gap-3 text-primary text-lg ">
-          {mentor?.socials?.map((sc: any, idx: number) => (
+          {mentor?.social_media?.map((sc: any, idx: number) => (
             <a key={idx} href={sc?.url} target="_blank">
-              <Image
-                src={"/assets/icon/fb.png"}
-                className="hover:text-green-700 transition-all"
-                alt="facebook"
-                width={24}
-                height={24}
-              />
+              {sc?.title == "Facebook" && <FaFacebook />}
+              {sc?.title == "behance" && <FaBehance />}
+              {sc?.title == "Linkedin" && <FaLinkedin />}
+              {sc?.title == "YouTube" && <FaLinkedin />}
             </a>
           ))}
         </div>

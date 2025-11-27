@@ -13,7 +13,7 @@ const Courseproject = ({ data }: { data: any }) => {
             key={idx}
             className="border flex justify-between items-center md:w-[245px] w-[90%] h-[71px]  border-primary rounded-lg p-4  mx-auto"
           >
-            <h2 className="font-[500] text-[14px] leading-[20px] text-textPrimary">
+            <h2 className="font-[700] text-[14px] leading-[20px] text-textPrimary">
               {dt?.title}
             </h2>
             <div className="bg-bg-secondary w-[87px] h-[49px] rounded-[8px]"></div>

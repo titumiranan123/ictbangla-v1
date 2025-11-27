@@ -70,7 +70,7 @@ const Courses = async ({ searchParams }: Props) => {
   const result = await res.json();
   // console.log("total data", result?.response?.length);
   const courseData = result;
-  console.log(courseData);
+
   // console.log(courseData?.response);
   // const instructorResult = await axios.get(
   //   `${process.env.NEXT_PUBLIC_API_URL}/v1/website/get/instructor-list`

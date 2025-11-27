@@ -181,7 +181,7 @@ const CourseNewDesign = ({
               </div>
             </div>
 
-            <div className="max-w-[360px] mt-10 h-[154px] bg-primary rounded-[8px] text-white flex justify-center items-center ">
+            <div className="max-w-[360px] mt-10 h-[154px] bg-primary rounded-[8px] text-white  justify-center items-center hidden">
               <h2 className="text-[40px] font-[700]">IMAGE 1</h2>
             </div>
             <div className="mt-5">
@@ -205,7 +205,7 @@ const CourseNewDesign = ({
             </div>
           </div>
           <div className="p-4">
-            <WhichYoulearn />
+            <WhichYoulearn tools={othersContent?.tools_you_will_learn} />
           </div>
         </div>
       </div>

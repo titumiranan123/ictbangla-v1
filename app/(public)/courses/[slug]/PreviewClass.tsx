@@ -13,9 +13,10 @@ import { FreeMode, Thumbs } from "swiper/modules";
 import { ArrowLeftCircle, ArrowRightCircle } from "lucide-react";
 import PluseIcon from "@/components/(home)/home/PulseIcon/PluseIcon";
 import ReactPlayer from "react-player";
+import Image from "next/image";
 
 function PreviewClass({ data }: { data: any }) {
-  console.log(data);
+  console.log("demo ", data);
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
   const mainSwiperRef = useRef<any>(null);
   const thumbsSwiperRef = useRef<any>(null);
@@ -150,20 +151,7 @@ function PreviewClass({ data }: { data: any }) {
         </style>
         {[...data?.demo_classes].map((vid, idx) => (
           <SwiperSlide key={idx}>
-            <ReactPlayer
-              className="object-cover w-full h-full "
-              url={vid?.url}
-              width={"100%"}
-              height={"100%"}
-              playIcon={
-                <div
-                  style={{ zIndex: 999 }}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                >
-                  <PluseIcon />
-                </div>
-              }
-            />
+            <Image src={vid?.thumbile} width={200} height={160} alt="idx" />
           </SwiperSlide>
         ))}
       </Swiper>

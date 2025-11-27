@@ -43,8 +43,8 @@ export default function CourseTopTimeCount({
   const formatTime = (num: number) => String(num).padStart(2, "0");
 
   return (
-    <div className="w-full mt-0 bg-primary text-white flex lg:flex-row flex-col items-center justify-center gap-4 lg:py-2.5 py-5">
-      <h4 className="md:text-2xl md:leading-[28px] md:flex hidden font-bold gap-2">
+    <div className="w-full mt-0 bg-primary text-white flex lg:flex-row flex-col items-center justify-center gap-4 lg:py-1.5 py-5">
+      <h4 className="md:text-xl md:leading-[28px] md:flex hidden font-bold gap-2">
         <span className="underline"> ICTBANGLA </span> প্রমো এপলাই করলে ৩৫%
         ডিসকাউন্ট আর বাকি
       </h4>

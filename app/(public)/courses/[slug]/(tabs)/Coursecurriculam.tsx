@@ -6,7 +6,7 @@ import Accordion from "./Accordion";
 import Image from "next/image";
 
 const Coursecurriculam = ({ data, tools }: { data: any; tools: any }) => {
-  console.log("toolstoolstools", tools);
+  console.log("toolstoolstools", data);
   return (
     <div>
       <div className="bg-[#F3F4F6] max-w-[882px]  w-full  rounded-[24px] lg:px-5 px-2 py-3 lg:py-5  ">
@@ -29,13 +29,13 @@ const Coursecurriculam = ({ data, tools }: { data: any; tools: any }) => {
           </h2>
           <div className="flex justify-center flex-wrap items-center gap-3 mt-6">
             {tools.length > 0 &&
-              tools.map((tl: any, idx: number) => (
+              tools?.map((tl: any, idx: number) => (
                 <span
                   key={idx}
                   className="w-[84px] h-[84px]  bg-bg-secondary border border-primary rounded-lg"
                 >
                   <Image
-                    src={`/${tl.icon}`}
+                    src={`${tl.icon}`}
                     alt={`${tl.titl}`}
                     width={80}
                     height={80}
