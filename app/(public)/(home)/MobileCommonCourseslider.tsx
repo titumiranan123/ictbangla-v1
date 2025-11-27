@@ -7,7 +7,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import { ArrowLeftCircle, ArrowRightCircle } from "lucide-react";
-import Coursecard from "./Coursecard";
+import Coursecard from "./mobile/Coursecard";
 const MobileCommonCourseslider: React.FC<{ data: any; isWhite?: boolean }> = ({
   data,
   isWhite = false,
@@ -150,7 +150,7 @@ const MobileCommonCourseslider: React.FC<{ data: any; isWhite?: boolean }> = ({
 
       <button
         disabled={isBeginning}
-        className=" absolute  -top-5 left-0  text-primary px-3 py-1 rounded-full z-10 disabled:cursor-not-allowed disabled:border-slate-400 disabled:text-slate-400"
+        className=" absolute  -top-12 left-0  text-primary px-3 py-1 rounded-full z-10 disabled:cursor-not-allowed disabled:border-slate-400 disabled:text-slate-400"
         onClick={() => swiperRef.current?.slidePrev()}
         aria-label="Previous slide"
       >
@@ -161,7 +161,7 @@ const MobileCommonCourseslider: React.FC<{ data: any; isWhite?: boolean }> = ({
       </button>
       <button
         disabled={isEnd}
-        className=" absolute -top-5 right-2     text-primary  z-10 disabled:cursor-not-allowed disabled:border-slate-400 disabled:text-slate-400"
+        className=" absolute -top-12 right-2     text-primary  z-10 disabled:cursor-not-allowed disabled:border-slate-400 disabled:text-slate-400"
         onClick={() => swiperRef.current?.slideNext()}
         aria-label="Next slide"
       >

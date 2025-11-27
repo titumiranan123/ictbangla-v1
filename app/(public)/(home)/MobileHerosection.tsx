@@ -3,7 +3,7 @@ import { CountingNumber } from "@/components/ui/shadcn-io/counting-number";
 const MobileHerosection = async () => {
   return (
     <>
-      <div className="pb-[38px] px-4 pt-4 bg-[#EAF7ED]">
+      <div className="pb-[38px] px-4 pt-12 bg-[#EAF7ED]">
         <div
           data-aos="fade-up"
           data-aos-delay="100"
@@ -42,7 +42,7 @@ const MobileHerosection = async () => {
           </button>
         </div>
 
-        <div className="flex justify-center gap-6 w-full mt-16 ">
+        <div className="flex justify-center gap-6 w-full mt-10 ">
           <div className="text-[#C0C9EA] text-end  h-full ">
             <div className="flex items-center  text-black-color  justify-end gap-1">
               <CountingNumber

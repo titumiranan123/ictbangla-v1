@@ -1,16 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Navigation } from "swiper/modules";
+import { FreeMode } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
-
-import { ArrowLeftCircle, ArrowRightCircle, ChevronRight } from "lucide-react";
+import { ArrowLeftCircle, ArrowRightCircle } from "lucide-react";
 import Image from "next/image";
-import Coursecard from "./Coursecard";
+import TabCategoryswiper from "./TabCategoryswiper";
 
 const MobileCoursebyCategory = ({
   categories,
@@ -54,35 +52,30 @@ const MobileCoursebyCategory = ({
       style={{
         background:
           "linear-gradient(90deg, #840000 0%, #D34242 49.52%, #840000 100%) ",
-        minHeight: "820px",
+        minHeight: "790px",
       }}
-      className=" sectionGap py-5"
+      className=" sectionGap py-5 mt-16"
     >
       <div className="container mx-auto ">
         <div data-aos="fade-up" data-aos-delay="300" className="text-center ">
-          <h2 className="text-xl font-bold bg-primary rounded-[50px] py-[10px] px-[32px] w-[257px] flex justify-center items-center -translate-y-24 ms-16 h-[57px] text-white mt-4">
+          <h2 className="text-xl font-bold bg-primary rounded-[50px] py-[10px] px-[32px] w-[257px] flex justify-center items-center -translate-y-16 ms-16 h-[57px] text-white mt-4">
             আমাদের কোর্স সমূহ
           </h2>
         </div>
-        <div className="relative  mt-0">
+        <div className="relative w-full  mt-0">
           {/* Categories Swiper */}
           <Swiper
             freeMode={true}
-            modules={[FreeMode, Navigation]}
-            slidesPerView={"auto"}
-            spaceBetween={10}
-            onSwiper={(swiper) => {
-              swiperRef.current = swiper;
-              setIsBeginning(swiper.isBeginning);
-              setIsBeginning(swiper.isEnd);
-            }}
+            modules={[FreeMode]}
+            slidesPerView={1.5}
+            spaceBetween={15}
             breakpoints={{
               480: {
-                slidesPerView: 1,
+                slidesPerView: 1.5,
                 spaceBetween: 10,
               },
               640: {
-                slidesPerView: 1,
+                slidesPerView: 1.5,
                 spaceBetween: 15,
               },
               768: {
@@ -94,11 +87,11 @@ const MobileCoursebyCategory = ({
                 spaceBetween: 22,
               },
               1024: {
-                slidesPerView: 5,
+                slidesPerView: 4,
                 spaceBetween: 25,
               },
               1280: {
-                slidesPerView: 6,
+                slidesPerView: 5,
                 spaceBetween: 30,
               },
             }}
@@ -108,17 +101,18 @@ const MobileCoursebyCategory = ({
               ?.slice()
               ?.reverse()
               ?.map((category: any) => (
-                <SwiperSlide style={{ width: "100%" }} key={category._id}>
+                <SwiperSlide key={category._id}>
                   <div
-                    className={`relative mx-auto  max-w-[360px]   h-[75px] flex justify-between px-4 items-center  rounded-xl  overflow-hidden p-[2px] transition-all  group hover:bg-primary  ${
-                      category._id === filterKey ? "bg-primary" : "bg-neutral"
+                    key={category._id}
+                    className={`relative mx-auto  max-w-[280px] w-full   max-h-[80px] flex justify-between px-[10px] py-[18px]  items-center  rounded-xl  overflow-hidden p-[2px] transition-all  group hover:bg-primary  ${
+                      category._id === filterKey ? "bg-primary" : "bg-white"
                     }`}
                   >
                     <div
-                      className={`w-[64px] flex justify-center items-center flex-col gap-1 h-16 rounded-full  p-2  ${
+                      className={`w-[54px] flex justify-center items-center flex-col gap-1 h-[54px] rounded-full  p-2  ${
                         category._id !== filterKey
                           ? "bg-[#707070] group-hover:bg-white"
-                          : "bg-neutral"
+                          : "bg-white"
                       }`}
                     >
                       <Image
@@ -127,26 +121,17 @@ const MobileCoursebyCategory = ({
                         width={16}
                         height={16}
                       />
-                      <p
-                        className={`text-[8px]   ${
-                          category._id !== filterKey
-                            ? "text-white group-hover:text-primary"
-                            : "text-[#707070]"
-                        }`}
-                      >
-                        All Course
-                      </p>
                     </div>
                     <button
                       onClick={() => setFilterKey(category._id)}
-                      className={`w-[196px] h-[71px] z-50 strock cursor-pointer rounded-xl group transition-all duration-300 ease-in-out text-center  ${
+                      className={`w-[196px] h-[54px] z-50 strock cursor-pointer rounded-xl group transition-all duration-300 ease-in-out text-center  ${
                         category._id === filterKey
                           ? "text-white   "
                           : " text-[#8A8A8A]  hover:text-white  "
                       }`}
                     >
                       <p
-                        className={`font-medium text-xl  text-left line-clamp-4 group-hover:text-white ${
+                        className={`font-medium text-xl  text-left line-clamp-4 capitalize group-hover:text-white ${
                           category._id === filterKey
                             ? "text-white "
                             : " text-[#8A8A8A] "
@@ -154,7 +139,7 @@ const MobileCoursebyCategory = ({
                       >
                         {category.title}
                       </p>
-                      <div className="text-sm mt-1 flex gap-4 items-center justify-start">
+                      <div className="text-sm mt-1 flex gap-1 items-center justify-start">
                         <span
                           className={`w-2 h-2 rounded-full  group-hover:bg-white ${
                             category._id === filterKey
@@ -177,33 +162,17 @@ const MobileCoursebyCategory = ({
                 </SwiperSlide>
               ))}
           </Swiper>
-          {/* Custom Navigation Arrows */}
-          <button
-            disabled={isBeginning}
-            onClick={() => swiperRef.current?.slidePrev()}
-            className="absolute top-24 md:-top-14 left-0 z-10 text-primary disabled:text-slate-400"
-          >
-            <ArrowLeftCircle className="w-6 h-6" />
-          </button>
-
-          {/* Next Button */}
-          <button
-            disabled={isEnd}
-            onClick={() => swiperRef.current?.slideNext()}
-            className="absolute top-24 md:-top-10 right-0 z-10 text-primary disabled:text-slate-400"
-          >
-            <ArrowRightCircle className="w-6 h-6" />
-          </button>
         </div>
         <div className="flex justify-center items-center">
           {/* Courses Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6  mt-10 mb-10 ">
+          <div className="  mt-16  relative  w-full">
             {filteredData.length === 0 && (
               <div className="min-h-36 h-auto w-full flex justify-center items-center col-span-4">
                 Comming soon ......
               </div>
             )}
-            {filteredData?.slice(0, 4).map((course: any, idx: number) => (
+            <TabCategoryswiper data={filteredData} />
+            {/* {filteredData?.slice(0, 4).map((course: any, idx: number) => (
               <div
                 data-aos="fade-up"
                 data-aos-delay={100 + idx * 100}
@@ -211,26 +180,26 @@ const MobileCoursebyCategory = ({
               >
                 <Coursecard data={course} />
               </div>
-            ))}
+            ))} */}
+            {/* Custom Navigation Arrows */}
+            <button
+              disabled={isBeginning}
+              onClick={() => swiperRef.current?.slidePrev()}
+              className="absolute -top-10 left-0 z-10 text-primary disabled:text-slate-400"
+            >
+              <ArrowLeftCircle className="w-6 h-6" />
+            </button>
+
+            {/* Next Button */}
+            <button
+              disabled={isEnd}
+              onClick={() => swiperRef.current?.slideNext()}
+              className="absolute -top-10 right-0 z-10 text-primary disabled:text-slate-400"
+            >
+              <ArrowRightCircle className="w-6 h-6" />
+            </button>
           </div>
         </div>
-
-        {/* View More Button */}
-        {filteredData?.length > 4 && (
-          <div
-            data-aos="fade-up"
-            data-aos-delay="300"
-            className="text-center mt-10"
-          >
-            <Link
-              href={`/courses?category=${filterKey}`}
-              className="inline-flex items-center px-6 py-3 bg-[#1cab55] text-white rounded-lg hover:bg-[#16d43b] transition-colors"
-            >
-              আরও কোর্স দেখুন
-              <ChevronRight className="ml-2" />
-            </Link>
-          </div>
-        )}
       </div>
     </div>
   );

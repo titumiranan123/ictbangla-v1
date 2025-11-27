@@ -55,7 +55,7 @@ const data = [
 ];
 const MobileTeacher = () => {
   return (
-    <div className="">
+    <div className="mt-10">
       <div className=" container">
         <div className="flex items-end justify-between mb-14">
           <h2 className="text-[24px] font-bold text-black-color w-full  text-center">
@@ -63,7 +63,7 @@ const MobileTeacher = () => {
           </h2>
         </div>
 
-        <div data-aos="fade-up" data-aos-delay="300" className="mt-10">
+        <div data-aos="fade-up" data-aos-delay="300" className="mt-16">
           <MobileTeacherSection data={data} />
         </div>
         <div className="w-full flex items-center justify-end">

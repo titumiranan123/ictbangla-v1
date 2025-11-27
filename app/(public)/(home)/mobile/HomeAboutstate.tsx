@@ -16,7 +16,7 @@ const HomeAboutstate = async () => {
     return null;
   }
   return (
-    <div className="bg-[#F3F4F6] h-full pb-[62px]  sectionGap px-5">
+    <div className="bg-[#F3F4F6] h-full pb-[62px] mt-10  sectionGap px-5">
       <Image
         data-aos="fade-up"
         data-aos-delay="300"
@@ -30,14 +30,14 @@ const HomeAboutstate = async () => {
         <h1
           data-aos="fade-up"
           data-aos-delay="400"
-          className="text-black-color font-bold text-xl text-center w-full"
+          className="text-black-color font-bold text-xl lg:text-center text-left w-full"
         >
           {stateSection.title}
         </h1>
         <p
           data-aos="fade-up"
           data-aos-delay="500"
-          className="text-text-secondary text-sm mt-3 text-center w-full"
+          className="text-text-secondary text-sm mt-3 lg:text-center text-left w-full"
         >
           {stateSection.sub_title}
         </p>

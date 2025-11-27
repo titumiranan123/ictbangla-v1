@@ -6,7 +6,7 @@ import IconImage from "../about-us/iconImages";
 const TeamMembersCard = ({ member }: { member: any }) => {
   return (
     <>
-      <div className="border border-[#DFDFDF] rounded-2xl p-5 group hover:border-1 hover:border-primary transition duration-700 ease-in-out">
+      <div className="border border-[#DFDFDF] rounded-2xl p-5 group hover:border-1 hover:border-primary transition duration-700 ease-in-out w">
         <div className="w-full h-[311px] bg-[#F3F4F6] rounded-xl bg-gradient-to-b from-[#EAF7ED] to-[#BDE6C6] relative">
           <div className="h-[270px] mx-auto w-[243px]  absolute bottom-0 left-1/2 -translate-x-1/2">
             <Image

@@ -52,11 +52,18 @@ const Aboutcomunity = () => {
             className="-translate-x-8"
           />
           <Image
-            src={"/assets/user-1.png"}
+            src={"/assets/user-4.png"}
             alt="user"
             width={40}
             height={40}
             className="-translate-x-11"
+          />
+          <Image
+            src={"/assets/user-5.png"}
+            alt="user"
+            width={40}
+            height={40}
+            className="-translate-x-14"
           />
           <p className=" lg:text-[24px] lg:leading-[32px] leading-[16px] text-[20px] text-[#29AE48] font-bold -ms-8">
             <CountingNumber

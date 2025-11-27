@@ -6,8 +6,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import { Autoplay, Pagination } from "swiper/modules";
-import InstructorCard from "../InstructorCard";
 import { ArrowLeftCircle, ArrowRightCircle } from "lucide-react";
+import TeamMembersCard from "../../(additional pages)/our-teams/teamMembersCard";
 
 const MobileTeacherSection: React.FC<{ data: any }> = ({ data }) => {
   const swiperRef = useRef<any>(null);
@@ -20,7 +20,7 @@ const MobileTeacherSection: React.FC<{ data: any }> = ({ data }) => {
     }
   }, [data]);
   return (
-    <div className="relative">
+    <div className="relative ">
       <Swiper
         slidesPerView={1}
         spaceBetween={10}
@@ -73,7 +73,7 @@ const MobileTeacherSection: React.FC<{ data: any }> = ({ data }) => {
  `}</style>
         {data?.map((instructor: any, idx: number) => (
           <SwiperSlide key={idx}>
-            <InstructorCard />
+            <TeamMembersCard member={instructor} />
           </SwiperSlide>
         ))}
       </Swiper>

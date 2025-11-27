@@ -7,16 +7,10 @@ import HomeAboutstate from "./mobile/HomeAboutstate";
 import MobileAboutCommunity from "./mobile/MobileAboutComunity";
 import MobileAdditionSection from "./mobile/MobileAdditionSection";
 import MobileCertificateSection from "./mobile/MobileCertificateSection";
-import MobileCoursebyCategory from "./mobile/MobileCoursebyCategory";
-import MobileHerosection from "./mobile/MobileHerosection";
 import MobileInfluncerTestimonial from "./mobile/MobileInfluncerTestimonial";
 import MobilePaymentMethod from "./mobile/MobilePaymentMethod";
-import MobileRecordedCourse from "./mobile/MobileRecordedCourse";
-import MobileSkillTravelSection from "./mobile/MobileSkillTravelSection";
 import MobileSuccessStory from "./mobile/MobileSucessStory";
 import MobileTeacher from "./mobile/MobileTeacher";
-import MobileTopCourse from "./mobile/MobileTopCourse";
-import MobileUpcomingbatch from "./mobile/MobileUpcomingbatch";
 import PartnerCompanyFast from "./PartnerCompanyFast";
 import Paymentmethod from "./Paymentmethod";
 import RecordedCourse from "./RecordedCourse";
@@ -31,6 +25,11 @@ import CourseSlider from "./SwiperTab";
 import axios from "axios";
 import HowItWorkSection from "./howItWorkSection";
 import Successsection from "@/components/(home)/home/Successsection";
+import MobileHerosection from "./MobileHerosection";
+import MobileTopCourse from "./MobileTopCourse";
+import MobileUpcomingbatch from "./MobileUpcomingbatch";
+import MobileRecordedCourse from "./MobileRecordedCourse";
+import MobileCoursebyCategory from "./MobileCoursebyCategory";
 
 const HomePage = async () => {
   const result = await axios.get(
@@ -45,7 +44,7 @@ const HomePage = async () => {
     <>
       <section className="xl:hidden block">
         <MobileHerosection />
-        <p className="container mt-8  w-full py-4 lg:py-3 text-center bg-[#F3F4F6] rounded-lg text-sm md:text-base lg:text-xl text-[#8A8A8A] font-medium tracking-[0.4px] whitespace-nowrap">
+        <p className="container mt-8 mb-8  w-full py-4 lg:py-3 text-center bg-[#F3F4F6] rounded-lg text-sm md:text-base lg:text-xl text-[#8A8A8A] font-medium tracking-[0.4px] whitespace-nowrap">
           All Our banners are Open, Please click to view more
         </p>
         <MobileTopCourse />
@@ -55,9 +54,8 @@ const HomePage = async () => {
           categories={resultcat?.data}
           courseData={result?.data?.response}
         />
-        <MobileSkillTravelSection />
-        <HomeAboutstate />
 
+        <HomeAboutstate />
         <MobileTeacher />
         <MobileInfluncerTestimonial />
         {/* <Ourpatners /> */}
