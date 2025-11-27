@@ -4,7 +4,7 @@ import React from "react";
 
 const MobileAboutCommunity = () => {
   return (
-    <div className=" max-w-[600px] mx-auto sectionGap  flex justify-center items-center flex-col px-4">
+    <div className=" max-w-[600px] mx-auto sectionGap  flex justify-center items-center flex-col px-4 mt-10">
       <h2 className="text-[24px] text-center font-bold text-primary mb-4 ">
         শেখার সবচেয়ে বড় কমিউনিটিতে যোগদান করুন
       </h2>

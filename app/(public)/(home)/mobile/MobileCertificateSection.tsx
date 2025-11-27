@@ -19,7 +19,7 @@ const MobileCertificateSection: React.FC = async () => {
   }
 
   return (
-    <section className=" text-center px-5">
+    <section className=" text-center px-5 mt-10">
       <h2
         data-aos="fade-up"
         data-aos-delay="100"

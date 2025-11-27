@@ -4,12 +4,10 @@ import CertificateSection from "./Certificatesection";
 import Herosection from "./Herosection";
 import "./home.style.css";
 import HomeAboutstate from "./mobile/HomeAboutstate";
-import MobileAboutCommunity from "./mobile/MobileAboutComunity";
 import MobileAdditionSection from "./mobile/MobileAdditionSection";
 import MobileCertificateSection from "./mobile/MobileCertificateSection";
 import MobileInfluncerTestimonial from "./mobile/MobileInfluncerTestimonial";
 import MobilePaymentMethod from "./mobile/MobilePaymentMethod";
-import MobileSuccessStory from "./mobile/MobileSucessStory";
 import MobileTeacher from "./mobile/MobileTeacher";
 import PartnerCompanyFast from "./PartnerCompanyFast";
 import Paymentmethod from "./Paymentmethod";
@@ -45,8 +43,8 @@ const HomePage = async () => {
     <>
       <section className="xl:hidden block">
         <MobileHerosection />
-        <div className="container mt-8">
-          <div className="   w-full py-3 bg-[#F3F4F6] rounded-lg ">
+        <div className="container mt-8 mb-8">
+          <div className=" w-full py-3 lg:px-0 px-1 bg-[#F3F4F6] rounded-lg ">
             <StepByStepBanner />
           </div>
         </div>
@@ -63,11 +61,23 @@ const HomePage = async () => {
         <MobileInfluncerTestimonial />
         {/* <Ourpatners /> */}
         <MobileAdditionSection />
-        <MobileSuccessStory />
+        <Successsection />
         <MobileCertificateSection />
         {/* <MobileBlogSection /> */}
         <MobilePaymentMethod />
-        <MobileAboutCommunity />
+        <Aboutcomunity />
+        {/* Hero Image with Layout Stability */}
+        <div className="container lg:h-[480px] overflow-hidden flex justify-center items-center mt-10 ">
+          <Image
+            src={"/assets/aboutlocation.svg"}
+            alt={"about"}
+            width={900}
+            height={400}
+            className="lg:h-[400px] max-w-[900px] w-full"
+            layout="intrinsic" // Ensures image dimensions are known before loading
+            priority // Preloads the image for faster display
+          />
+        </div>
       </section>
       <section className="xl:block hidden ">
         <Herosection />

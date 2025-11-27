@@ -7,7 +7,7 @@ import Image from "next/image";
 import React from "react";
 const MobilePaymentMethod = () => {
   return (
-    <div className="mt-5 container ">
+    <div className="mt-10 container ">
       <div className="flex flex-col justify-center items-center text-center">
         <h1
           data-aos="fade-up"

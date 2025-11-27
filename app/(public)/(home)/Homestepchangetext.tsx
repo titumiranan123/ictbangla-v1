@@ -34,18 +34,16 @@ export default function StepByStepBanner() {
   }, [currentStep, steps.length]);
 
   return (
-    <div className="container mx-auto ">
-      <p
-        className={`text-xl text-[#8A8A8A] font-medium  leading-[26px] english-text ms-[118px] transition-all duration-700 ${
-          fadeState === "fade-in"
-            ? "opacity-0"
-            : fadeState === "visible"
-            ? "opacity-100"
-            : "opacity-0"
-        }`}
-      >
-        {steps[currentStep]}
-      </p>
-    </div>
+    <p
+      className={`text-xl text-[#8A8A8A] font-medium  leading-[26px] english-text lg:ms-[118px] h-[70px] md:h-auto ms-3 transition-all duration-700 ${
+        fadeState === "fade-in"
+          ? "opacity-0"
+          : fadeState === "visible"
+          ? "opacity-100"
+          : "opacity-0"
+      }`}
+    >
+      {steps[currentStep]}
+    </p>
   );
 }

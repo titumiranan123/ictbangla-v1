@@ -5,7 +5,7 @@ import React from "react";
 
 const Aboutcomunity = () => {
   return (
-    <div className=" max-w-[1000px] mx-auto sectionGap  flex justify-center items-center flex-col lg:mt-[100px]">
+    <div className=" max-w-[1000px] mx-auto sectionGap  flex justify-center items-center flex-col lg:mt-[100px] mt-10">
       <h2 className="text-[24px] md:text-[40px] lg:text-[48px] text-center font-bold text-[#29AE48] lg:leading-[60px] md:leading-[52px] leading-[32px] mb-6 ">
         শেখার সবচেয়ে বড় <br /> কমিউনিটিতে যোগদান করুন
       </h2>

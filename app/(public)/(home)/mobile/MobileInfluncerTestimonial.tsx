@@ -137,13 +137,6 @@ const MobileInfluncerTestimonial = () => {
               <br /> ICTBangla
             </span>
           </h1>
-          <p
-            data-aos="fade-up"
-            data-aos-delay="500"
-            className=" text-text-secondary mt-2 mb-8 w-[75%] text-sm font-medium tracking-[0.4px]"
-          >
-            Hear from our satisfied clients around the world.
-          </p>
         </div>
 
         <div

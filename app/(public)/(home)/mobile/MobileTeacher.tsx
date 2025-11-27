@@ -66,7 +66,7 @@ const MobileTeacher = () => {
         <div data-aos="fade-up" data-aos-delay="300" className="mt-16">
           <MobileTeacherSection data={data} />
         </div>
-        <div className="w-full flex items-center justify-end">
+        <div className="w-full mt-8 flex items-center justify-end">
           <button
             className="text-primary text-[20px] font-bold flex items-center gap-2 cursor-pointer mt-4"
             type="button"
