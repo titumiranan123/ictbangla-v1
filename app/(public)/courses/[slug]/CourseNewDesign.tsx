@@ -18,6 +18,7 @@ import CourseTopTimeCount from "./CourseTopTimeCount";
 import CoursePageHolder from "../(old design)/CoursePageHolder";
 import Admissionnow from "./Admissionnow";
 import Countdown from "./Ofercountdown";
+import RightSideLeadsubmit from "./RightSideLeadsubmit";
 
 const CourseNewDesign = ({
   data,
@@ -148,7 +149,10 @@ const CourseNewDesign = ({
             )}
           {othersContent?.target_audience !== undefined &&
             othersContent?.target_audience?.length > 0 && (
-              <Whomeneeds target_audience={othersContent?.target_audience} />
+              <Whomeneeds
+                target_audience={othersContent?.target_audience}
+                courseId={data?._id}
+              />
             )}
         </div>
         {/* right part  */}
@@ -167,16 +171,7 @@ const CourseNewDesign = ({
               <p className="text-primary font-bold text-center text-[16px]">
                 কোর্স সংক্রান্ত আরও তথ্য জানতে
               </p>
-              <div className="flex justify-between gap-2 mt-3">
-                <input
-                  type="text"
-                  className="border border-[#9DCAB0] focus:outline-none outline-none rounded-[8px] px-3 flex-1"
-                  placeholder="ফোন নাম্বার দিন"
-                />
-                <button className="text-[14px] rounded-lg w-[110px] py-3 px-2 bg-primary hover:bg-primary text-white font-bold">
-                  সাবমিট
-                </button>
-              </div>
+              <RightSideLeadsubmit courseId={data?._id} />
             </div>
             <div className="max-w-[357px] w-full max-h-[269px] h-full relative mb-4 mt-4">
               <div className="w-[357px] h-[269px] rounded-[8.13px]">

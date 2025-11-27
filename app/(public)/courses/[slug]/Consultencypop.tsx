@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import Image from "next/image";
@@ -5,8 +6,11 @@ import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import CustomInputField from "./customInputField";
 import IconImage from "../../(additional pages)/about-us/iconImages";
+import { api_url } from "@/hooks/apiurl";
+import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
-const Consultencypop = () => {
+const Consultencypop = ({ courseId }: { courseId?: string }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -31,6 +35,54 @@ const Consultencypop = () => {
       document.body.style.overflow = "auto";
     };
   }, [isOpen]);
+
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async () => {
+    if (!phone.trim()) {
+      toast.error("Please enter your phone number !");
+      return;
+    }
+    if (!name.trim()) {
+      toast.error("Please enter your name ! ");
+      return;
+    }
+    if (!email.trim()) {
+      toast.error("Please enter your email !");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      const res = await api_url.post(
+        "/v1/website/submit-phone-under-course-details",
+        {
+          course_id: courseId,
+          number: phone,
+          email: email,
+          name: name,
+        }
+      );
+
+      if (res.status === 200 || res.status === 201) {
+        setPhone("");
+        setEmail("");
+        setName("");
+        Swal.fire({
+          icon: "success",
+          title: "সফলভাবে সাবমিট হয়েছে!",
+          text: "আমাদের টিম খুব শীঘ্রই আপনার সঙ্গে যোগাযোগ করবে।",
+          confirmButtonText: "ঠিক আছে!",
+          confirmButtonColor: "#29AE48",
+        });
+      }
+    } catch (error: any) {
+      console.error(error);
+      toast.error(error?.response?.data?.message || "Something went wrong!");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const ModalContent = () => (
     <div
@@ -90,7 +142,7 @@ const Consultencypop = () => {
             কল বুক করুন
           </h4>
 
-          <div className="mt-5 space-y-4">
+          <form onSubmit={() => handleSubmit()} className="mt-5 space-y-4">
             <CustomInputField
               value={name}
               setValue={setName}
@@ -116,11 +168,13 @@ const Consultencypop = () => {
               showLabel
               placeholder="মোবাইল নম্বর বসান"
             />
-          </div>
-
-          <button className="w-full button-primary mt-6 py-3 px-4 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors">
-            এখনই সময়সূচী নির্ধারণ করুন
-          </button>
+            <button
+              disabled={loading}
+              className="w-full button-primary mt-6 py-3 px-4 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors disabled:cursor-not-allowed"
+            >
+              এখনই সময়সূচী নির্ধারণ করুন
+            </button>
+          </form>
         </div>
 
         {/* Close Button */}

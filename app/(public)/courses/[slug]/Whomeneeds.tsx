@@ -1,9 +1,15 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { CircleCheck } from "lucide-react";
 import React from "react";
 import Consultencypop from "./Consultencypop";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Whomeneeds = ({ target_audience }: { target_audience: any[] }) => {
+const Whomeneeds = ({
+  target_audience,
+  courseId,
+}: {
+  target_audience: any[];
+  courseId: string;
+}) => {
   return (
     <div className="bg-neutral  rounded-lg border border-primary p-8 mt-14">
       <h2 className="text-[24px]  text-primary font-[600]">কাদের প্রয়োজন</h2>
@@ -17,7 +23,7 @@ const Whomeneeds = ({ target_audience }: { target_audience: any[] }) => {
           </div>
         ))}
       </div>
-      <Consultencypop />
+      <Consultencypop courseId={courseId} />
     </div>
   );
 };

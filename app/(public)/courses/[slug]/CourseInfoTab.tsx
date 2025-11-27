@@ -131,7 +131,7 @@ const CourseInfoTab: React.FC<CourseInfoTabProps> = ({ tabs, data, tools }) => {
   return (
     <div className="mb-8 max-w-[982px] w-full relative ">
       {/* TOP TAB BAR */}
-      <div className="top-20 sticky z-10 bg-white/10 pb-2 backdrop-blur-lg">
+      <div className="top-20 sticky z-20 bg-white/10 pb-2 backdrop-blur-lg">
         <ScrollableTabs
           tabs={tabs}
           activeIndex={active}

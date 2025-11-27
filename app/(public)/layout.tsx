@@ -1,9 +1,9 @@
 import SmoothFollower from "@/components/(home)/cursor/Followercursor";
 import Footer from "@/components/(home)/footer/Footer";
 import Navbar from "@/components/(home)/Navbar/Navbar";
-import TopBar from "@/components/(home)/Navbar/Topbar";
 import FacebookChat from "@/components/(home)/socialbot/Messanger";
 import WhatsAppChatLink from "@/components/(home)/socialbot/WhatsappChatbot";
+import Topbar from "./Topbar";
 
 const RootLayout = ({
   children,
@@ -12,11 +12,8 @@ const RootLayout = ({
 }>) => {
   return (
     <main>
-      <div className="sticky top-0 z-[20] bg-white transition-all duration-300">
-        <TopBar />
-      </div>
-
       {/* Navbar */}
+      <Topbar />
       <header className="sticky top-0 z-[50] bg-white/70 backdrop-blur-md">
         <Navbar />
       </header>

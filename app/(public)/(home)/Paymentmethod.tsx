@@ -43,7 +43,7 @@ const Paymentmethod = () => {
             src={bkash}
             number={"01973-173371"}
             bgcolor="#FFDDDD"
-            color="conic-gradient(rgb(228, 79, 38) 20deg, transparent 120deg)"
+            color="conic-gradient(#E2136E 20deg, transparent 120deg)"
           />
         </div>
         <div data-aos="fade-up" data-aos-delay="600">
@@ -61,7 +61,7 @@ const Paymentmethod = () => {
             className="w-[130px] h-[45px]"
             src={nogad}
             number={"01973-173371"}
-            color="conic-gradient(rgb(245, 222, 25) 20deg, transparent 120deg)"
+            color="conic-gradient(#F6921E  20deg, transparent 120deg)"
             bgcolor="#FFEEE3"
           />
         </div>

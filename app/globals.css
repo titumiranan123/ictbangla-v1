@@ -232,7 +232,16 @@ html {
   height: 200px !important;
   /* border-top: 1px solid #122223 !important; */
 }
+.react-tel-input .flag-dropdown {
+  border-bottom-left-radius: 10px !important;
+  border-top-left-radius: 10px !important;
+}
 
+.react-tel-input .flag-dropdown .selected-flag {
+  background-color: #eaf7ed !important;
+  border-bottom-left-radius: 10px !important;
+  border-top-left-radius: 10px !important;
+}
 .avatars .swiper-slide-active {
   transform: scale(1) !important;
   opacity: 100% !important;
