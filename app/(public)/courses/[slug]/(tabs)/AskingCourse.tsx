@@ -6,7 +6,6 @@ import AskingAccordion from "./AskingAccordion";
 import Image from "next/image";
 
 const AskingCourse = ({ data }: { data: any }) => {
-  console.log("asking course ", data);
   const [isAsking, setAsking] = useState(true);
   return (
     <div className="  w-full bg-[#F3F4F6] rounded-[24px] lg:px-10 px-2 py-3 lg:py-11">

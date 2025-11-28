@@ -10,7 +10,7 @@ const StudentReviewTab = ({ isText, setIsText }: any) => {
         <div className="flex justify-between gap-10 items-center w-full px-10 mb-2">
           <button
             className={`transition-all cursor-pointer duration-300 text-[16px] md:text-[18px] ${
-              isText
+              !isText
                 ? "text-green-600 font-semibold"
                 : "text-gray-500 font-semibold"
             }`}
@@ -20,7 +20,7 @@ const StudentReviewTab = ({ isText, setIsText }: any) => {
           </button>
           <button
             className={`transition-all duration-300 cursor-pointer md:text-[18px] ${
-              !isText
+              isText
                 ? "text-green-600 font-semibold"
                 : "text-gray-500 font-semibold"
             }`}

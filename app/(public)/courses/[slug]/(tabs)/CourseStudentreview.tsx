@@ -59,7 +59,6 @@ import PluseIcon from "@/components/(home)/home/PulseIcon/PluseIcon";
 // ];
 
 export default function CourseStudentReview({ reviews }: { reviews: any }) {
-  console.log("reviews", reviews);
   const [isText, setIsText] = useState(true);
   const [index, setIndex] = useState(3);
   return (

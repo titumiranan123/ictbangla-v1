@@ -1797,7 +1797,7 @@ export const Coursedata = [
       },
       {
         sort_order: 6,
-        tabe_name: "জিজ্ঞাসা ",
+        tabe_name: "জিজ্ঞাসা",
         common_faq: [
           {
             sort_order: 1,
@@ -1907,7 +1907,7 @@ export const Coursedata = [
       },
       {
         sort_order: 7,
-        tabe_name: "সার্টিফিকেট ",
+        tabe_name: "সার্টিফিকেট",
         section_title:
           "কোর্স টি সফল ভাবে শেষ করলে আপনার জন্য আছে সার্টিফিকেট যা আপনি",
         contents: [
@@ -3101,7 +3101,7 @@ export const Coursedata = [
 
       {
         sort_order: 6,
-        tabe_name: "জিজ্ঞাসা ",
+        tabe_name: "জিজ্ঞাসা",
         common_faq: [
           {
             sort_order: 1,
@@ -3217,7 +3217,7 @@ export const Coursedata = [
       },
       {
         sort_order: 7,
-        tabe_name: "সার্টিফিকেট ",
+        tabe_name: "সার্টিফিকেট",
         section_title:
           "কোর্স টি সফল ভাবে শেষ করলে আপনার জন্য আছে সার্টিফিকেট যা আপনি",
         contents: [

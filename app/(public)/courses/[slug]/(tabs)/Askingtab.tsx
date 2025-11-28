@@ -24,7 +24,7 @@ const Askingtab = ({
         </button>
         <button
           className={`transition-all duration-300 ${
-            isActive
+            !isActive
               ? "text-green-600 font-semibold"
               : "text-gray-500 font-semibold"
           }`}

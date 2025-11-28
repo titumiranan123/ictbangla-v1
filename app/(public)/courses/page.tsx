@@ -6,8 +6,8 @@ import React from "react";
 import axios from "axios";
 import SortDropdown from "./ShortData";
 import Sidebarfileter from "./Sidebarfileter";
-import PageHeroSectionWithRings from "../(additional pages)/our-teams/pageHeroSectionWithRings";
 import Coursecard from "../(home)/mobile/Coursecard";
+import CoursesHeroSectionWithRings from "./Coursessheader";
 // import useCategory from "@/hooks/public/useCategory";
 // import { useFilteredCourses } from "@/utils/useFilteredCourse";
 // import useSortedCourses from "@/utils/sortedCourses";
@@ -39,7 +39,7 @@ const Courses = async ({ searchParams }: Props) => {
   // Hooks
   const {
     categories,
-    // level,
+    courseType,
     // sort,
     page = "1",
     perPage = "16",
@@ -63,7 +63,7 @@ const Courses = async ({ searchParams }: Props) => {
   // queryParams.set("perPage", perPage);
 
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/v1/website/get-course/list?page=${page}&perPage=${perPage}&categorySlug=${categoryId?.slug}`,
+    `${process.env.NEXT_PUBLIC_API_URL}/v1/website/get-course/list?page=${page}&perPage=${perPage}&categorySlug=${categoryId?.slug}&courseType=${courseType}`,
     { cache: "no-store" }
   );
 
@@ -87,7 +87,7 @@ const Courses = async ({ searchParams }: Props) => {
         `}</style>
       </noscript>
       <div className="bg-secondary/60">
-        <PageHeroSectionWithRings
+        <CoursesHeroSectionWithRings
           buttonText="Live Course"
           subTitle="আপনার ক্যারিয়ার গড়তে প্রয়োজনীয় সব আধুনিক ও প্র্যাকটিক্যাল কোর্স এখন এক প্ল্যাটফর্মে।
           শুরু করুন শেখা, বদলে ফেলুন ভবিষ্যৎ।
