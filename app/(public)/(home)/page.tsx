@@ -29,6 +29,7 @@ import MobileUpcomingbatch from "./MobileUpcomingbatch";
 import MobileRecordedCourse from "./MobileRecordedCourse";
 import MobileCoursebyCategory from "./MobileCoursebyCategory";
 import StepByStepBanner from "./Homestepchangetext";
+import Ourpatners from "../(additional pages)/about-us/Ourpatners";
 
 const HomePage = async () => {
   const result = await axios.get(
@@ -55,11 +56,10 @@ const HomePage = async () => {
           categories={resultcat?.data}
           courseData={result?.data?.response}
         />
-
         <HomeAboutstate />
         <MobileTeacher />
         <MobileInfluncerTestimonial />
-        {/* <Ourpatners /> */}
+        <Ourpatners />
         <MobileAdditionSection />
         <Successsection />
         <MobileCertificateSection />
@@ -102,7 +102,7 @@ const HomePage = async () => {
         <HomeTestimonials />
         <HowItWorkSection />
 
-        {/* <Ourpatners /> */}
+        <Ourpatners />
         <StudentReviewSection />
         <AdditionSection />
         <Successsection />

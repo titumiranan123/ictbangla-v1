@@ -3,7 +3,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -88,7 +88,7 @@ const TabCategoryswiper: React.FC<{ data: any }> = ({ data }) => {
             delay: 5000,
             disableOnInteraction: false,
           }}
-          modules={[Autoplay]}
+          modules={[Autoplay, Pagination]}
           onSwiper={(swiper) => {
             swiperRef.current = swiper;
             setIsBeginning(swiper.isBeginning);

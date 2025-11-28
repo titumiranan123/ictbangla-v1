@@ -4,7 +4,6 @@ import Blogcard from "@/components/(home)/blog/Blogcard";
 import TopCourseSection from "@/components/(home)/home/TopCourseSection";
 import PageHeroSectionWithRings from "@/components/(home)/pageHeroSectionWithRings";
 
-import Pagetitle from "@/components/(home)/shared/pagetitle";
 import axios from "axios";
 import Link from "next/link";
 

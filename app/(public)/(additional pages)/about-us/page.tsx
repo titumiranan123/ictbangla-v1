@@ -19,7 +19,7 @@ const Aboutus = () => {
       <div className="lg:hidden block">
         <MobileInfluncerTestimonial />
       </div>
-      {/* <Ourpatners /> */}
+      <Ourpatners />
       {/* <OurGoal /> */}
 
       <div className="mt-20 container">

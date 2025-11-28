@@ -27,7 +27,7 @@ export const timelineData: TimelineItem[] = [
 
 const Timeline: React.FC = () => {
   return (
-    <section className="py-10 sectionGap ">
+    <section className="py-10 mt-[100px] sectionGap ">
       <div className="max-w-4xl w-full mx-auto text-center lg:px-4 px-1">
         <h2 className="text-[24px] md:text-[40px] lg:text-[48px] font-bold text-[#29AE48] mb-2">
           আমরা এখন পর্যন্ত পৌঁছেছি

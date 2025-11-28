@@ -2,9 +2,9 @@ import React from "react";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
 
-import p1 from "@/public/assets/patner/bdjobs.png";
+import p1 from "@/public/assets/patner/Bdjobs.png";
 import p2 from "@/public/assets/patner/Foodi.png";
-import p3 from "@/public/assets/patner/furnito.png";
+import p3 from "@/public/assets/patner/Furnito.png";
 import p4 from "@/public/assets/patner/Graho.png";
 import p5 from "@/public/assets/patner/Moto Fix.png";
 import p6 from "@/public/assets/patner/Rider_s Option.png";
@@ -12,8 +12,8 @@ import p7 from "@/public/assets/patner/reddata.png";
 import p8 from "@/public/assets/patner/Shawapnadip.png";
 import p9 from "@/public/assets/patner/Shomvob.png";
 import p10 from "@/public/assets/patner/Skilljob.png";
-import p11 from "@/public/assets/patner/atb jobs.png";
-import p12 from "@/public/assets/patner/Ui barn.png";
+import p11 from "@/public/assets/patner/atB jobs.png";
+import p12 from "@/public/assets/patner/UI Barn.png";
 
 const logos = [
   { src: p1, width: 100, height: 50 },
@@ -32,7 +32,7 @@ const logos = [
 
 const Ourpatners = () => {
   return (
-    <div className=" container mt-[100px]   py-5">
+    <div className=" container lg:mt-[100px] -mt-10   py-5">
       <h1
         data-aos="fade-up"
         data-aos-delay="300"

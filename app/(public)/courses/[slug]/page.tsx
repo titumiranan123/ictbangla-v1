@@ -8,7 +8,7 @@ import { Coursedata } from "../Coursedata";
 import OldDesignCourse from "../(old design)/OldDesign";
 import CourseNewDesign from "./CourseNewDesign";
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
   searchParams: any;
 };
 
@@ -73,8 +73,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 }
-const CourseSinglePage = async ({ params: { slug }, searchParams }: Props) => {
+const CourseSinglePage = async ({ params, searchParams }: Props) => {
   const { fbclid } = (await searchParams) ?? "";
+  const { slug } = await params;
   const data = await fetchCourse(slug);
   const othersContent = Coursedata?.find((dt) => dt.basicInfo.slug === slug);
   const tabs =

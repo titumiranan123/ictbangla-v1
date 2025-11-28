@@ -1,6 +1,6 @@
 import React from "react";
 import MobileTeacherSection from "./MobileTeacherslider";
-import IconImage from "../../(additional pages)/about-us/iconImages";
+import Link from "next/link";
 
 const data = [
   {
@@ -67,12 +67,13 @@ const MobileTeacher = () => {
           <MobileTeacherSection data={data} />
         </div>
         <div className="w-full mt-8 flex items-center justify-end">
-          <button
-            className="text-primary text-[20px] font-bold flex items-center gap-2 cursor-pointer mt-4"
+          <Link
+            href={"/join-as-a-instructor"}
+            className="button-primary block text-lg w-fit px-4 mt-6"
             type="button"
           >
-            সব দেখুন <IconImage fileName="arrow_outward_primary.svg" />
-          </button>
+            জয়েন করুন
+          </Link>
         </div>
       </div>
     </div>

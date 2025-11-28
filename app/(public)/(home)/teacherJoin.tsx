@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const TeacherJoin = () => {
@@ -13,12 +14,13 @@ const TeacherJoin = () => {
             <p className="text-lg leading-[23px] font-medium text-[#313131] mt-2">
               নিজের ক্যারিয়ারের অনন্য এক দিগন্ত উন্মোচন করুন
             </p>
-            <button
-              className="button-primary text-lg w-fit px-4 mt-6"
+            <Link
+              href={"/join-as-a-instructor"}
+              className="button-primary block text-lg w-fit px-4 mt-6"
               type="button"
             >
               জয়েন করুন
-            </button>
+            </Link>
           </div>
           <Image
             className="w-full mt-3  max-w-[920px] h-[382px] z-30 pe-10"

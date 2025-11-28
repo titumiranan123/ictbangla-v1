@@ -109,7 +109,7 @@ const Herosection = async () => {
               height={363}
               className="2xl:translate-x-[170px] xl:translate-x-4 translate-x-16 -translate-y-5"
             />
-            <div className="flex justify-end items-center   absolute -top-20 2xl:-right-28 xl:-right-[105px]  lg:-right-[74px] z-10   ">
+            <div className="flex justify-end items-center   absolute -top-20 2xl:-right-[98px] xl:-right-[105px]  lg:-right-[79px] z-10   ">
               <iframe
                 src="https://my.spline.design/genkubgreetingrobot-TtxUA15mMzDW4Ui5dsxJ0vi2/"
                 frameBorder="0"
@@ -125,7 +125,7 @@ const Herosection = async () => {
               .potti:after{
                 content: "";
                 position: absolute;
-                width: 11rem; 
+                width: 14rem; 
                 height: 2.5rem; 
                 background: linear-gradient(180deg, #DEFCE5 0%, #D4FBDD 100%);
                 bottom: 11px;   

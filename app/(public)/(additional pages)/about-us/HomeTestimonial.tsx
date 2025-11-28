@@ -22,6 +22,7 @@ import "swiper/css/thumbs";
 import { Navigation, Thumbs } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { RenderStars } from "../../../../components/(home)/shared/RenderStars";
+import { ArrowLeftCircle, ArrowRightCircle } from "lucide-react";
 
 // import { RenderStars } from "../shared/RenderStars";
 
@@ -150,20 +151,9 @@ const HomeTestimonials = () => {
         >
           <button
             aria-label="Previous"
-            className="swiper-button-left absolute -left-4 lg:-left-16 top-1/2 -translate-y-1/2 z-10"
+            className="swiper-button-left absolute -left-4 lg:-left-16 top-1/2 -translate-y-1/2 z-10 rounded"
           >
-            <svg
-              className="md:w-[44px] w-[30px]"
-              viewBox="0 0 35 34"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M35 16.9832H2.02708" stroke="black" />
-              <path
-                d="M8.96808 24.7926C7.02916 20.5253 5.49308 18.7339 1.66599 16.9949C5.57849 15.0692 7.09716 13.2712 8.96808 9.17383"
-                stroke="black"
-              />
-            </svg>
+            <ArrowLeftCircle className="text-primary" />
           </button>
 
           <Swiper
@@ -225,18 +215,7 @@ const HomeTestimonials = () => {
             aria-label="Next"
             className="swiper-button-right absolute -right-4 lg:-right-16 top-1/2 -translate-y-1/2 z-10"
           >
-            <svg
-              className="md:w-[44px] w-[30px]"
-              viewBox="0 0 35 34"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M0 16.9832H32.9729" stroke="black" />
-              <path
-                d="M26.0319 24.7926C27.9708 20.5253 29.5069 18.7339 33.334 16.9949C29.4215 15.0692 27.9028 13.2712 26.0319 9.17383"
-                stroke="black"
-              />
-            </svg>
+            <ArrowRightCircle className="text-primary" />
           </button>
         </div>
         <div data-aos="fade-up" data-aos-delay="700">

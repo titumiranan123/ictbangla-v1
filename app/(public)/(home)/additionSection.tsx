@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const AdditionSection = () => {
@@ -17,18 +18,20 @@ const AdditionSection = () => {
           সাথে। স্কিল ডেভলপ জার্নি শুরু করুন সেরা সব কোর্সে এনরোল করে।
         </p>
         <div className="mt-8 flex items-center gap-2 md:gap-6 justify-center">
-          <button
-            className="button-primary text-lg w-fit px-4 !bg-white !text-primary"
+          <Link
+            href={"https://www.facebook.com/groups/ictbanglastudentscommunity"}
+            className="button-primary text-lg w-fit px-4 !bg-white !text-primary block"
             type="button"
           >
             কমিউনিটিতে ঘুরে আসুন
-          </button>
-          <button
-            className="button-primary w-fit px-4 !bg-transparent !text-white border border-white"
+          </Link>
+          <Link
+            href={"/courses"}
+            className="button-primary w-fit px-4 !bg-transparent !text-white border border-white block"
             type="button"
           >
             ব্রাউজ কোর্স
-          </button>
+          </Link>
         </div>
       </div>
     </div>
