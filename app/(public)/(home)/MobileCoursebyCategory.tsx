@@ -58,7 +58,7 @@ const MobileCoursebyCategory = ({
     >
       <div className="container mx-auto ">
         <div data-aos="fade-up" data-aos-delay="300" className="text-center ">
-          <h2 className="text-xl font-bold bg-primary rounded-[50px] py-[10px] px-[32px] w-[257px] flex justify-center items-center -translate-y-16 ms-16 h-[57px] text-white mt-4">
+          <h2 className="text-xl font-bold bg-primary rounded-[50px] py-[10px] px-[32px] w-[257px] flex justify-center items-center -translate-y-16 ms-[60px] h-[57px] text-white mt-4">
             আমাদের কোর্স সমূহ
           </h2>
         </div>
@@ -104,7 +104,7 @@ const MobileCoursebyCategory = ({
                 <SwiperSlide key={category._id}>
                   <div
                     key={category._id}
-                    className={`relative mx-auto  max-w-[280px] w-full   max-h-[80px] flex justify-between px-[10px] py-[18px]  items-center  rounded-xl  overflow-hidden p-[2px] transition-all  group hover:bg-primary  ${
+                    className={`relative mx-auto  max-w-[290px] w-full   max-h-[80px] flex justify-between px-[10px] py-[18px]  items-center  rounded-xl  overflow-hidden p-[2px] transition-all  gap-4 group hover:bg-primary  ${
                       category._id === filterKey ? "bg-primary" : "bg-white"
                     }`}
                   >

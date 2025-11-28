@@ -12,13 +12,12 @@ import ShareButtons from "./ShareButtons";
 import BatchTag from "./BatchTag";
 import { CoursePriceCalculator } from "../(old design)/CoursePriceCalculation";
 import CourseInfoTab from "./CourseInfoTab";
-import CourseReturn from "./CourseReturn";
-import Whomeneeds from "./Whomeneeds";
 import CourseTopTimeCount from "./CourseTopTimeCount";
 import CoursePageHolder from "../(old design)/CoursePageHolder";
 import Admissionnow from "./Admissionnow";
 import Countdown from "./Ofercountdown";
 import RightSideLeadsubmit from "./RightSideLeadsubmit";
+import Link from "next/link";
 
 const CourseNewDesign = ({
   data,
@@ -35,7 +34,7 @@ const CourseNewDesign = ({
   return (
     <div className="mb-20 relative">
       <CoursePageHolder data={data} fbclid={fbclid} />
-      <CourseTopTimeCount class_start_date="2025-09-04T00:00:00.000Z" />
+      <CourseTopTimeCount class_start_date="2025-12-10T00:00:00.000Z" />
       <div className="header bg-[#F3F4F6] py-4 ">
         <div className="container  flex justify-between items-center lg:flex-row flex-col gap-5">
           <div className="flex-1 max-w-[1024px] mx-auto flex flex-col gap-3 pt-6 pb-9 relative">
@@ -50,7 +49,7 @@ const CourseNewDesign = ({
               <span className="text-red-500">লাইভ কোর্স</span>
             </button>
 
-            <h2 className="lg:text-[48px] md:text-[36px] text-[20px]  w-full font-semibold md:leading-[60px] leading-[28px] text-textPrimary whitespace-nowrap ">
+            <h2 className="lg:text-[48px] md:text-[36px] text-[20px]  w-full font-semibold md:leading-[60px] leading-[28px] text-textPrimary xl:whitespace-nowrap ">
               {data?.basicInfo?.title}
             </h2>
 
@@ -137,34 +136,25 @@ const CourseNewDesign = ({
         <div className="flex-1 max-w-[1024px]  w-full  mx-auto">
           {tabs?.length > 0 && (
             <CourseInfoTab
+              id={data?._id}
+              othersContent={othersContent}
               data={othersContent?.course_details}
               tools={othersContent?.tools_you_will_learn}
               tabs={tabs}
               key={1}
             />
           )}
-          {othersContent?.course_features !== undefined &&
-            othersContent?.course_features?.length > 0 && (
-              <CourseReturn course_features={othersContent?.course_features} />
-            )}
-          {othersContent?.target_audience !== undefined &&
-            othersContent?.target_audience?.length > 0 && (
-              <Whomeneeds
-                target_audience={othersContent?.target_audience}
-                courseId={data?._id}
-              />
-            )}
         </div>
         {/* right part  */}
         <div className="max-w-[385px] mx-auto sticky self-start top-20">
           <div className=" border  border-primary  w-full  rounded-[16px] p-4">
-            <p className="text-textPrimary text-center mt-6 mb-6 text-[18px] font-[600] ">
-              ভর্তির শেষ সময়
+            <p className="text-primary text-center mt-6 mb-6 text-[22px] font-[600] ">
+              ভর্তির সময় শেষ হয়ে যাচ্ছে
             </p>
-            <Countdown targetDate="2025-12-31T23:59:59" />
+            <Countdown targetDate="2025-12-10T00:00:00.000Z" />
             <div className="bg-[#EAF7ED] border border-primary rounded-[8px] mt-4 py-3">
               <p className="text-primary font-bold text-center text-[16px]">
-                ৪০০০+ শিক্ষার্থী এখন পর্যন্ত এনরোল করেছে
+                {othersContent?.total_enrolled}
               </p>
             </div>
             <div className="bg-[#F3F4F6] border border-primary rounded-[8px] mt-4 py-3 px-4">
@@ -176,7 +166,12 @@ const CourseNewDesign = ({
             <div className="max-w-[357px] w-full max-h-[269px] h-full relative mb-4 mt-4">
               <div className="w-[357px] h-[269px] rounded-[8.13px]">
                 {othersContent?.course_intro?.length > 0 && (
-                  <Thumnailvideoslider data={othersContent?.course_intro} />
+                  <Thumnailvideoslider
+                    data={
+                      othersContent?.influencers_video ??
+                      othersContent?.course_intro
+                    }
+                  />
                 )}
               </div>
             </div>
@@ -185,14 +180,18 @@ const CourseNewDesign = ({
               <h2 className="text-[40px] font-[700]">IMAGE 1</h2>
             </div>
             <div className="mt-5">
-              <div className="bg-[#EAF7ED] gap-2 rounded-lg flex items-center px-3 py-2 w-[50%]">
+              <div className="bg-[#EAF7ED] gap-2 rounded-lg flex items-center px-3 py-2 w-[60%]">
                 <Users />
-                <p className="text-text-neutral">৯,০০৯ মেম্বারস</p>
+                <p className="text-text-neutral">১৫,৯০০ জন মেম্বারস</p>
               </div>
               <p className="text-primary text-[21px] font-bold text-center mt-3">
                 ICT Bangla Student’s Community
               </p>
-              <button className="py-2 px-3 rounded-lg font-bold bg-primary text-white text-[18px]  mt-4 w-full flex justify-center items-center gap-2">
+              <Link
+                href={`https://www.facebook.com/groups/ictbanglastudentscommunity`}
+                target="_blank"
+                className="py-2 px-3 rounded-lg font-bold bg-primary text-white text-[18px]  mt-4 w-full flex justify-center items-center gap-2"
+              >
                 ফেইসবুক গ্রুপ জয়েন করুন{" "}
                 <Image
                   src={"/assets/icon/facebook.png"}
@@ -201,7 +200,7 @@ const CourseNewDesign = ({
                   className=""
                   height={24}
                 />
-              </button>
+              </Link>
             </div>
           </div>
           <div className="p-4">

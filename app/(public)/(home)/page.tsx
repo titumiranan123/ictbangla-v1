@@ -67,7 +67,7 @@ const HomePage = async () => {
         <MobilePaymentMethod />
         <Aboutcomunity />
         {/* Hero Image with Layout Stability */}
-        <div className="container lg:h-[480px] overflow-hidden flex justify-center items-center mt-10 ">
+        <div className="container lg:h-[480px] overflow-hidden flex justify-center items-center mt-14 ">
           <Image
             src={"/assets/aboutlocation.svg"}
             alt={"about"}

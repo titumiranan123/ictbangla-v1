@@ -17,6 +17,7 @@ import ReactPlayer from "react-player";
 import Marquee from "react-fast-marquee";
 
 function Thumnailvideoslider({ data }: { data: any }) {
+  console.log(" thumbnail", data);
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
   const mainSwiperRef = useRef<any>(null);
   const thumbsSwiperRef = useRef<any>(null);

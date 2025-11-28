@@ -6,7 +6,6 @@ import Accordion from "./Accordion";
 import Image from "next/image";
 
 const Coursecurriculam = ({ data, tools }: { data: any; tools: any }) => {
-  console.log("toolstoolstools", data);
   return (
     <div>
       <div className="bg-[#F3F4F6]  w-full  rounded-[24px] lg:px-5 px-2 py-3 lg:py-5  ">
@@ -32,14 +31,14 @@ const Coursecurriculam = ({ data, tools }: { data: any; tools: any }) => {
               tools?.map((tl: any, idx: number) => (
                 <span
                   key={idx}
-                  className="w-[84px] h-[84px]  bg-bg-secondary border border-primary rounded-lg"
+                  className="w-[84px] h-[84px]  bg-bg-secondary border border-primary rounded-lg flex justify-center items-center"
                 >
                   <Image
                     src={`${tl.icon}`}
                     alt={`${tl.titl}`}
-                    width={80}
-                    height={80}
-                    className="w-[80px] h-[80px]"
+                    width={40}
+                    height={40}
+                    className="w-[40px] h-[40px]"
                   />
                 </span>
               ))}
@@ -47,7 +46,10 @@ const Coursecurriculam = ({ data, tools }: { data: any; tools: any }) => {
         </div>
       </div>
       {data?.road_map !== undefined && data?.road_map?.faq?.length > 0 && (
-        <div className="bg-[#F3F4F6] max-w-[882px] mt-[45px] rounded-[24px]">
+        <div className="bg-[#F3F4F6] w-full mt-[45px] rounded-[24px]">
+          <h2 className="text-center text-primary pt-10 text-[24px] font-[600] leading-[32px]">
+            {data?.road_map?.section_title}
+          </h2>
           <Timeline road_map={data?.road_map} />
         </div>
       )}

@@ -107,7 +107,7 @@ const Herosection = async () => {
               alt="headercircle"
               width={363}
               height={363}
-              className="2xl:translate-x-[170px] xl:translate-x-4 translate-x-16 -translate-y-5"
+              className="2xl:translate-x-[170px] xl:translate-x-4 lg:translate-x-4 translate-x-16 -translate-y-5"
             />
             <div className="flex justify-end items-center   absolute -top-20 2xl:-right-[98px] xl:-right-[105px]  lg:-right-[79px] z-10   ">
               <iframe
@@ -125,11 +125,11 @@ const Herosection = async () => {
               .potti:after{
                 content: "";
                 position: absolute;
-                width: 14rem; 
+                width: 13rem; 
                 height: 2.5rem; 
                 background: linear-gradient(180deg, #DEFCE5 0%, #D4FBDD 100%);
                 bottom: 11px;   
-                right: -7.5rem;  
+                right: -7.8rem;  
                 z-index: 40;  
               }
               .headerpolygon:after {

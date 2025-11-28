@@ -82,9 +82,9 @@ function PreviewClass({ data }: { data: any }) {
         </style>
         {[...data?.demo_classes].map((vid, idx) => (
           <SwiperSlide key={idx} className="relative">
-            <div className="w-[818px] h-[460px]">
+            <div className="lg:w-[818px] lg:h-[460px] w-full h-full">
               <ReactPlayer
-                className="object-cover w-[818px] h-[460px] "
+                className="object-cover md:w-[818px] lg:h-[460px] w-full h-full "
                 url={vid?.url}
                 width={"100%"}
                 height={"100%"}

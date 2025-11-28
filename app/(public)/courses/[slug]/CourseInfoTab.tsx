@@ -23,9 +23,17 @@ interface CourseInfoTabProps {
   tabs: string[];
   data: TabData[];
   tools?: any;
+  othersContent?: any;
+  id: string;
 }
 
-const CourseInfoTab: React.FC<CourseInfoTabProps> = ({ tabs, data, tools }) => {
+const CourseInfoTab: React.FC<CourseInfoTabProps> = ({
+  tabs,
+  data,
+  tools,
+  othersContent,
+  id,
+}) => {
   const [active, setActive] = useState<number>(0);
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
   const isScrollingRef = useRef<boolean>(false);
@@ -98,7 +106,13 @@ const CourseInfoTab: React.FC<CourseInfoTabProps> = ({ tabs, data, tools }) => {
 
   const renderSection = (dt: TabData): React.ReactNode => {
     if (dt.tabe_name === "কোর্স সম্পর্কে") {
-      return <CourseAbout description={dt?.description ?? ""} />;
+      return (
+        <CourseAbout
+          description={dt?.description ?? ""}
+          othersContent={othersContent}
+          id={id}
+        />
+      );
     }
     if (dt.tabe_name === "কারিকুলাম") {
       return <Coursecurriculam data={dt} tools={tools} />;

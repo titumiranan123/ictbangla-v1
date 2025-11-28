@@ -23,7 +23,7 @@ const CounterNumber = ({
           {icon}
         </p>
       </div>
-      <p className="text-[18px] lg:text-[20px] leading-[26px] font-[600] text-[#707070]">
+      <p className="text-[18px] mt-3 lg:text-[20px] leading-[26px] font-[600] text-[#707070]">
         {title}
       </p>
     </div>

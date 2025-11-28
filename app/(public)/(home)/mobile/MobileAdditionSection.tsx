@@ -4,7 +4,7 @@ import React from "react";
 const MobileAdditionSection = () => {
   return (
     <div
-      className="sectionGap"
+      className="sectionGap mt-10"
       style={{
         backgroundImage: "url('/assets/home/home_green_section_bg.svg')",
       }}
