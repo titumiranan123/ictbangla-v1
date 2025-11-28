@@ -9,7 +9,7 @@ const Coursecurriculam = ({ data, tools }: { data: any; tools: any }) => {
   console.log("toolstoolstools", data);
   return (
     <div>
-      <div className="bg-[#F3F4F6] max-w-[882px]  w-full  rounded-[24px] lg:px-5 px-2 py-3 lg:py-5  ">
+      <div className="bg-[#F3F4F6]  w-full  rounded-[24px] lg:px-5 px-2 py-3 lg:py-5  ">
         <Curriculamtab />
         <div className="">
           {data?.live_classes?.map((dt: any, moduleNumberx: number) => {
@@ -46,9 +46,9 @@ const Coursecurriculam = ({ data, tools }: { data: any; tools: any }) => {
           </div>
         </div>
       </div>
-      {data?.road_map !== undefined && data?.road_map.length > 0 && (
+      {data?.road_map !== undefined && data?.road_map?.faq?.length > 0 && (
         <div className="bg-[#F3F4F6] max-w-[882px] mt-[45px] rounded-[24px]">
-          <Timeline />
+          <Timeline road_map={data?.road_map} />
         </div>
       )}
     </div>

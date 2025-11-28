@@ -3,7 +3,7 @@ import React from "react";
 
 const Courseproject = ({ data }: { data: any }) => {
   return (
-    <div className="max-w-[882px]  w-full bg-neutral rounded-[24px] lg:px-10 px-2 py-8 lg:py-11">
+    <div className="  w-full bg-[#F3F4F6] rounded-[24px] lg:px-10 px-2 py-8 lg:py-11">
       <p className="md:text-[32px] text-[24px] text-left text-primary font-[600]">
         {data?.section_title}
       </p>

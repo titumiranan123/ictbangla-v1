@@ -1,14 +1,19 @@
+"use client";
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React from "react";
+import React, { useState } from "react";
 import Askingtab from "./Askingtab";
 import AskingAccordion from "./AskingAccordion";
 import Image from "next/image";
 
 const AskingCourse = ({ data }: { data: any }) => {
+  console.log("asking course ", data);
+  const [isAsking, setAsking] = useState(true);
   return (
-    <div className="max-w-[882px]  w-full bg-neutral rounded-[24px] lg:px-10 px-2 py-3 lg:py-11">
-      <Askingtab />
-      <AskingAccordion items={data?.common_faq} />
+    <div className="  w-full bg-[#F3F4F6] rounded-[24px] lg:px-10 px-2 py-3 lg:py-11">
+      <Askingtab isActive={isAsking} setActive={setAsking} />
+      <AskingAccordion
+        items={isAsking ? data?.common_faq : data?.payment_faq}
+      />
       <div className="mt-20">
         <p className="text-primary text-[24px] font-[600]">
           আরো জিজ্ঞাসা আছে ?

@@ -48,9 +48,12 @@ export default function CourseTopTimeCount({
         <span className="underline"> ICTBANGLA </span> প্রমো এপলাই করলে ৩৫%
         ডিসকাউন্ট আর বাকি
       </h4>
-      <h4 className="text-xl font-bold md:hidden flex flex-col justify-center items-center gap-2">
+      <h4 className="text-xl leading-[28px] font-bold md:hidden flex flex-col justify-center items-center gap-2">
         <span className="underline">ICTBANGLA প্রমো এপলাই করলে </span>
-        <span className="text-[48px] text-center"> ৩৫% ডিসকাউন্ট </span>
+        <span className="text-[48px] leading-[60px] text-center">
+          {" "}
+          ৩৫% ডিসকাউন্ট{" "}
+        </span>
         <span className="text-[36px] text-center">আর বাকি</span>
       </h4>
       <button

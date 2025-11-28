@@ -4,7 +4,7 @@ import React from "react";
 
 const CertificateSection = () => {
   return (
-    <div className="max-w-[882px]  w-full bg-neutral rounded-[24px] lg:px-4 px-2 py-3 lg:py-11 ">
+    <div className=" w-full bg-[#F3F4F6] rounded-[24px] lg:px-4 px-2 py-3 lg:py-11 ">
       <h2 className=" font-[700] text-primary text-center text-[32px]">
         সার্টিফিকেট
       </h2>

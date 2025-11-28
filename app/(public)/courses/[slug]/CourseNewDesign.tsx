@@ -36,9 +36,9 @@ const CourseNewDesign = ({
     <div className="mb-20 relative">
       <CoursePageHolder data={data} fbclid={fbclid} />
       <CourseTopTimeCount class_start_date="2025-09-04T00:00:00.000Z" />
-      <div className="header bg-[#F3F4F6]  ">
-        <div className="container  flex justify-between items-center lg:flex-row flex-col gap-2">
-          <div className="flex-1 max-w-[1034px] mx-auto flex flex-col gap-[26px] pt-6 pb-9 relative">
+      <div className="header bg-[#F3F4F6] py-4 ">
+        <div className="container  flex justify-between items-center lg:flex-row flex-col gap-5">
+          <div className="flex-1 max-w-[1024px] mx-auto flex flex-col gap-3 pt-6 pb-9 relative">
             <button className="max-w-[144px] bg-[#FFE9E9] rounded-lg py-2 px-2 flex gap-1 text-[16px] font-[700]  items-center ">
               <Image
                 src={"/assets/icon/courseLive.png"}
@@ -104,14 +104,14 @@ const CourseNewDesign = ({
             </div>
           </div>
           <div
-            className={`max-w-[389px] w-full h-[540px]  p-3 rounded-[16.25px] border border-red-500 bg-red-500/10`}
+            className={`max-w-[385px] w-full h-[480px]  p-3 rounded-[16.25px] border border-red-500 bg-red-500/10`}
           >
-            <div className="max-w-[357px] w-full max-h-[269px] h-full relative mb-4">
+            <div className="max-w-[357px] w-full max-h-[269px] h-full relative ">
               {othersContent?.course_intro?.length > 0 && (
                 <Thumnailvideoslider data={othersContent?.course_intro} />
               )}
             </div>
-            <div className=" mt-[65px] space-y-4">
+            <div className=" mt-[15px] space-y-4">
               <div className="flex justify-between items-center mt-3 ">
                 <p className="text-[38px] leading-[50px font-[700] text-primary">
                   কোর্স ফী
@@ -134,7 +134,7 @@ const CourseNewDesign = ({
       {/* body  */}
       <div className="flex container relative bg-white  mt-6 lg:flex-row flex-col gap-2 min-h-screen ">
         {/* left part */}
-        <div className="flex-1 max-w-[982px]  w-full  mx-auto">
+        <div className="flex-1 max-w-[1024px]  w-full  mx-auto">
           {tabs?.length > 0 && (
             <CourseInfoTab
               data={othersContent?.course_details}
@@ -156,7 +156,7 @@ const CourseNewDesign = ({
             )}
         </div>
         {/* right part  */}
-        <div className="max-w-[389px] mx-auto sticky self-start top-20">
+        <div className="max-w-[385px] mx-auto sticky self-start top-20">
           <div className=" border  border-primary  w-full  rounded-[16px] p-4">
             <p className="text-textPrimary text-center mt-6 mb-6 text-[18px] font-[600] ">
               ভর্তির শেষ সময়

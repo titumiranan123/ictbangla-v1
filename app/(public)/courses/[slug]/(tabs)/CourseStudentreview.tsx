@@ -8,6 +8,9 @@ import "swiper/css/pagination";
 
 import StudentReviewTab from "./StudentReviewtab";
 import CourseStudentReviewCard from "@/app/(public)/(home)/CourseStudentReviewCard";
+import { useState } from "react";
+import ReactPlayer from "react-player";
+import PluseIcon from "@/components/(home)/home/PulseIcon/PluseIcon";
 
 // const testimonials = [
 //   {
@@ -56,10 +59,12 @@ import CourseStudentReviewCard from "@/app/(public)/(home)/CourseStudentReviewCa
 // ];
 
 export default function CourseStudentReview({ reviews }: { reviews: any }) {
-  console.log(reviews);
+  console.log("reviews", reviews);
+  const [isText, setIsText] = useState(true);
+  const [index, setIndex] = useState(3);
   return (
     <div className="flex flex-col justify-center items-center py-8 ">
-      <StudentReviewTab />
+      <StudentReviewTab isText={isText} setIsText={setIsText} />
       <div className="w-full overflow-hidden px-4">
         <style>
           {`
@@ -120,31 +125,75 @@ export default function CourseStudentReview({ reviews }: { reviews: any }) {
           `}
         </style>
 
-        <Swiper
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-          }}
-          spaceBetween={0}
-          slidesPerView={"auto"}
-          centeredSlides={true}
-          loop={true}
-          pagination={{ clickable: true }}
-          modules={[FreeMode, Pagination, Autoplay]}
-          className="studentTesti"
-          breakpoints={{
-            320: { slidesPerView: 1, spaceBetween: 20 },
-            768: { slidesPerView: "auto", spaceBetween: 30 },
-            1024: { slidesPerView: "auto", spaceBetween: 30 },
-          }}
-        >
-          {reviews?.text_review.map((testimonial: any) => (
-            <SwiperSlide key={testimonial.id} className="flex justify-center">
-              <CourseStudentReviewCard data={testimonial} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        {!isText ? (
+          <Swiper
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            spaceBetween={0}
+            slidesPerView={"auto"}
+            centeredSlides={true}
+            loop={true}
+            pagination={{ clickable: true }}
+            modules={[FreeMode, Pagination, Autoplay]}
+            className="studentTesti"
+            breakpoints={{
+              320: { slidesPerView: 1, spaceBetween: 20 },
+              768: { slidesPerView: "auto", spaceBetween: 30 },
+              1024: { slidesPerView: "auto", spaceBetween: 30 },
+            }}
+          >
+            {reviews?.text_review.map((testimonial: any) => (
+              <SwiperSlide key={testimonial.id} className="flex justify-center">
+                <CourseStudentReviewCard data={testimonial} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        ) : (
+          <>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 max-w-6xl mx-auto mt-10">
+              {reviews?.video_review
+                ?.slice(0, index)
+                .map((rev: any, i: number) => (
+                  <div
+                    key={rev.id}
+                    data-aos="fade-up"
+                    data-aos-delay={100 + i * 100}
+                    className="relative rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
+                  >
+                    <div className="aspect-video w-full">
+                      <ReactPlayer
+                        url={rev.video_url}
+                        light={rev.video_thumbile}
+                        playIcon={<PluseIcon />}
+                        width="100%"
+                        height="100%"
+                        controls
+                      />
+                    </div>
+                  </div>
+                ))}
+            </div>
+
+            {index < reviews?.video_review.length && (
+              <div
+                data-aos="fade-up"
+                data-aos-delay="800"
+                className="flex justify-center items-center mt-10"
+              >
+                <button
+                  onClick={() => setIndex((prev) => prev + 3)}
+                  className="py-2 px-6 rounded-lg bg-gradient-to-r from-[#099E47] to-[#29AE48] text-white 
+                      hover:shadow-md transition-all duration-300 font-medium relative overflow-hidden"
+                >
+                  আরো দেখুন
+                </button>
+              </div>
+            )}
+          </>
+        )}
       </div>
     </div>
   );

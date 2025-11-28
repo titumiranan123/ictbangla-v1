@@ -31,7 +31,7 @@ const Items = ({ item, index }: { item: any; index: number }) => {
     <div
       data-aos="fade-up"
       data-aos-delay={100 + index * 100}
-      className="lg:max-w-full bg-white  min-h-[58px] w-full h-full rounded-[18px]"
+      className="lg:max-w-full bg-white mt-3 min-h-[58px] w-full h-full rounded-[18px]"
       key={index}
     >
       <div

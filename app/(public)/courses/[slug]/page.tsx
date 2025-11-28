@@ -12,9 +12,6 @@ type Props = {
   searchParams: any;
 };
 
-/* -------------------------------
-🔹 Fetch Single Course by Slug
----------------------------------*/
 const fetchCourse = async (slug: string) => {
   try {
     const apiURL = process.env.API_URL;
@@ -33,9 +30,6 @@ const fetchCourse = async (slug: string) => {
   }
 };
 
-/* -------------------------------
-🔹 Dynamic Metadata (SEO)
----------------------------------*/
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const { slug } = await params;
@@ -80,7 +74,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 const CourseSinglePage = async ({ params: { slug }, searchParams }: Props) => {
-  const fbclid = searchParams?.fbclid ?? "";
+  const { fbclid } = (await searchParams) ?? "";
   const data = await fetchCourse(slug);
   const othersContent = Coursedata?.find((dt) => dt.basicInfo.slug === slug);
   const tabs =

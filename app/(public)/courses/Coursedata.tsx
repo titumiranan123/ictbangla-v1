@@ -489,6 +489,81 @@ export const Coursedata = [
             },
           },
         ],
+        road_map: {
+          section_title: "Road Map",
+          faq: [
+            {
+              title: "ভিডিও এডিটিং ফান্ডামেন্টালস",
+              sub_title:
+                "ভিডিও কীভাবে কাজ করে—timeline, cuts, resolution, FPS, basics শিখুন।",
+            },
+            {
+              title: "এডিটিং সফটওয়্যার পরিচিতি",
+              sub_title:
+                "CapCut, Premiere Pro, After Effects, DaVinci—সব টুলের বেসিক ধরুন।",
+            },
+            {
+              title: "Cutting & Trimming Skills",
+              sub_title:
+                "সঠিকভাবে কাটিং, ট্রিমিং, timeline control শিখে editing muscle strong করুন।",
+            },
+            {
+              title: "মাল্টি-লেয়ার & এডভান্সড এডিটিং",
+              sub_title:
+                "Multiple tracks, overlays, masking—professional workflow আয়ত্ত করুন।",
+            },
+            {
+              title: "টেক্সট, ক্যাপশন & মোশন গ্রাফিক্স",
+              sub_title:
+                "Titles, subtitles, lower-thirds থেকে simple motion animation তৈরি করুন।",
+            },
+            {
+              title: "কালার কারেকশন & গ্রেডিং",
+              sub_title:
+                "Skin tone ঠিক করা, LUTs, cinematic look—color mastery অর্জন।",
+            },
+            {
+              title: "অডিও ডিজাইন & সাউন্ড ফিক্সিং",
+              sub_title:
+                "Noise remove, EQ, SFX, voice sync—ভিডিওর sound quality perfect করুন।",
+            },
+            {
+              title: "AI Video Editing Tools",
+              sub_title:
+                "Auto-caption, AI voiceover, face swap, AI effects দিয়ে instant output।",
+            },
+            {
+              title: "Social Media Editing (Reels/Shorts)",
+              sub_title:
+                "Hook, pacing, retention style, trend-based editing—viral-ready content তৈরি।",
+            },
+            {
+              title: "Full Video Production Workflow",
+              sub_title:
+                "Shooting basics, b-roll, lights, RAW footage edit—end-to-end project শিখুন।",
+            },
+            {
+              title: "Client Project Management",
+              sub_title:
+                "Brief → storyboard → editing → revision → delivery—client-ready skill।",
+            },
+            {
+              title: "Portfolio তৈরি করা",
+              sub_title:
+                "নিজের best edits দিয়ে শক্তিশালী portfolio ও demo reel তৈরি করুন।",
+            },
+            {
+              title: "ফ্রিল্যান্সিং মার্কেটপ্লেসে কাজ",
+              sub_title:
+                "Fiverr, Upwork-এ কীভাবে gig তৈরি ও দ্রুত order পাওয়া যায় তা শিখুন।",
+            },
+            {
+              title: "মার্কেটপ্লেসের বাইরে ক্লায়েন্ট হান্টিং",
+              sub_title:
+                "Facebook, agencies, referrals দিয়ে sustainable client pipeline বানান।",
+            },
+          ],
+        },
       },
 
       {
@@ -852,7 +927,44 @@ export const Coursedata = [
         ],
       },
     ],
-
+    course_features: [
+      {
+        sort_order: 1,
+        icon: "/course-details/monthly-study-plan-icon.svg",
+        title: "৩ মাসের স্টাডি প্ল্যান",
+        sub_title: null,
+      },
+      {
+        sort_order: 2,
+        icon: "/course-details/live-class-icon.svg",
+        title: "৪০ টি লাইভ ক্লাস",
+        sub_title: null,
+      },
+      {
+        sort_order: 3,
+        icon: "/course-details/support-class-icon.svg",
+        title: "সাপ্তাহিক ৪দিন ক্লাস",
+        sub_title: null,
+      },
+      {
+        sort_order: 4,
+        icon: "/course-details/class-note-icon.svg",
+        title: "ক্লাস নোটস",
+        sub_title: null,
+      },
+      {
+        sort_order: 5,
+        icon: "/course-details/marketplace-guidline-icon.svg",
+        title: "ফ্রিল্যান্সিং মার্কেটপ্লেস গাইডলাইন",
+        sub_title: null,
+      },
+      {
+        sort_order: 6,
+        icon: "/course-details/cirtificate-icon.svg",
+        title: "এসেসমেন্ট ও সার্টিফিকেটে",
+        sub_title: null,
+      },
+    ],
     target_audience: [
       {
         sort_order: 1,

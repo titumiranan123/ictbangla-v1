@@ -6,11 +6,10 @@ import Image from "next/image";
 import { FaBehance, FaFacebook, FaLinkedin } from "react-icons/fa";
 
 const MentorCard: React.FC<any> = ({ mentor }) => {
-  console.log("mentor", mentor);
   return (
     <div
       data-aos="fade-up"
-      className="bg-white max-w-[291px] w-full h-[371px]  border-1 border-primary rounded-2xl p-3 flex flex-col items-center shadow-sm hover:shadow-md transition-all duration-300 mx-auto relative"
+      className="bg-white max-w-[291px] w-full h-[371px]  border border-primary rounded-2xl p-3 flex flex-col items-center shadow-sm hover:shadow-md transition-all duration-300 mx-auto relative"
     >
       <div className="flex justify-between items-center gap-4">
         {/* Profile Image */}
@@ -50,9 +49,7 @@ const MentorCard: React.FC<any> = ({ mentor }) => {
           About
         </h4>
         <p className="text-sm text-gray-700 text-justify text-[12px] leading-[18px]">
-          {mentor?.description?.length > 170
-            ? `${mentor?.description?.slice(0, 170).trim()} …`
-            : mentor?.about}
+          {mentor?.description}
         </p>
       </div>
 

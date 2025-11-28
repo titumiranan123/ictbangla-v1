@@ -1,51 +1,16 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import React from "react";
 
-interface TimelineItem {
-  title: string;
-  description: string;
-}
-
-const timelineData: TimelineItem[] = [
-  {
-    title: "ইউজার রিসার্চ",
-    description: "ইউজারদের প্রয়োজনগুলো বুঝে এবং গবেষণা করে নেয়া হয়।",
-  },
-  {
-    title: "ডিজাইন ফাউন্ডেশন",
-    description:
-      "রঙের থিম, টাইপোগ্রাফি, এবং ভিজ্যুয়াল ব্যালেন্স নির্ধারণ করা হয়।",
-  },
-  {
-    title: "ইনফরমেশন আর্কিটেকচার (IA)",
-    description: "ইউজারদের জন্য তথ্য সহজভাবে সাজানো হয়।",
-  },
-  {
-    title: "ওয়্যারফ্রেমিং & প্রোটোটাইপিং",
-    description: "প্রথম ভিজ্যুয়াল কনসেপ্ট তৈরি করে আইডিয়াগুলো পরীক্ষা করা হয়।",
-  },
-  {
-    title: "ইন্টারফেস ডিজাইন",
-    description: "UI ডিজাইনের মাধ্যমে ভিজ্যুয়াল ইন্টারফেস তৈরি করা হয়।",
-  },
-  {
-    title: "ভিজ্যুয়াল ডিজাইন",
-    description: "রঙ, আইকন, এবং ইমেজ ব্যবহার করে ডিজাইনকে আকর্ষণীয় করা হয়।",
-  },
-  {
-    title: "ইউজার টেস্টিং",
-    description: "ইউজারদের দিয়ে পরীক্ষা করে ফাইনাল ফিডব্যাক নেয়া হয়।",
-  },
-];
-
-const Timeline: React.FC = () => {
+const Timeline = ({ road_map }: { road_map: any }) => {
+  console.log(road_map, "roadmap");
   return (
-    <section className="bg-neutral py-10 rounded-[24px]">
+    <section className="bg-[#F3F4F6] py-10 rounded-[24px]">
       <div className="relative max-w-6xl mx-auto px-6">
         {/* Center vertical line */}
         <div className="absolute lg:block hidden left-1/2 transform -translate-x-1/2 h-full border-[2px] border-primary" />
         <div className="space-y-2">
-          {timelineData.map((item, index) => {
+          {road_map?.faq?.map((item: any, index: number) => {
             const isLeft = index % 2 !== 0;
             return (
               <div
@@ -62,7 +27,7 @@ const Timeline: React.FC = () => {
                     {item.title}
                   </h3>
                   <p className="text-gray-700 text-sm leading-relaxed">
-                    {item.description}
+                    {item.sub_title}
                   </p>
                 </div>
 

@@ -11,7 +11,7 @@ const Whomeneeds = ({
   courseId: string;
 }) => {
   return (
-    <div className="bg-neutral  rounded-lg border border-primary p-8 mt-14">
+    <div className="bg-[#F3F4F6]  rounded-lg border border-primary p-8 mt-14">
       <h2 className="text-[24px]  text-primary font-[600]">কাদের প্রয়োজন</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-4">
         {target_audience?.map((dt, idx) => (
