@@ -40,7 +40,7 @@ const Courses = async ({ searchParams }: Props) => {
   const {
     categories,
     courseType,
-    // sort,
+    level,
     page = "1",
     perPage = "16",
   } = await searchParams;
@@ -63,14 +63,14 @@ const Courses = async ({ searchParams }: Props) => {
   // queryParams.set("perPage", perPage);
 
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/v1/website/get-course/list?page=${page}&perPage=${perPage}&categorySlug=${categoryId?.slug}&courseType=${courseType}`,
+    `${process.env.NEXT_PUBLIC_API_URL}/v1/website/get-course/list?page=${page}&perPage=${perPage}&categorySlug=${categoryId?.slug}&courseType=${courseType}&perPage=20&level=${level}`,
     { cache: "no-store" }
   );
 
   const result = await res.json();
   // console.log("total data", result?.response?.length);
   const courseData = result;
-
+  console.log(courseData?.response[0]?.basicInfo);
   // console.log(courseData?.response);
   // const instructorResult = await axios.get(
   //   `${process.env.NEXT_PUBLIC_API_URL}/v1/website/get/instructor-list`

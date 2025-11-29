@@ -25,7 +25,7 @@ const TabCategoryswiper: React.FC<{ data: any }> = ({ data }) => {
   if (!data) return null;
 
   return (
-    <div className={`relative w-full max-w-[1020px] mx-auto px-4 `}>
+    <div className={`relative w-full max-w-[1020px] mx-auto px-2 `}>
       {/* FIXED CSS – No more broken height */}
       <style>
         {`

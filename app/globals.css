@@ -232,6 +232,7 @@ html {
   height: 200px !important;
   /* border-top: 1px solid #122223 !important; */
 }
+/* phone country code */
 .react-tel-input .flag-dropdown {
   border-bottom-left-radius: 10px !important;
   border-top-left-radius: 10px !important;

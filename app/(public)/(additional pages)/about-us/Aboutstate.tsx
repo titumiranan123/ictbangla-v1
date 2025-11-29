@@ -17,10 +17,10 @@ const Aboutstate = async () => {
     return null;
   }
   return (
-    <div className="bg-[#F3F4F6] container mx-auto px-0 rounded-2xl flex justify-center items-center 2xl:h-[741px] xl:h-[517px] mt-[100px]">
+    <div className="bg-[#F3F4F6] container mx-auto px-0 rounded-2xl flex justify-center items-center 2xl:h-[741px] h-full mt-[100px]">
       <div className="flex flex-col lg:flex-row items-center gap-6 px-5">
         {/* Image wrapper */}
-        <div className="w-full 2xl:w-[784px] lg:w-[700px] h-[534px]">
+        <div className="w-full 2xl:w-[784px] lg:w-[700px] h-full">
           <Image
             data-aos="fade-up"
             data-aos-delay="300"

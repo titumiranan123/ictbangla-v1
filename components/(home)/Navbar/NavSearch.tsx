@@ -3,7 +3,7 @@ import React from "react";
 
 const Searchcomponent = () => {
   return (
-    <div className="animate-stroke  duration-400 transition-all mx-auto w-[268px] h-[46px] flex justify-center items-center rounded-[8px] overflow-hidden  z-20 p-[1px] cursor-pointer relative">
+    <div className="animate-strokes  duration-400 transition-all mx-auto w-[268px] h-[46px] flex justify-center items-center rounded-[8px] overflow-hidden  z-20 p-[1px] cursor-pointer relative">
       <style>
         {`
       @keyframes spin-slow {
@@ -15,30 +15,30 @@ const Searchcomponent = () => {
         }
       }
       .coursesbg {
-        background: linear-gradient(360deg, #CFFAD9 4.75%, #FFFFFF 100%);
+        background: conic-gradient(from 180deg at 50% 50%, #29AE48 0%, rgba(17, 72, 30, 0) 100%);
 
       }
-      .animate-stroke {
+      .animate-strokes {
         position: relative;
         background: transparent;
         border-radius: 8px;
         
       }
-      .animate-stroke::before {
+      .animate-strokes::before {
         content: '';
         position: absolute;
 margin-left:-4px;
         padding:1px;
         width:280px; 
         height:280px;
-        background: linear-gradient(180deg, #29AE48 0%, rgba(17, 72, 30, 0) 100%);
-        animation: spin-slow 41s linear infinite;
+        background: conic-gradient(from 180deg at 50% 50%, #29AE48 0%, rgba(17, 72, 30, 0) 100%);
+        animation: spin-slow 16s linear infinite;
 
       }
     `}
       </style>
 
-      <div style={{ width: "268px" }} className=" relative   w-[268px]">
+      <div className=" relative   w-[268px]">
         <label className="absolute top-2.5 left-4 " htmlFor="headerSearch">
           <IconImage fileName="searchicon.gif" />
         </label>

@@ -14,18 +14,17 @@ type Props = {
 
 const fetchCourse = async (slug: string) => {
   try {
-    const apiURL = process.env.API_URL;
+    const apiURL = process.env.API_URL || "https://api.ictbangla.com";
     const res = await fetch(`${apiURL}/v1/website/get-course/details/${slug}`, {
       cache: "no-store",
     });
 
     if (!res.ok) throw new Error("Failed to fetch course");
     const data = await res.json();
-
     if (!data || !data.basicInfo) throw new Error("COURSE_NOT_FOUND");
     return data;
   } catch (err) {
-    // console.error("FetchCourse Error:", err);
+    console.error("FetchCourse Error:", err);
     throw err;
   }
 };

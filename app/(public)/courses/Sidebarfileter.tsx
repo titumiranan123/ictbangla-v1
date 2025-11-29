@@ -22,9 +22,9 @@ const Sidebarfileter = ({
       title: "Level",
       key: "level",
       data: [
-        { _id: "1", title: "Beginner" },
-        { _id: "2", title: "Intermediate" },
-        { _id: "3", title: "Advanced" },
+        { _id: "1", title: "BEGINER" },
+        { _id: "2", title: "INTERMIDIATE" },
+        { _id: "3", title: "ADVANCED" },
       ],
     },
     {

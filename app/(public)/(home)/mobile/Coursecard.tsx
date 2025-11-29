@@ -121,7 +121,7 @@ const Coursecard = ({
                   fileName="lesson-icon.svg"
                   className="!w-[14px] !h-[14px]"
                 />
-                <p className="text-xs font-medium english-text flex items-center text-[#383e4e] leading-[18px]">
+                <p className="text-sm font-medium english-text flex items-center text-[#383e4e] leading-[18px]">
                   {data?.total_lessons} Lessons
                 </p>
               </div>
@@ -130,7 +130,7 @@ const Coursecard = ({
                   fileName="hour.png"
                   className="!w-[14px] !h-[14px]"
                 />
-                <p className="text-xs font-medium  text-[#383e4e] montserrat flex items-center english-text leading-[18px]">
+                <p className="text-sm font-medium  text-[#383e4e] montserrat flex items-center english-text leading-[18px]">
                   {data?.total_duration} hours
                 </p>
               </div>
@@ -155,7 +155,7 @@ const Coursecard = ({
               >
                 <TypewriterEffect
                   words={["Register now !", "Limited seat available !"]}
-                  typeSpeed={100}
+                  typeSpeed={300}
                   deleteSpeed={50}
                   delay={800}
                   loop={true}
@@ -174,7 +174,7 @@ const Coursecard = ({
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 {RenderStars(5)}
-                <p className="text-xs font-semibold english-text text-[#383e4e] leading-[100%]">
+                <p className="text-sm font-semibold english-text text-[#383e4e] leading-[100%]">
                   ( {data?.ratting?.total_ratting ?? 0} )
                 </p>
               </div>
@@ -183,8 +183,10 @@ const Coursecard = ({
                   fileName="peoples_icon.svg"
                   className="!h-[14px] w-[14px]"
                 />{" "}
-                <p className="text-xs font-medium text-[#383e4e] english-text leading-[100%]">
-                  {data?.total_students ?? 0} Students
+                <p className="text-sm font-medium text-[#383e4e] english-text leading-[100%]">
+                  {(data?.total_students ?? 0) +
+                    (data?.basicInfo?.old_purchase ?? 0)}{" "}
+                  Students
                 </p>
               </div>
             </div>

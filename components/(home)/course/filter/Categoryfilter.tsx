@@ -20,7 +20,7 @@ interface Props {
 }
 
 const CategoryFilter: React.FC<Props> = ({ filters }) => {
-  console.log(filters);
+  console.log(filters[1]?.data);
   const router = useRouter();
   const searchParams = useSearchParams();
 

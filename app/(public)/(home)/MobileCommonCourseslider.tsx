@@ -89,7 +89,7 @@ const MobileCommonCourseslider: React.FC<{ data: any; isWhite?: boolean }> = ({
           },
         }}
         autoplay={{
-          delay: 2000,
+          delay: 4000,
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
         }}

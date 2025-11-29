@@ -4,70 +4,56 @@
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
-import CustomInputField from "./customInputField";
 import IconImage from "../../(additional pages)/about-us/iconImages";
 import { api_url } from "@/hooks/apiurl";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
+import { useForm } from "react-hook-form";
+import { Plus } from "lucide-react";
 
 const Consultencypop = ({ courseId }: { courseId?: string }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
   const [mounted, setMounted] = useState(false);
 
-  // Set mounted to true when component mounts on client
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm({
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+    },
+  });
+
   useEffect(() => {
     setMounted(true);
     return () => setMounted(false);
   }, []);
 
-  // Prevent body scroll when modal is open
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-
+    document.body.style.overflow = isOpen ? "hidden" : "auto";
     return () => {
       document.body.style.overflow = "auto";
     };
   }, [isOpen]);
 
-  const [loading, setLoading] = useState(false);
-
-  const handleSubmit = async () => {
-    if (!phone.trim()) {
-      toast.error("Please enter your phone number !");
-      return;
-    }
-    if (!name.trim()) {
-      toast.error("Please enter your name ! ");
-      return;
-    }
-    if (!email.trim()) {
-      toast.error("Please enter your email !");
-      return;
-    }
-
+  const onSubmit = async (data: any) => {
     try {
-      setLoading(true);
       const res = await api_url.post(
         "/v1/website/submit-phone-under-course-details",
         {
           course_id: courseId,
-          number: phone,
-          email: email,
-          name: name,
+          number: data.phone,
+          email: data.email,
+          name: data.name,
         }
       );
 
       if (res.status === 200 || res.status === 201) {
-        setPhone("");
-        setEmail("");
-        setName("");
+        reset();
         Swal.fire({
           icon: "success",
           title: "সফলভাবে সাবমিট হয়েছে!",
@@ -79,120 +65,146 @@ const Consultencypop = ({ courseId }: { courseId?: string }) => {
     } catch (error: any) {
       console.error(error);
       toast.error(error?.response?.data?.message || "Something went wrong!");
-    } finally {
-      setLoading(false);
     }
   };
 
   const ModalContent = () => (
     <div
-      className="fixed inset-0 w-screen h-screen bg-black/40 backdrop-blur-sm flex justify-center items-center z-50"
+      className="fixed inset-0 w-screen h-screen bg-black/40 backdrop-blur-sm flex justify-center items-center z-50 p-4 overflow-auto"
       onClick={() => setIsOpen(false)}
     >
       <div
-        className="max-w-[980px] h-[485px] bg-[#F3F4F6] rounded-xl p-8 relative flex justify-between mx-4"
+        className="relative w-full max-w-[980px] bg-[#F3F4F6] rounded-xl flex flex-col lg:flex-row gap-6 p-6 lg:p-8 overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Left Content */}
-        <div className="flex-1 pr-8">
-          <h2 className="text-[32px] font-[600] text-primary w-full">
+        {/* LEFT CONTENT */}
+        <div className="flex-1 relative lg:pr-8">
+          <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-semibold text-primary">
             আজই আপনার বিনামূল্যে পরামর্শ নিন
           </h2>
-          <p className="font-[500] text-[18px] text-text-secondary w-full md:w-[90%] mt-2">
+          <p className="text-base sm:text-lg text-text-secondary mt-2 lg:w-[90%]">
             সাফল্যের দিকে প্রথম পদক্ষেপ নিন, আজই আপনার বিনামূল্যে পরামর্শের
             সময়সূচী নির্ধারণ করুন
           </p>
+
           <IconImage
             fileName="login_bg_icon.svg"
-            className="!h-[322px] !w-full absolute bottom-[-60px] left-0"
+            className="hidden sm:block !h-[250px] sm:!h-[322px] !w-full absolute bottom-0 left-0 opacity-30 lg:opacity-100"
           />
-          <div className="flex items-center absolute bottom-8 left-8">
+
+          <div className="flex items-center mt-6 lg:mt-0 lg:absolute lg:bottom-8 lg:left-0 z-10">
             <div className="flex items-center">
               <Image
                 src={"/assets/user-1.png"}
                 alt="user-1"
                 width={40}
                 height={40}
-                className="border-2 border-white rounded-full"
+                className="border-2 border-white rounded-full w-8 h-8 sm:w-10 sm:h-10"
               />
               <Image
                 src={"/assets/user-2.png"}
                 alt="user-2"
                 width={40}
                 height={40}
-                className="-translate-x-3 border-2 border-white rounded-full"
+                className="-translate-x-2 sm:-translate-x-3 border-2 border-white rounded-full w-8 h-8 sm:w-10 sm:h-10"
               />
               <Image
                 src={"/assets/user-2.png"}
                 alt="user-3"
                 width={40}
                 height={40}
-                className="-translate-x-6 border-2 border-white rounded-full"
+                className="-translate-x-4 sm:-translate-x-6 border-2 border-white rounded-full w-8 h-8 sm:w-10 sm:h-10"
               />
             </div>
-            <p className="text-[16px] text-text-secondary ml-2">
+            <p className="text-sm sm:text-base text-text-secondary ml-2">
               ১৫০০+ শিক্ষার্থী বিনামূল্যে পরামর্শ পেয়েছেন
             </p>
           </div>
         </div>
 
-        {/* Right Form */}
-        <div className="w-full max-w-[331px] h-[432px] p-6 rounded-xl bg-white z-10">
-          <h4 className="text-xl lg:text-2xl font-bold text-[#29AE48]">
+        {/* RIGHT FORM */}
+        <div className="w-full lg:max-w-[331px] p-4 sm:p-6 rounded-xl bg-white z-10 shadow-lg flex-shrink-0">
+          <h4 className="text-xl sm:text-2xl font-bold text-[#29AE48]">
             কল বুক করুন
           </h4>
 
-          <form onSubmit={() => handleSubmit()} className="mt-5 space-y-4">
-            <CustomInputField
-              value={name}
-              setValue={setName}
-              name={"name"}
-              label={"সম্পূর্ণ নাম"}
-              showLabel
-              placeholder="সম্পূর্ণ নাম বসান"
-            />
-            <CustomInputField
-              value={email}
-              setValue={setEmail}
-              name={"email"}
-              label={"ইমেইল"}
-              showLabel
-              placeholder="সম্পূর্ণ ইমেইল বসান"
-            />
-            <CustomInputField
-              value={phone}
-              setValue={setPhone}
-              name={"phone"}
-              label={"মোবাইল নম্বর"}
-              isPhoneNumberField={true}
-              showLabel
-              placeholder="মোবাইল নম্বর বসান"
-            />
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="mt-4 sm:mt-5 space-y-3 sm:space-y-4"
+          >
+            {/* NAME */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                সম্পূর্ণ নাম
+              </label>
+              <input
+                {...register("name", { required: "Name is required" })}
+                placeholder="সম্পূর্ণ নাম বসান"
+                className="w-full h-[42px] border border-gray-300 rounded-lg px-3 mt-1"
+              />
+              {errors.name && (
+                <p className="text-xs text-red-500 mt-1">
+                  {errors.name.message}
+                </p>
+              )}
+            </div>
+
+            {/* EMAIL */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                ইমেইল
+              </label>
+              <input
+                {...register("email", { required: "Email is required" })}
+                placeholder="সম্পূর্ণ ইমেইল বসান"
+                className="w-full h-[42px] border border-gray-300 rounded-lg px-3 mt-1"
+              />
+              {errors.email && (
+                <p className="text-xs text-red-500 mt-1">
+                  {errors.email.message}
+                </p>
+              )}
+            </div>
+
+            {/* PHONE */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                মোবাইল নম্বর
+              </label>
+              <input
+                {...register("phone", {
+                  required: "Phone number is required",
+                  pattern: {
+                    value: /^01[3-9]\d{8}$/,
+                    message: "Valid BD number required",
+                  },
+                })}
+                placeholder="01XXXXXXXXX"
+                className="w-full h-[42px] border border-gray-300 rounded-lg px-3 mt-1"
+              />
+              {errors.phone && (
+                <p className="text-xs text-red-500 mt-1">
+                  {errors.phone.message}
+                </p>
+              )}
+            </div>
+
             <button
-              disabled={loading}
-              className="w-full button-primary mt-6 py-3 px-4 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors disabled:cursor-not-allowed"
+              disabled={isSubmitting}
+              className="w-full mt-4 sm:mt-6 py-3 px-4 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors disabled:opacity-50"
             >
-              এখনই সময়সূচী নির্ধারণ করুন
+              {isSubmitting ? "অপেক্ষা করুন..." : "এখনই সময়সূচী নির্ধারণ করুন"}
             </button>
           </form>
         </div>
 
-        {/* Close Button */}
+        {/* CLOSE BUTTON */}
         <button
           onClick={() => setIsOpen(false)}
-          className="absolute -top-3 -right-3 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors"
+          className="absolute  right-0 top-0 w-10 h-10 z-40  bg-white rounded-full p-2 shadow-lg hover:bg-gray-100  transition-colors"
           aria-label="Close modal"
         >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <path d="M18 6L6 18M6 6l12 12" />
-          </svg>
+          <Plus className="text-red-500 rotate-45" />
         </button>
       </div>
     </div>
@@ -202,9 +214,11 @@ const Consultencypop = ({ courseId }: { courseId?: string }) => {
     <div>
       <button
         onClick={() => setIsOpen(true)}
-        className="py-3 px-4 bg-primary rounded-lg flex justify-between items-center text-white mt-10 gap-2 hover:bg-primary/90 transition-colors"
+        className="w-full sm:w-auto py-3 px-4 bg-primary rounded-lg flex justify-center sm:justify-between items-center text-white mt-10 gap-2 hover:bg-primary/90 transition-colors"
       >
-        <span className="font-bold">Free Career Consultancy</span>
+        <span className="font-bold text-sm sm:text-base">
+          Free Career Consultancy
+        </span>
         <Image
           src={"/assets/course/support_agent.png"}
           width={24}
@@ -213,7 +227,6 @@ const Consultencypop = ({ courseId }: { courseId?: string }) => {
         />
       </button>
 
-      {/* Render portal if mounted and modal is open */}
       {mounted && isOpen && createPortal(<ModalContent />, document.body)}
     </div>
   );

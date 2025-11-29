@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Askingtab from "./Askingtab";
 import AskingAccordion from "./AskingAccordion";
 import Image from "next/image";
+import Link from "next/link";
 
 const AskingCourse = ({ data }: { data: any }) => {
   const [isAsking, setAsking] = useState(true);
@@ -17,7 +18,10 @@ const AskingCourse = ({ data }: { data: any }) => {
         <p className="text-primary text-[24px] font-[600]">
           আরো জিজ্ঞাসা আছে ?
         </p>
-        <button className="w-[144px] h-[44px] rounded-[8px] bg-primary flex justify-center items-center text-white gap-2 mt-6">
+        <Link
+          href={"tel:+8801321204263"}
+          className="w-[144px] h-[44px] rounded-[8px] bg-primary flex justify-center items-center text-white gap-2 mt-6"
+        >
           {" "}
           <Image
             src={"/assets/icon/call.png"}
@@ -26,7 +30,7 @@ const AskingCourse = ({ data }: { data: any }) => {
             alt="d"
           />{" "}
           কল করুন{" "}
-        </button>
+        </Link>
       </div>
     </div>
   );

@@ -67,15 +67,19 @@ const MobileCoursebyCategory = ({
           <Swiper
             freeMode={true}
             modules={[FreeMode]}
-            slidesPerView={1.5}
+            slidesPerView={1.1}
             spaceBetween={15}
             breakpoints={{
-              480: {
-                slidesPerView: 1.5,
-                spaceBetween: 10,
+              360: {
+                slidesPerView: 1.2,
+                spaceBetween: 20,
+              },
+              440: {
+                slidesPerView: 1.4,
+                spaceBetween: 20,
               },
               640: {
-                slidesPerView: 1.5,
+                slidesPerView: 1.3,
                 spaceBetween: 15,
               },
               768: {
@@ -104,7 +108,7 @@ const MobileCoursebyCategory = ({
                 <SwiperSlide key={category._id}>
                   <div
                     key={category._id}
-                    className={`relative mx-auto  max-w-[290px] w-full   max-h-[80px] flex justify-between px-[10px] py-[18px]  items-center  rounded-xl  overflow-hidden p-[2px] transition-all  gap-4 group hover:bg-primary  ${
+                    className={`relative mx-auto  w-[270px]    max-h-[80px] flex justify-between md:px-[10px] px-1 py-1 md:py-[18px]  items-center  rounded-xl  overflow-hidden p-[2px] transition-all  gap-4 group hover:bg-primary  ${
                       category._id === filterKey ? "bg-primary" : "bg-white"
                     }`}
                   >

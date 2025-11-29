@@ -71,7 +71,7 @@ const TypewriterEffect = ({
     delay,
   ]);
 
-  return <span className=" text-[#29AE48]">{text}</span>;
+  return <span className=" text-[#29AE48] text-sm">{text}</span>;
 };
 
 export default TypewriterEffect;

@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import CourseDetailsFooter from "./CourseDetailsFooter";
-import WhichYoulearn from "./WhichYoulearn";
 import Image from "next/image";
-import { Star, Users } from "lucide-react";
+import { Star } from "lucide-react";
 import Thumnailvideoslider from "./Thumnailvideoslider";
 import CourseCoupon from "./Couponcoupon";
 import AddCompare from "./AddCompare";
@@ -15,9 +14,7 @@ import CourseInfoTab from "./CourseInfoTab";
 import CourseTopTimeCount from "./CourseTopTimeCount";
 import CoursePageHolder from "../(old design)/CoursePageHolder";
 import Admissionnow from "./Admissionnow";
-import Countdown from "./Ofercountdown";
-import RightSideLeadsubmit from "./RightSideLeadsubmit";
-import Link from "next/link";
+import Courserightsideinfluncersection from "./Courserightsideinfluncersection";
 
 const CourseNewDesign = ({
   data,
@@ -102,24 +99,22 @@ const CourseNewDesign = ({
               )}
             </div>
           </div>
-          <div
-            className={`max-w-[385px] w-full h-[480px]  p-3 rounded-[16.25px] border border-red-500 bg-red-500/10`}
-          >
-            <div className="max-w-[357px] w-full max-h-[269px] h-full relative ">
+          <div className="md:w-[385px]  md:max-w-full  max-w-[360px] p-3 rounded-[16.25px] border border-red-500 bg-red-500/10">
+            <div className="w-full max-h-[269px] h-full relative">
               {othersContent?.course_intro?.length > 0 && (
                 <Thumnailvideoslider data={othersContent?.course_intro} />
               )}
             </div>
-            <div className=" mt-[15px] space-y-4">
-              <div className="flex justify-between items-center mt-3 ">
-                <p className="text-[38px] leading-[50px font-[700] text-primary">
+            <div className="mt-[15px] space-y-4">
+              <div className="flex justify-between items-center mt-3">
+                <p className="text-[28px] lg:text-[38px] leading-tight font-[700] text-primary whitespace-nowrap">
                   কোর্স ফী
                 </p>
-                <div className="flex justify-center items-center">
-                  <span className="text-[38px] leading-[50px] font-[700] text-primary">
+                <div className="flex justify-center items-center gap-2">
+                  <span className="text-[28px] lg:text-[38px] leading-tight font-[700] text-primary whitespace-nowrap">
                     ৳.{totalPrice}
                   </span>
-                  <span className="text-[14px] leading-[20px] font-[700] text-text-secondary line-through mt-3 ms-3">
+                  <span className="text-[12px] lg:text-[14px] leading-[20px] font-[700] text-text-secondary line-through whitespace-nowrap">
                     ৳.{data?.pricing?.price?.main}
                   </span>
                 </div>
@@ -131,9 +126,9 @@ const CourseNewDesign = ({
         </div>
       </div>
       {/* body  */}
-      <div className="flex container relative bg-white  mt-6 lg:flex-row flex-col gap-2 min-h-screen ">
+      <div className="container  flex justify-between items-center lg:flex-row flex-col gap-5   mt-6  min-h-screen ">
         {/* left part */}
-        <div className="flex-1 max-w-[1024px]  w-full  mx-auto">
+        <div className="flex-1 max-w-[1024px] w-full mx-auto flex flex-col gap-3 pt-6 pb-9 relative">
           {tabs?.length > 0 && (
             <CourseInfoTab
               id={data?._id}
@@ -145,67 +140,11 @@ const CourseNewDesign = ({
             />
           )}
         </div>
-        {/* right part  */}
-        <div className="max-w-[385px] mx-auto sticky self-start top-20">
-          <div className=" border  border-primary  w-full  rounded-[16px] p-4">
-            <p className="text-primary text-center mt-6 mb-6 text-[22px] font-[600] ">
-              ভর্তির সময় শেষ হয়ে যাচ্ছে
-            </p>
-            <Countdown targetDate="2025-12-10T00:00:00.000Z" />
-            <div className="bg-[#EAF7ED] border border-primary rounded-[8px] mt-4 py-3">
-              <p className="text-primary font-bold text-center text-[16px]">
-                {othersContent?.total_enrolled}
-              </p>
-            </div>
-            <div className="bg-[#F3F4F6] border border-primary rounded-[8px] mt-4 py-3 px-4">
-              <p className="text-primary font-bold text-center text-[16px]">
-                কোর্স সংক্রান্ত আরও তথ্য জানতে
-              </p>
-              <RightSideLeadsubmit courseId={data?._id} />
-            </div>
-            <div className="max-w-[357px] w-full max-h-[269px] h-full relative mb-4 mt-4">
-              <div className="w-[357px] h-[269px] rounded-[8.13px]">
-                {othersContent?.course_intro?.length > 0 && (
-                  <Thumnailvideoslider
-                    data={
-                      othersContent?.influencers_video ??
-                      othersContent?.course_intro
-                    }
-                  />
-                )}
-              </div>
-            </div>
-
-            <div className="max-w-[360px] mt-10 h-[154px] bg-primary rounded-[8px] text-white  justify-center items-center hidden">
-              <h2 className="text-[40px] font-[700]">IMAGE 1</h2>
-            </div>
-            <div className="mt-5">
-              <div className="bg-[#EAF7ED] gap-2 rounded-lg flex items-center px-3 py-2 w-[60%]">
-                <Users />
-                <p className="text-text-neutral">১৫,৯০০ জন মেম্বারস</p>
-              </div>
-              <p className="text-primary text-[21px] font-bold text-center mt-3">
-                ICT Bangla Student’s Community
-              </p>
-              <Link
-                href={`https://www.facebook.com/groups/ictbanglastudentscommunity`}
-                target="_blank"
-                className="py-2 px-3 rounded-lg font-bold bg-primary text-white text-[18px]  mt-4 w-full flex justify-center items-center gap-2"
-              >
-                ফেইসবুক গ্রুপ জয়েন করুন{" "}
-                <Image
-                  src={"/assets/icon/facebook.png"}
-                  alt=""
-                  width={24}
-                  className=""
-                  height={24}
-                />
-              </Link>
-            </div>
-          </div>
-          <div className="p-4">
-            <WhichYoulearn tools={othersContent?.tools_you_will_learn} />
-          </div>
+        <div className="md:block hidden  sticky top-20 self-start">
+          <Courserightsideinfluncersection
+            id={data?._id}
+            othersContent={othersContent}
+          />
         </div>
       </div>
       <CourseDetailsFooter

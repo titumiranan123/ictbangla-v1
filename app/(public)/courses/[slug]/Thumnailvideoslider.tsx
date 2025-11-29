@@ -17,17 +17,12 @@ import ReactPlayer from "react-player";
 import Marquee from "react-fast-marquee";
 
 function Thumnailvideoslider({ data }: { data: any }) {
-  console.log(" thumbnail", data);
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
   const mainSwiperRef = useRef<any>(null);
   const thumbsSwiperRef = useRef<any>(null);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-
-  // Perfect 16:9 ratio calculation
-  const videoWidth = 357;
-  const videoHeight = Math.round((videoWidth * 9) / 16); // 201px for 16:9 ratio
 
   useEffect(() => {
     if (mainSwiperRef.current) {
@@ -37,7 +32,7 @@ function Thumnailvideoslider({ data }: { data: any }) {
   }, []);
 
   return (
-    <div className="w-[362px] mx-auto rounded-lg overflow-visible">
+    <div className="w-full max-w-full mx-auto rounded-lg overflow-visible md:px-4 px-1">
       <div className="relative">
         <Swiper
           style={
@@ -66,13 +61,7 @@ function Thumnailvideoslider({ data }: { data: any }) {
         >
           {data?.map((dt: any, idx: number) => (
             <SwiperSlide key={idx} className="relative">
-              <div
-                className="relative bg-black rounded-[8px] overflow-hidden mx-auto"
-                style={{
-                  width: `${videoWidth}px`,
-                  height: `${videoHeight}px`,
-                }}
-              >
+              <div className="relative bg-black rounded-[8px] overflow-hidden mx-auto w-full aspect-video">
                 <ReactPlayer
                   url={dt?.url}
                   playing={isPlaying}
@@ -86,8 +75,8 @@ function Thumnailvideoslider({ data }: { data: any }) {
                   }
                   onStart={() => setIsPlaying(true)}
                   onEnded={() => setIsPlaying(false)}
-                  width="357px"
-                  height="201px"
+                  width="100%"
+                  height="100%"
                   light={
                     <div className="w-full h-full">
                       <Image
@@ -105,11 +94,11 @@ function Thumnailvideoslider({ data }: { data: any }) {
                   <div
                     onClick={() => setIsPlaying(true)}
                     className="
-                    absolute bottom-6 left-1/2 -translate-x-1/2 
+                    absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 
                     flex justify-start items-center 
                     bg-white/25 backdrop-blur-[40px]
                     rounded-[24.38px] 
-                    w-[324px] h-[32px]
+                    w-[90%] sm:w-[324px] h-[28px] sm:h-[32px]
                     border border-[#29AE48]
                     cursor-pointer
                     overflow-hidden
@@ -117,15 +106,15 @@ function Thumnailvideoslider({ data }: { data: any }) {
                   "
                   >
                     <Marquee>
-                      <div className="flex justify-center items-center gap-2 py-2 px-20">
+                      <div className="flex justify-center items-center gap-2 py-2 px-10 sm:px-20">
                         <Image
                           src="/assets/icon/playicon.png"
                           alt="play"
                           width={18}
                           height={18}
-                          className="w-[18px] h-[18px]"
+                          className="w-[16px] h-[16px] sm:w-[18px] sm:h-[18px]"
                         />
-                        <span className="text-[18px] font-[600] text-white">
+                        <span className="text-[16px] sm:text-[18px] font-[600] text-white whitespace-nowrap">
                           Watch Promo Video
                         </span>
                       </div>
@@ -147,18 +136,18 @@ function Thumnailvideoslider({ data }: { data: any }) {
             thumbsSwiperRef.current = swiper;
           }}
           modules={[FreeMode, Thumbs]}
-          className="mySwiper mt-4"
+          className="mySwiper mt-3 sm:mt-4"
         >
           <style jsx global>{`
             .mySwiper2 {
-              height: ${videoHeight + 10}px !important;
+              height: auto !important;
               width: 100% !important;
             }
             .mySwiper {
-              height: 80px !important;
+              height: 60px !important;
             }
             .mySwiper .swiper-slide {
-              width: 80px !important;
+              width: 70px !important;
               height: 40px !important;
               border-radius: 4px;
               overflow: hidden;
@@ -166,6 +155,16 @@ function Thumnailvideoslider({ data }: { data: any }) {
             .mySwiper .swiper-slide-thumb-active {
               opacity: 1 !important;
               border: 2px solid #29ae48 !important;
+            }
+
+            @media (min-width: 640px) {
+              .mySwiper {
+                height: 80px !important;
+              }
+              .mySwiper .swiper-slide {
+                width: 80px !important;
+                height: 40px !important;
+              }
             }
           `}</style>
           {data?.map((dt: any, idx: number) => (
@@ -183,7 +182,7 @@ function Thumnailvideoslider({ data }: { data: any }) {
 
         <button
           disabled={isBeginning}
-          className="md:block hidden absolute top-[35%] -left-2 -translate-y-1/2 px-3 py-1 rounded-full z-10 disabled:cursor-not-allowed disabled:opacity-50 transition-opacity"
+          className="hidden md:block absolute top-[35%] -left-2 -translate-y-1/2 px-3 py-1 rounded-full z-10 disabled:cursor-not-allowed disabled:opacity-50 transition-opacity"
           onClick={() => {
             mainSwiperRef.current?.slidePrev();
             thumbsSwiperRef.current?.slidePrev();
@@ -199,7 +198,7 @@ function Thumnailvideoslider({ data }: { data: any }) {
 
         <button
           disabled={isEnd}
-          className="md:block hidden absolute top-[35%] -right-0 -translate-y-1/2 z-10 disabled:cursor-not-allowed disabled:opacity-50 transition-opacity"
+          className="hidden md:block absolute top-[35%] -right-0 -translate-y-1/2 z-10 disabled:cursor-not-allowed disabled:opacity-50 transition-opacity"
           onClick={() => {
             mainSwiperRef.current?.slideNext();
             thumbsSwiperRef.current?.slideNext();

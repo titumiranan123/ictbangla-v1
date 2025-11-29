@@ -15,7 +15,7 @@ const CourseReturn = ({ course_features }: { course_features: any[] }) => {
             key={idx}
             className="flex flex-col justify-center items-center gap-2 border border-primary bg-[#F3F4F6] p-4 rounded-lg transition-all duration-300 ease-in-out hover:scale-105"
           >
-            <Image src={`${dt?.icon}`} alt="learning" width={85} height={85} />
+            <Image src={`${dt?.icon}`} alt="learning" width={65} height={65} />
             <h3 className="text-[18px] font-bold text-primary">{dt?.title}</h3>
           </div>
         ))}

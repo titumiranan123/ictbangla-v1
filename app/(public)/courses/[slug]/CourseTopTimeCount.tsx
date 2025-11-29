@@ -63,10 +63,11 @@ export default function CourseTopTimeCount({
         type="button"
       >
         <IconImage fileName="Clock-green-primary.svg" />
-        <span className="flex gap-5">
-          {formatTime(timeLeft.days)}দিন {formatTime(timeLeft.hours)}ঘ.
-          {formatTime(timeLeft.minutes)}মি.
-          {formatTime(timeLeft.seconds)}সে.
+        <span className="flex gap-1">
+          <span> {formatTime(timeLeft.days)}</span> <span>দিন</span>{" "}
+          <span>{formatTime(timeLeft.hours)}</span> <span> ঘ.</span>
+          <span>{formatTime(timeLeft.minutes)}</span> <span>মি.</span>
+          <span>{formatTime(timeLeft.seconds)}</span> <span>সে.</span>
         </span>
       </button>
     </div>

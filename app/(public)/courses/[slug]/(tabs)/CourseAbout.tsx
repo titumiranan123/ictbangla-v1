@@ -4,6 +4,7 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 import React, { useState } from "react";
 import CourseReturn from "../CourseReturn";
 import Whomeneeds from "../Whomeneeds";
+import Courserightsideinfluncersection from "../Courserightsideinfluncersection";
 
 const CourseAbout = ({
   description,
@@ -51,6 +52,12 @@ const CourseAbout = ({
             )}
           </button>
         </div>
+      </div>
+      <div className="block md:hidden">
+        <Courserightsideinfluncersection
+          id={id}
+          othersContent={othersContent}
+        />
       </div>
       {othersContent?.course_features !== undefined &&
         othersContent?.course_features?.length > 0 && (

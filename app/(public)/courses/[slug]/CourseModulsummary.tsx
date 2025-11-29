@@ -9,7 +9,7 @@ const CourseModulsummary = ({ modules }: { modules: any[] }) => {
       {modules?.map((data, idx) => (
         <div
           key={idx}
-          className="relative md:w-[189px] w-[189px] h-[126px] md:h-[126px] border border-[#29AE48] rounded-[8px] flex flex-col items-center justify-center gap-1.5 overflow-hidden"
+          className="relative md:max-w-full md:w-[189px] max-w-[189px] w-full h-[126px] md:h-[126px] border border-[#29AE48] rounded-[8px] flex flex-col items-center justify-center gap-1.5 overflow-hidden"
         >
           {/* Corner Line */}
           <div className="absolute -top-[1px] -right-[1.1px] w-[45px] h-[45px] border-t-3 border-r-3 border-[#29AE48] rounded-tr-[8px]"></div>
